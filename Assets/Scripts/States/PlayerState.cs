@@ -31,7 +31,7 @@ public abstract class PlayerState
 
         Player.ApplyGravity();
 
-        if (InputManager.HasPressedSpace)
+        if (InputManager.HasPressedSpace && Player.IsGrounded)
         {
             Player.Jump();
         }

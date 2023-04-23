@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,11 +38,16 @@ public class Player : MonoBehaviour
         transform.position = Vector3.zero;
     }
 
-    public void Move(Vector2 moveInput)
+    public void Move(Vector3 moveInput)
     {
         _movement.x = Mathf.MoveTowards(_movement.x, moveInput.x * MoveSpeed, Acceleration * Time.deltaTime);
         _movement.z = Mathf.MoveTowards(_movement.z, moveInput.y * MoveSpeed, Deceleration * Time.deltaTime);
         _characterController.Move(_movement * Time.deltaTime);
+    }
+
+    public void WallRun(Vector3 wallrunMovement)
+    {
+        _characterController.Move(wallrunMovement * Time.deltaTime);
     }
 
     public void ApplyGravity()
@@ -59,10 +65,7 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded)
-        {
-            _movement.y = JumpForce;
-        }
+        _movement.y = JumpForce;
     }
 
     public void FaceForward(Vector2 moveInput)
@@ -70,4 +73,10 @@ public class Player : MonoBehaviour
         if(moveInput != Vector2.zero)
         transform.forward = new Vector3(moveInput.x, 0f, moveInput.y);
     }
+
+    public void AdjustYMovement(float yMovement)
+    {
+        _movement.y = yMovement;
+    }
+
 }
