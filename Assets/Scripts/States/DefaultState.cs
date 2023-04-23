@@ -23,7 +23,7 @@ public class DefaultState : PlayerState
         PlayerStateMachine.GoTo(PlayerStateMachine.GrappleState);
     }
 
-    public override void OnExit()
+    public override void OnExit()   
     {
         base.OnExit();
     }
