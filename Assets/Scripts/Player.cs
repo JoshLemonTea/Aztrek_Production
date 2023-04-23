@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -29,9 +30,11 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         MoveSpeed = 6f;
         GravityValue = Physics.gravity.y;
-        JumpHeight = 2f;
+        JumpHeight = 3f;
         Acceleration = 20f;
         Deceleration = 20f;
+
+        transform.position = Vector3.zero;
     }
 
     public void Move(Vector2 moveInput)

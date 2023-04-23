@@ -59,8 +59,8 @@ public class HoverState : PlayerState
         {
             Player.GravityValue = Physics.gravity.y;
             Player.MoveSpeed = 6f;
-            Player.Acceleration = _hoverModeAcceleration;
-            Player.Deceleration = _hoverModeDeceleration;
+            Player.Acceleration = 20f;
+            Player.Deceleration = 20f;
         }
     }
 
@@ -69,7 +69,7 @@ public class HoverState : PlayerState
         _isHovering = false;
         Player.GravityValue = Physics.gravity.y;
         Player.MoveSpeed = 6f;
-        Player.Acceleration = _hoverModeAcceleration;
-        Player.Deceleration = _hoverModeDeceleration;
+        Player.Acceleration = 20f;
+        Player.Deceleration = 20f;
     }
 }
