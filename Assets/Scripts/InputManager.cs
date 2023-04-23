@@ -113,13 +113,13 @@ public class InputManager : MonoBehaviour
             HasPressedTab = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.T)) // Add check for teleport key
-        {
-            HasPressedTeleportKey = true;
-        }
-        else
-        {
-            HasPressedTeleportKey = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.T)) // Add check for teleport key
+        //{
+        //    HasPressedTeleportKey = true;
+        //}
+        //else
+        //{
+        //    HasPressedTeleportKey = false;
+        //}
     }
 }
