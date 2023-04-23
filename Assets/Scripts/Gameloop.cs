@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Gameloop : MonoBehaviour
+{
+    private InputManager _input;
+
+    private Player _player;
+
+    private PlayerStateMachine _playerSM;
+
+    private void OnEnable()
+    {
+        _input = FindObjectOfType<InputManager>();
+
+        _player = FindObjectOfType<Player>();
+        _player.OnEnter();
+
+        _playerSM = new PlayerStateMachine();
+        _playerSM.InitializeStates(_input, _player);
+        _playerSM.SetInitialState(_playerSM.DefaultState);       
+    }
+
+    private void Update()
+    {
+        _input.OnUpdate();
+
+        _playerSM.CurrentState.OnUpdate();
+    }
+
+}
