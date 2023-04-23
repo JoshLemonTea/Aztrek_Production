@@ -14,12 +14,14 @@ public class InputManager : MonoBehaviour
 
     public bool HasPressedTab { get; private set; }
 
+    public bool HasPressedTeleportKey { get; private set; } // Add teleport key property
+
     public void OnUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        MoveInput = new Vector2 (horizontalInput, verticalInput).normalized;
+        MoveInput = new Vector2(horizontalInput, verticalInput).normalized;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -55,6 +57,15 @@ public class InputManager : MonoBehaviour
         else
         {
             HasPressedTab = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T)) // Add check for teleport key
+        {
+            HasPressedTeleportKey = true;
+        }
+        else
+        {
+            HasPressedTeleportKey = false;
         }
     }
 }

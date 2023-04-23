@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class PlayerState
 {
     public PlayerStateMachine PlayerStateMachine { get; }
-    
+
     public InputManager InputManager { get; private set; }
 
     public Player Player { get; }
@@ -34,6 +34,14 @@ public abstract class PlayerState
         if (InputManager.HasPressedSpace && Player.IsGrounded)
         {
             Player.Jump();
+        }
+
+        if (InputManager.HasPressedTeleportKey) // Add check for HasPressedTeleportKey
+        {
+            // Add teleportation logic here
+            // e.g. create a new TeleportationState and transition to it
+            // TeleportationState teleportationState = new TeleportationState(PlayerStateMachine, InputManager, Player, teleportDestination, teleportDistance);
+            // PlayerStateMachine.GoTo(teleportationState);
         }
     }
 
