@@ -50,13 +50,11 @@ public class RigidBodyPlayer : MonoBehaviour
 			if (hit.tag != "Player")
             {
 				grounded = true;
-				Debug.Log(hit.name);
             }
         }
 		
 
 		Move();
-		Debug.Log(grounded);
 		FaceForward();
 	}
 

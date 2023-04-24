@@ -8,18 +8,22 @@ public class Player : MonoBehaviour
 {
     private CharacterController _characterController;
 
-    public float MoveSpeed { get; set; }
+    [SerializeField] private float _moveSpeed;
+    public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
 
     public float GravityValue { get; set; }
 
-    public float JumpHeight { get; set; }
+    [SerializeField] private float _jumpHeight;
+    public float JumpHeight { get => _jumpHeight; set => _jumpHeight = value; }
 
     private float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
 
-    public float Acceleration { get; set; }
+    [SerializeField] private float _acceleration;
+    public float Acceleration { get => _acceleration; set => _acceleration = value; }
 
-    public float Deceleration { get; set; }
-    
+    [SerializeField] private float _decceleration;
+    public float Deceleration { get => _decceleration; set => _decceleration = value; }
+
     private Vector3 _movement;
 
     public bool IsGrounded { get { return _characterController.isGrounded; } }
@@ -29,11 +33,7 @@ public class Player : MonoBehaviour
     public void OnEnter()
     {
         _characterController = GetComponent<CharacterController>();
-        MoveSpeed = 6f;
         GravityValue = Physics.gravity.y;
-        JumpHeight = 3f;
-        Acceleration = 20f;
-        Deceleration = 20f;
 
         transform.position = Vector3.zero;
     }
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
     public void FaceForward(Vector2 moveInput)
     {
         if(moveInput != Vector2.zero)
-        transform.forward = new Vector3(moveInput.x, 0f, moveInput.y);
+        transform.forward = new Vector3(_movement.x, 0f, _movement.z);
     }
 
     public void AdjustYMovement(float yMovement)

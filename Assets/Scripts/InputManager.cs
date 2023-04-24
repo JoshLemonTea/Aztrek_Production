@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInput _playerInput;
     public Vector2 MoveInput { get; private set; }
 
     public bool HasPressedSpace { get; private set; }
@@ -17,49 +19,21 @@ public class InputManager : MonoBehaviour
 
     public bool HasPressedTeleportKey { get; private set; }
 
-    //Custom events that will be fired by the new InputSystem
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        MoveInput = context.ReadValue<Vector2>();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (context.ReadValue<float>() == 0)
-        {
-            HasPressedSpace = false;
-        }
-        else
-        {
-            HasPressedSpace = true;
-        }
-        HasPressedSpace = context.action.triggered;
-    }
-
     public void OnPressF(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() == 0)
-        {
-            HasPressedF = false;
-        }
-        else
+        if (context.started)
         {
             HasPressedF = true;
         }
-        HasPressedF = context.action.triggered;
+        else
+        {
+            HasPressedF = false;
+        }
     }
 
     public void OnPressTab(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() == 0)
-        {
-            HasPressedTab = false;
-        }
-        else
-        {
-            HasPressedTab = true;
-        }
-        HasPressedTab = context.action.triggered;
+        HasPressedTab = true;
     }
 
     public void OnPressTeleportKey(InputAction.CallbackContext context)
@@ -75,8 +49,44 @@ public class InputManager : MonoBehaviour
         HasPressedTeleportKey = context.action.triggered;
     }
 
+    private void OnEnable()
+    {
+        _playerInput = new PlayerInput();
+        _playerInput.Enable();
+
+        //Jump
+        _playerInput.Player.Jump.performed += OnPressedJump;
+        _playerInput.Player.Jump.canceled += OnReleasedJump;
+
+        //Tab
+        _playerInput.Player.Tab.performed += OnPressedJump;
+        _playerInput.Player.Tab.canceled += OnReleasedJump;
+    }
+
+    private void OnPressedJump(InputAction.CallbackContext obj)
+    {
+        HasPressedSpace = true;
+    }
+
+    private void OnReleasedJump(InputAction.CallbackContext obj)
+    {
+        HasPressedSpace = false;
+    }
+
+    private void OnPressedTab(InputAction.CallbackContext obj)
+    {
+        HasPressedSpace = true;
+    }
+    private void OnReleasedTab(InputAction.CallbackContext obj)
+    {
+        HasPressedSpace = false;
+    }
+
     public void OnUpdate()
     {
+        //Movement
+        MoveInput = _playerInput.Player.Movement.ReadValue<Vector2>();
+
         //Old input
 
         //float horizontalInput = Input.GetAxis("Horizontal");
@@ -119,5 +129,13 @@ public class InputManager : MonoBehaviour
         //{
         //    HasPressedTab = false;
         //}
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.Player.Jump.performed -= OnPressedJump;
+        _playerInput.Player.Jump.canceled -= OnReleasedJump;
+
+        _playerInput.Disable();
     }
 }
