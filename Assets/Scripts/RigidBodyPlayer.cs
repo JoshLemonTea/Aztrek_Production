@@ -40,20 +40,20 @@ public class RigidBodyPlayer : MonoBehaviour
 		rBody = GetComponent<Rigidbody>();
 	}
 
-    private void OnDrawGizmos()
-    {
-		Vector3 sphereCenter = transform.position - new Vector3(0, (GetComponent<CapsuleCollider>().height / 2));
-		Gizmos.DrawSphere(sphereCenter, 1);
-    }
-
     private void FixedUpdate()
 	{
 		grounded = false;
-		RaycastHit hit;
-		if (Physics.SphereCast(transform.position, 1, -Vector3.up, out hit, 1.5f))
-		{
-			grounded = true;
-		}
+		List<Collider> hits = new List<Collider>();
+		hits.AddRange(Physics.OverlapSphere(transform.position - new Vector3(0, 0.5f, 0), 1.1f));
+		foreach(Collider hit in hits)
+        {
+			if (hit.tag != "Player")
+            {
+				grounded = true;
+				Debug.Log(hit.name);
+            }
+        }
+		
 
 		Move();
 		Debug.Log(grounded);
@@ -62,11 +62,12 @@ public class RigidBodyPlayer : MonoBehaviour
 
 	public void Move()
 	{
+		Vector3 relativeMovement = RelativeMovementVector();
 		//only control the player if grounded or airControl is turned on
 		if (grounded)
 		{
 			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector3(movementInput.x * speed, rBody.velocity.y, movementInput.y * speed);
+			Vector3 targetVelocity = new Vector3(relativeMovement.x * speed, rBody.velocity.y, relativeMovement.y * speed);
 			// And then smoothing it out and applying it to the character
 			rBody.velocity = Vector3.SmoothDamp(rBody.velocity, targetVelocity, ref velocity, movementSmoothing);
 		}
@@ -75,7 +76,7 @@ public class RigidBodyPlayer : MonoBehaviour
 			if (movementInput.magnitude > 0.1f)
 			{
 				// Move the character by finding the target velocity
-				Vector3 targetVelocity = new Vector3(movementInput.x * speed, rBody.velocity.y, movementInput.y * speed);
+				Vector3 targetVelocity = new Vector3(relativeMovement.x * speed, rBody.velocity.y, relativeMovement.y * speed);
 				// And then smoothing it out and applying it to the character
 				rBody.velocity = Vector3.SmoothDamp(rBody.velocity, targetVelocity, ref velocity, 0.5f);
 			}
@@ -100,8 +101,30 @@ public class RigidBodyPlayer : MonoBehaviour
     {
         if (movementInput != Vector3.zero)
         {
-            //Vector3 normalisedVelocity = new Vector3(rBody.velocity.x, 0, rBody.velocity.z).normalized;
-            //transform.forward = normalisedVelocity;
+            Vector3 normalisedVelocity = new Vector3(rBody.velocity.x, 0, rBody.velocity.z).normalized;
+            transform.forward = normalisedVelocity;
         }
     }
+
+	private Vector3 RelativeMovementVector()
+	{
+		float horizontalAxis = movementInput.x;
+		float verticalAxis = movementInput.y;
+
+		//camera forward and right vectors:
+		var forward = Camera.main.transform.forward;
+		var right = Camera.main.transform.right;
+
+		//project forward and right vectors on the horizontal plane (y = 0)
+		forward.y = 0f;
+		right.y = 0f;
+		forward.Normalize();
+		right.Normalize();
+
+		//this is the direction in the world space we want to move:
+		var desiredMoveDirection = forward * verticalAxis + right * horizontalAxis;
+		desiredMoveDirection.y = desiredMoveDirection.z;
+		desiredMoveDirection.z = 0;
+		return desiredMoveDirection;
+	}
 }
