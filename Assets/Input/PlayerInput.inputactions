@@ -161,7 +161,7 @@
                 {
                     "name": "",
                     "id": "94320ac1-ba58-4f38-b571-34641dd242d3",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -172,7 +172,7 @@
                 {
                     "name": "",
                     "id": "19a0e648-232f-4191-9e90-8a755dbb31f7",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -183,7 +183,7 @@
                 {
                     "name": "",
                     "id": "72a5245c-1601-46dd-b6ea-6e91bc550c5e",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -194,7 +194,7 @@
                 {
                     "name": "",
                     "id": "8d3ed19c-fa7a-4d86-8627-77f6e9196f1a",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
