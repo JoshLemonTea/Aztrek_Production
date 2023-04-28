@@ -4689,7 +4689,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7010
+  m_Name: pb_Mesh37074
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12266,7 +12266,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-11276
+  m_Name: pb_Mesh36710
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13066,7 +13066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: _moveSpeed
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: _jumpHeight
@@ -13086,7 +13086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: _airDeceleration
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: _airDecceleration
