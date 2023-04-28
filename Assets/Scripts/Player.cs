@@ -121,6 +121,11 @@ public class Player : MonoBehaviour
         if(moveInput != Vector2.zero)
         transform.forward = new Vector3(_movement.x, 0f, _movement.z);
     }
+    
+    public void AddMovement(Vector3 movement)
+    {
+        _movement += movement;
+    }
 
     public void AdjustYMovement(float yMovement)
     {
