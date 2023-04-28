@@ -31,7 +31,8 @@ public class Platform : MonoBehaviour
     private bool spikeCoroutineStarted = false;
     private bool isCoolingDown;
 
-    [Header("Bouncy Platform")]
+    [Header("Bouncy Platform (Need to turn Main Collider to Trigger for this)")]
+    [Tooltip("Turn main Box Collider to Trigger for this")]
     [SerializeField] private bool isBouncyPlatform;
 
     // Start is called before the first frame update
