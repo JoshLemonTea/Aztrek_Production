@@ -18,5 +18,5 @@ MonoBehaviour:
   m_NumberOfIterations: 1
   m_UsePreviousOrDefaultIndex: 0
   m_AllowCircular: 0
-  sizeCube: {x: 10, y: 10, z: 10}
-  prefab: {fileID: 3098575093728601201, guid: 320f38d418e1a81468ccc817c073b5e5, type: 3}
+  sizeCube: {x: 20, y: 1, z: 20}
+  prefab: {fileID: 4393869437662083664, guid: b4265af42e8f69e418c469f4fcbd2860, type: 3}
