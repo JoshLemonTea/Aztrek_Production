@@ -31,6 +31,9 @@ public class Platform : MonoBehaviour
     private bool spikeCoroutineStarted = false;
     private bool isCoolingDown;
 
+    [Header("Bouncy Platform")]
+    [SerializeField] private bool isBouncyPlatform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +94,16 @@ public class Platform : MonoBehaviour
         if (isTrap && isReactionTrap && playerInTrigger)
         {
             StartCoroutine(ShootUpSpikes());
+        }
+
+        if (isBouncyPlatform && playerInTrigger)
+        {
+            if (other.gameObject.GetComponent<CharacterController>().isGrounded == false)
+            {
+                Player player = other.gameObject.GetComponent<Player>();
+                float playerLastGroundHeight = player.lastGroundHeight;
+                LaunchPlayer(player, playerLastGroundHeight);
+            }
         }
     }
 
@@ -175,5 +188,12 @@ public class Platform : MonoBehaviour
         isCoolingDown = true;
         yield return new WaitForSeconds(damageCooldown);
         isCoolingDown = false;
+    }
+
+    private void LaunchPlayer(Player player, float lastGroundHeight)
+    {
+        float launchForce = Mathf.Sqrt(-2f * player.GravityValue * lastGroundHeight);
+        player._movement.y = launchForce;
+        Debug.Log("Launched Player");
     }
 }

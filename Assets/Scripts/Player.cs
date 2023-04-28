@@ -36,11 +36,23 @@ public class Player : MonoBehaviour
 
     public float AirAcceleration { get => _airAcceleration; set => _airAcceleration = value; }
 
-    private Vector3 _movement;
+    //Changed this for the bouncy platform script
+    [HideInInspector] public Vector3 _movement;
 
     public bool IsGrounded { get { return _characterController.isGrounded; } }
 
     public bool IsGoingUp { get { return _movement.y > 0f; } }
+
+    //Added this for the bouncy platform script
+    [HideInInspector] public float lastGroundHeight;
+
+    private void Update()
+    {
+        if (_characterController.isGrounded)
+        {
+            lastGroundHeight = transform.position.y;
+        }
+    }
 
     public void OnEnter()
     {
