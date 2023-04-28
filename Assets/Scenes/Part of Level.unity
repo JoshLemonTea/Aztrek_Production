@@ -13081,6 +13081,14 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: _airAcceleration
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: _airDeceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: _airDecceleration
       value: 0.8
       objectReference: {fileID: 0}

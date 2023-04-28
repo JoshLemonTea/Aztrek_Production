@@ -19,13 +19,22 @@ public class Player : MonoBehaviour
     private float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
 
     [SerializeField] private float _acceleration;
-    public float Acceleration { get => _acceleration; set => _acceleration = value; }
 
     [SerializeField] private float _decceleration;
+
+    public float Acceleration { get => _acceleration; set => _acceleration = value; }
+
+ 
     public float Deceleration { get => _decceleration; set => _decceleration = value; }
 
-    [Range(0, 1)] [SerializeField] private float _airDecceleration;
-    public float AirDecceleration { get => _airDecceleration; set => _airDecceleration = value; }
+
+    [SerializeField] private float _airAcceleration = 10;
+
+    [SerializeField] private float _airDeceleration = 10f;
+
+    public float AirDeceleration { get => _airDeceleration; set => _airDeceleration = value; }
+
+    public float AirAcceleration { get => _airAcceleration; set => _airAcceleration = value; }
 
     private Vector3 _movement;
 
@@ -47,18 +56,33 @@ public class Player : MonoBehaviour
     {
         Vector3 relativeInput = RelativeMovementVector(moveInput);
 
-        //Apply normal movement when on ground
         if (_characterController.isGrounded)
         {
-            _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, Acceleration * Time.deltaTime);
-            _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, Deceleration * Time.deltaTime);
+            if(moveInput.magnitude > 0f)
+            {
+                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, Acceleration * Time.deltaTime);
+                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, Acceleration * Time.deltaTime);
+            }
+            else
+            {
+                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, Deceleration * Time.deltaTime);
+                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, Deceleration * Time.deltaTime);
+            }
         }
-
-        //Apply air movement (when input is not zero)
-        if (_characterController.isGrounded == false && moveInput.magnitude > 0)
+        else
         {
-            _movement.x = Mathf.Lerp(_movement.x, Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, Acceleration * Time.deltaTime), AirDecceleration);
-            _movement.z = Mathf.Lerp(_movement.z, Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, Acceleration * Time.deltaTime), AirDecceleration);
+            if(moveInput.magnitude > 0f)
+            {
+
+
+                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, AirAcceleration * Time.deltaTime);
+                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, AirAcceleration * Time.deltaTime);
+            }
+            else
+            {
+                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, AirDeceleration * Time.deltaTime);
+                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, AirDeceleration * Time.deltaTime);
+            }
         }
 
         _characterController.Move(_movement * Time.deltaTime);
@@ -80,6 +104,11 @@ public class Player : MonoBehaviour
             float defaultDownwardForce = -1f;
             _movement.y = defaultDownwardForce;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     public void Jump()
