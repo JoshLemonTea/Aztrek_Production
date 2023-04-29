@@ -57,4 +57,9 @@ public class Health : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    internal void TakeDamage(object damage)
+    {
+        throw new NotImplementedException();
+    }
 }

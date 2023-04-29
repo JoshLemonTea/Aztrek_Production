@@ -10,6 +10,8 @@ public class Gameloop : MonoBehaviour
 
     private PlayerStateMachine _playerSM;
 
+    private Altar[] _altars;
+
     private void OnEnable()
     {
         _input = FindObjectOfType<InputManager>();
@@ -19,7 +21,13 @@ public class Gameloop : MonoBehaviour
 
         _playerSM = new PlayerStateMachine();
         _playerSM.InitializeStates(_input, _player);
-        _playerSM.SetInitialState(_playerSM.DefaultState);       
+        _playerSM.SetInitialState(_playerSM.DefaultState);
+
+        _altars = FindObjectsOfType<Altar>();
+        foreach(Altar altar in _altars)
+        {
+            altar.SetStateMachine(_playerSM);
+        }
     }
 
     private void Update()

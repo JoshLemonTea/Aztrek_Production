@@ -10,14 +10,6 @@ public class Tornado : MonoBehaviour
     private float _windSpeed = 5f;
 
     [SerializeField]
-    private float _timeActive = 4f;
-
-    [SerializeField]
-    private float _timeDisabled = 2.5f;
-
-    private float _timer;
-
-    [SerializeField]
     private float _timeInvulnerable = 2f;
 
     [SerializeField]
