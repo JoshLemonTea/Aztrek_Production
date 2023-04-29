@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jumpHeight;
     public float JumpHeight { get => _jumpHeight; set => _jumpHeight = value; }
 
+    [SerializeField] private float _addedJumpForce;
+    [SerializeField] private float _addedJumpFalloff;
+    private float _currentAddedJumpForce;
+
     private float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
 
     [SerializeField] private float _acceleration;
@@ -43,15 +47,22 @@ public class Player : MonoBehaviour
 
     public bool IsGoingUp { get { return _movement.y > 0f; } }
 
+    public bool CanJump { get; set; }
+
     //Added this for the bouncy platform script
     [HideInInspector] public float lastGroundHeight;
 
+    [SerializeField] private float coyoteTime;
+    private float coyoteTimer;
+
     private void Update()
     {
-        if (_characterController.isGrounded)
+        if (IsGrounded)
         {
             lastGroundHeight = transform.position.y;
         }
+
+        HandleCoyoteTime();
     }
 
     public void OnEnter()
@@ -59,7 +70,7 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
 
         //Increased Gravity gives snappier jumps
-        GravityValue = Physics.gravity.y * 3;
+        GravityValue = Physics.gravity.y * 6;
 
         transform.position = Vector3.zero;
     }
@@ -68,7 +79,7 @@ public class Player : MonoBehaviour
     {
         Vector3 relativeInput = RelativeMovementVector(moveInput);
 
-        if (_characterController.isGrounded)
+        if (IsGrounded)
         {
             if(moveInput.magnitude > 0f)
             {
@@ -118,14 +129,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
-
     public void Jump()
     {
-        _movement.y = JumpForce;
+        if (CanJump)
+        {
+            _movement.y = JumpForce;
+            _currentAddedJumpForce = -GravityValue * _addedJumpForce;
+        }
+        else
+        {
+            if (_movement.y > 0.2f)
+            {
+                _currentAddedJumpForce -= Time.deltaTime * _addedJumpFalloff;
+                _movement.y += _currentAddedJumpForce * Time.deltaTime;
+            }
+        }
+
+
+        //Immediately disable Coyote Time
+        coyoteTimer = 0;
     }
 
     public void FaceForward(Vector2 moveInput)
@@ -165,5 +187,24 @@ public class Player : MonoBehaviour
         desiredMoveDirection.y = desiredMoveDirection.z;
         desiredMoveDirection.z = 0;
         return desiredMoveDirection;
+    }
+
+    private void HandleCoyoteTime()
+    {
+        CanJump = false;
+
+        if (IsGrounded)
+        {
+            coyoteTimer = coyoteTime;
+        }
+        else
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+
+        if (coyoteTimer > 0)
+        {
+            CanJump = true;
+        }
     }
 }

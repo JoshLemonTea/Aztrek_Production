@@ -209,6 +209,7 @@ MonoBehaviour:
   trapSetOffTime: 2
   trapDamageTime: 0.5
   damageCooldown: 0.2
+  isBouncyPlatform: 0
 --- !u!54 &8643576052836940979
 Rigidbody:
   m_ObjectHideFlags: 0
