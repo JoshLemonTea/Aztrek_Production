@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,5 +51,10 @@ public class Health : MonoBehaviour
                 _playerRenderer.material.color = _originalColor;
             }
         }
+    }
+
+    internal void MakeInvulnerable(object timeInvulnerable)
+    {
+        throw new NotImplementedException();
     }
 }
