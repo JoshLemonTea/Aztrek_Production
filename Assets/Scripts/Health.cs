@@ -9,8 +9,7 @@ public class Health : MonoBehaviour
 
     private Color _originalColor;
 
-    [SerializeField]
-    private float _timeInvulnerable = 2f;
+    private float _timeInvulnerable;
 
     private float _timer = 0f;
 
@@ -51,15 +50,5 @@ public class Health : MonoBehaviour
                 _playerRenderer.material.color = _originalColor;
             }
         }
-    }
-
-    internal void MakeInvulnerable(object timeInvulnerable)
-    {
-        throw new NotImplementedException();
-    }
-
-    internal void TakeDamage(object damage)
-    {
-        throw new NotImplementedException();
     }
 }

@@ -8,19 +8,19 @@ public class PlayerStateMachine
 
     public DefaultState DefaultState { get; private set; }
 
-    public GrappleState GrappleState { get; private set; }
+    public HuitzilopochtliState HuiztilopochtliState { get; private set; }
 
-    public HoverState HoverState { get; private set; }
+    public QuetzalcoatlState QuetzalcoatlState { get; private set; }
 
-    public JaguarState JaguarState { get; private set; }
+    public TlalocState TlalocState { get; private set; }
 
 
     public void InitializeStates(InputManager inputManager, Player player)
     {
         DefaultState = new DefaultState(this, inputManager, player);
-        GrappleState = new GrappleState(this, inputManager, player);
-        HoverState = new HoverState(this, inputManager, player);
-        JaguarState = new JaguarState(this, inputManager, player);
+        HuiztilopochtliState = new HuitzilopochtliState(this, inputManager, player);
+        QuetzalcoatlState = new QuetzalcoatlState(this, inputManager, player);
+        TlalocState = new TlalocState(this, inputManager, player);
     }
 
     public void SetInitialState(PlayerState state)

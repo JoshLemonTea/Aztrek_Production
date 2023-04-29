@@ -10,16 +10,30 @@ public abstract class PlayerState
 
     public Player Player { get; }
 
+    private float _originalMoveSpeed;
+
+    private float _originalAcceleration;
+
+    private float _originalDeceleration;
+
+    private float _originalAirAcceleration;
+
+    private float _originalAirDeceleration;
+
     public PlayerState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player)
     {
         PlayerStateMachine = playerStateMachine;
         InputManager = inputManager;
         Player = player;
+
+        _originalMoveSpeed = Player.MoveSpeed;
+        _originalAcceleration = Player.Acceleration;
+        _originalDeceleration = Player.Deceleration;
+        _originalAirAcceleration = Player.AirAcceleration;
+        _originalAirDeceleration = Player.AirDeceleration;
     }
 
-    public virtual void OnEnter()
-    {
-    }
+    public virtual void OnEnter() { }
 
     public virtual void OnUpdate()
     {
@@ -35,15 +49,20 @@ public abstract class PlayerState
         {
             Player.Jump();
         }
-
-        if (InputManager.HasPressedTeleportKey) // Add check for HasPressedTeleportKey
-        {
-            // Add teleportation logic here
-            // e.g. create a new TeleportationState and transition to it
-            // TeleportationState teleportationState = new TeleportationState(PlayerStateMachine, InputManager, Player, teleportDestination, teleportDistance);
-            // PlayerStateMachine.GoTo(teleportationState);
-        }
     }
 
-    public virtual void OnExit() { }
+    public virtual void OnExit()
+    {
+        ResetDefaultPlayerValues();
+    }
+
+    protected void ResetDefaultPlayerValues()
+    {
+        Player.MoveSpeed = _originalMoveSpeed;
+        Player.Acceleration = _originalAcceleration;
+        Player.Deceleration = _originalDeceleration;
+        Player.AirAcceleration = _originalAirAcceleration;
+        Player.AirDeceleration = _originalAirDeceleration;
+        Player.GravityValue = Physics.gravity.y * 3f;
+    }
 }

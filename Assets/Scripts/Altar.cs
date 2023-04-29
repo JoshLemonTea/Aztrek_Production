@@ -5,7 +5,7 @@ using UnityEngine;
 public class Altar : MonoBehaviour
 {
     [SerializeField]
-    private God _god;
+    private GodState _god;
 
     private PlayerStateMachine _playerStateMachine;
 
@@ -18,18 +18,18 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (_god == God.Tlaloc)
+            if (_god == GodState.Tlaloc)
             {
-                _playerStateMachine.GoTo(_playerStateMachine.JaguarState);
+                _playerStateMachine.GoTo(_playerStateMachine.TlalocState);
             }
-            if (_god == God.Quetzalcoatl)
+            if (_god == GodState.Quetzalcoatl)
             {
-                _playerStateMachine.GoTo(_playerStateMachine.HoverState);
+                _playerStateMachine.GoTo(_playerStateMachine.QuetzalcoatlState);
 
             }
-            if(_god == God.Huitzilopochtli)
+            if(_god == GodState.Huitzilopochtli)
             {
-                _playerStateMachine.GoTo(_playerStateMachine.GrappleState);
+                _playerStateMachine.GoTo(_playerStateMachine.HuiztilopochtliState);
             }
         }
     }

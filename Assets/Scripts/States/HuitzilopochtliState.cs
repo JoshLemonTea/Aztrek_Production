@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GrappleState : PlayerState
+public class HuitzilopochtliState : PlayerState
 {
-    public GrappleState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
+    public HuitzilopochtliState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
     }
 
     private LayerMask _grappleLayer;
 
-    private Vector3 _grappleDirection;
-
-    private float _grappleForce = 3f;
+    private float _grappleForce = 2f;
 
     private bool _isGrappling;
 
@@ -23,20 +21,16 @@ public class GrappleState : PlayerState
 
     public override void OnEnter()
     {
+        Debug.Log("Entered Huitzilopochtli State");
+
         base.OnEnter();
 
         _grappleLayer = LayerMask.GetMask("GrappleLayer");
-
-        Debug.Log("Enter Grapple State");
     }
 
     public override void OnUpdate()
     {
-        // Delete later: test code for moving to other state
-        if (InputManager.HasPressedTab)
-        PlayerStateMachine.GoTo(PlayerStateMachine.HoverState);
-
-        if (InputManager.HasPressedF)
+        if (InputManager.HasPressedF && !_isGrappling)
         {
             Vector3 heightOffset = new Vector3(0f, 1f, 0f);
             Vector3 rayOrigin = Player.transform.position + heightOffset;
@@ -65,9 +59,6 @@ public class GrappleState : PlayerState
         {
             base.OnUpdate();
         }
-
-
-
     }
 
     public override void OnExit()
