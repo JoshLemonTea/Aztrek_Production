@@ -701,30 +701,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
-      propertyPath: _moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
-      propertyPath: _jumpHeight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
-      propertyPath: _acceleration
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
-      propertyPath: _decceleration
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
-      propertyPath: _airAcceleration
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
-      propertyPath: _airDeceleration
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: _airDecceleration
       value: 0.8
       objectReference: {fileID: 0}

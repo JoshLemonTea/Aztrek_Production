@@ -258,6 +258,67 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""eadb8d52-ea61-4875-9993-b87eee3c97fa"",
+            ""actions"": [
+                {
+                    ""name"": ""Open and Close menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""bae12d09-1ac8-4dea-85a2-14428ea4a727"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""35817fc4-b06d-4868-b197-92bb0fd1961c"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open and Close menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cac427e3-658c-49c9-863d-2c621ee20c0d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open and Close menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0c24566-7ec4-4bb1-a171-f02f232128a1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open and Close menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6daf5df6-c4cc-43c8-88fc-7034b0a475fd"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open and Close menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -271,6 +332,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_F = m_Player.FindAction("F", throwIfNotFound: true);
         m_Player_Tab = m_Player.FindAction("Tab", throwIfNotFound: true);
         m_Player_TeleportKey = m_Player.FindAction("TeleportKey", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_OpenandClosemenu = m_Menu.FindAction("Open and Close menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -407,6 +471,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_OpenandClosemenu;
+    public struct MenuActions
+    {
+        private @PlayerInput m_Wrapper;
+        public MenuActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenandClosemenu => m_Wrapper.m_Menu_OpenandClosemenu;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @OpenandClosemenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenandClosemenu;
+                @OpenandClosemenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenandClosemenu;
+                @OpenandClosemenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenandClosemenu;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @OpenandClosemenu.started += instance.OnOpenandClosemenu;
+                @OpenandClosemenu.performed += instance.OnOpenandClosemenu;
+                @OpenandClosemenu.canceled += instance.OnOpenandClosemenu;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -416,5 +513,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnF(InputAction.CallbackContext context);
         void OnTab(InputAction.CallbackContext context);
         void OnTeleportKey(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnOpenandClosemenu(InputAction.CallbackContext context);
     }
 }
