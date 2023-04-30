@@ -40,7 +40,7 @@ public class TlalocState : PlayerState
     public override void OnEnter()
     {
         Debug.Log("Entered Tlaloc State");
-
+        State = GodState.Tlaloc;
         base.OnEnter();
 
         _cloud = Resources.Load<GameObject>("Cloud");

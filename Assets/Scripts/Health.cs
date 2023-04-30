@@ -22,6 +22,9 @@ public class Health : MonoBehaviour
 
     private RespawnManager _respawnManager;
 
+    [SerializeField]
+    private AudioSource _hitSound;
+
     private void OnEnable()
     {
         _playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
@@ -50,8 +53,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
-        LimitCurrentHealth();
+        if (_canTakeDamage)
+        {
+            _currentHealth -= damage;
+            _hitSound.Play();
+            LimitCurrentHealth();
+        }
     }
 
     public void MakeInvulnerable(float duration)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 public enum GodState
 {
+    Default,
     Tlaloc,
     Quetzalcoatl,
     Huitzilopochtli

@@ -22,7 +22,7 @@ public class QuetzalcoatlState : PlayerState
     public override void OnEnter()
     {
         Debug.Log("Entered Quetzalcoatl State");
-
+        State = GodState.Quetzalcoatl;
         base.OnEnter();
     }
 

@@ -10,6 +10,8 @@ public abstract class PlayerState
 
     public Player Player { get; }
 
+    public GodState State { get; set; }
+
     private float _originalMoveSpeed;
 
     private float _originalAcceleration;
