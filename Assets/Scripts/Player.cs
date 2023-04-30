@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float coyoteTime;
     private float coyoteTimer;
 
+    [SerializeField] private AudioSource _jumpSound;
+
     private void Update()
     {
         if (IsGrounded)
@@ -139,6 +141,8 @@ public class Player : MonoBehaviour
 
         if (CanJump)
         {
+            _jumpSound.Play();
+
             _movement.y = JumpForce;
             _currentAddedJumpForce = -GravityValue * _addedJumpForce;
         }
