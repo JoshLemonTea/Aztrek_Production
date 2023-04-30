@@ -176,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c0f2bb621ce99a347ba6ac700a02f84a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -278,3 +278,5 @@ MonoBehaviour:
   _collider: {fileID: 3516364115837589642}
   _strikeGFX: {fileID: 3516364114517457019}
   _strikeDelay: 1.5
+  _damage: 1
+  _timeInvulnerableOnHit: 2
