@@ -8,8 +8,9 @@ public class Platform : MonoBehaviour
     private bool isMovingPlatform;
 
     [Header("Moving Platform")]
-    [Tooltip("Only 2 Locations are supported for now")]
-    [SerializeField] private List<Vector3> platformLocations;
+    [SerializeField] private bool doesMove;
+    [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Vector3 endPosition;
     [Range(0.01f, 3)] [SerializeField] private float moveSpeed;
     private float movingPlatformTimer;
 
@@ -38,13 +39,11 @@ public class Platform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (platformLocations.Count == 1 || platformLocations.Count > 2)
-        {
-            Debug.Log("You need either 0 or 2 Platform Locations, 0 if the Platform doesn't move");
-        }
+        //Make the movespeed variable more intuitive
+        moveSpeed = moveSpeed / 5;
 
         //See if we need to parent the player to the Platform
-        if (platformLocations.Count > 0)
+        if (doesMove)
         {
             isMovingPlatform = true;
         }
@@ -59,7 +58,7 @@ public class Platform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (platformLocations.Count == 2)
+        if (doesMove)
         {
             MovePlatform();
         }
@@ -122,7 +121,7 @@ public class Platform : MonoBehaviour
     private void MovePlatform()
     {
         float period = CalculateLerpPeriod();
-        Vector3 newPlatformPosition = Vector3.Lerp(platformLocations[0], platformLocations[1], period);
+        Vector3 newPlatformPosition = Vector3.Lerp(startPosition, endPosition, period);
         transform.position = newPlatformPosition;
     }
 

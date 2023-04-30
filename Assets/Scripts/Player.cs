@@ -62,9 +62,7 @@ public class Player : MonoBehaviour
             lastGroundHeight = transform.position.y;
         }
 
-
         HandleCoyoteTime();
-        
     }
 
     public void OnEnter()

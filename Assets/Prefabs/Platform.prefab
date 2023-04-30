@@ -196,9 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049caa676bfae7b4b8739eec6519bb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformLocations:
-  - {x: -6.193135, y: 2.36, z: -23.96703}
-  - {x: -10, y: 2.36, z: -23.96703}
+  doesMove: 0
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: 0}
   moveSpeed: 1
   rotationSpeed: 20
   doesBreak: 0
@@ -238,4 +238,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
