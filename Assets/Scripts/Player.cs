@@ -62,10 +62,9 @@ public class Player : MonoBehaviour
             lastGroundHeight = transform.position.y;
         }
 
-        if (coyoteTimer > 0)
-        {
-            HandleCoyoteTime();
-        }
+
+        HandleCoyoteTime();
+        
     }
 
     public void OnEnter()
@@ -138,6 +137,7 @@ public class Player : MonoBehaviour
         {
             CanJump = IsGrounded;
         }
+        Debug.Log(IsGrounded);
 
         if (CanJump)
         {
@@ -150,6 +150,7 @@ public class Player : MonoBehaviour
             {
                 _currentAddedJumpForce -= Time.deltaTime * _addedJumpFalloff;
                 _movement.y += _currentAddedJumpForce * Time.deltaTime;
+                Debug.Log(_currentAddedJumpForce);
             }
         }
 
@@ -202,7 +203,7 @@ public class Player : MonoBehaviour
 
         if (IsGrounded)
         {
-            coyoteTimer = coyoteTime;
+            CanJump = true;
         }
         else
         {
