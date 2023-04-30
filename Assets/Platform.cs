@@ -23,6 +23,9 @@ public class Platform : MonoBehaviour
 
     [Header("Trap Platform")]
     [SerializeField] private bool isTrap;
+    [SerializeField] private int spikeDamageAmount;
+    //Why is this not in the health script?
+    [SerializeField] private int invulnerableTime;
     [SerializeField] private GameObject spikes;
     [SerializeField] private bool isReactionTrap;
     [SerializeField] private float trapSetOffTime;
@@ -177,6 +180,9 @@ public class Platform : MonoBehaviour
             {
                 //Take Damage here
                 Debug.Log("Ouch!");
+                hit.GetComponent<Health>().TakeDamage(spikeDamageAmount);
+                hit.GetComponent<Health>().MakeInvulnerable(invulnerableTime);
+                hit.GetComponent<Player>().Jump();
                 damagedPlayer = true;
                 StartCoroutine(DamagePlayerCooldown());
             }

@@ -204,6 +204,8 @@ MonoBehaviour:
   doesBreak: 0
   breakTime: 2
   isTrap: 0
+  spikeDamageAmount: 1
+  invulnerableTime: 1
   spikes: {fileID: 7686519538259264940}
   isReactionTrap: 0
   trapSetOffTime: 2
