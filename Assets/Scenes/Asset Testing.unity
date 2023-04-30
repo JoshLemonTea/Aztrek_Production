@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2516394320234061654, guid: 2094275a260ebe34b9c4d8139b83a2db, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bdab09e533704e24f9dc08153e56a0c8, type: 2}
     - target: {fileID: 2516394320234061655, guid: 2094275a260ebe34b9c4d8139b83a2db, type: 3}
       propertyPath: m_Name
       value: Water
