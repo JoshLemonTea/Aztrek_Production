@@ -10,7 +10,7 @@ public class Lava : MonoBehaviour
     [SerializeField]
     private float _timeInvulnerable = 1f;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent(out Player player))
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,21 @@ public class Lightning : MonoBehaviour
     [SerializeField]
     private float _timeInvulnerableOnHit = 2f;
 
+    private Gameloop _gameloop;
+
+    private PlayerStateMachine _playerStateMachine;
+
+    private void OnEnable()
+    {
+        _gameloop = FindObjectOfType<Gameloop>();
+        _playerStateMachine = _gameloop.SetPlayerStateMachine();
+    }
+
+    private void SetPlayerStateMachine(PlayerStateMachine playerSTateMachine)
+    {
+        _playerStateMachine = playerSTateMachine;
+    }
+
     private void Update()
     {
         _timer += Time.deltaTime;
@@ -44,8 +60,15 @@ public class Lightning : MonoBehaviour
     {
         if (other.TryGetComponent(out Health health))
         {
-            health.TakeDamage(_damage);
-            health.MakeInvulnerable(_timeInvulnerableOnHit);
+            if(_playerStateMachine.CurrentState.State == GodState.Tlaloc)
+            {
+                _playerStateMachine.TlalocState.AddCharge();
+            }
+            else
+            {
+                health.TakeDamage(_damage);
+                health.MakeInvulnerable(_timeInvulnerableOnHit);
+            }
         }
     }
 }

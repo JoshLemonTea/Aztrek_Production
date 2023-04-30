@@ -53,9 +53,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
-        _hitSound.Play();
-        LimitCurrentHealth();
+        if (_canTakeDamage)
+        {
+            _currentHealth -= damage;
+            _hitSound.Play();
+            LimitCurrentHealth();
+        }
     }
 
     public void MakeInvulnerable(float duration)

@@ -22,7 +22,7 @@ public class HuitzilopochtliState : PlayerState
     public override void OnEnter()
     {
         Debug.Log("Entered Huitzilopochtli State");
-
+        State = GodState.Huitzilopochtli;
         base.OnEnter();
 
         _grappleLayer = LayerMask.GetMask("GrappleLayer");
