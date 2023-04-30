@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 10
-  _jumpHeight: 3
+  _jumpHeight: 2
   _addedJumpForce: 1.3
   _addedJumpFalloff: 150
   _acceleration: 50
