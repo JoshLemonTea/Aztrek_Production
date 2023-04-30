@@ -15,15 +15,43 @@ public class Health : MonoBehaviour
 
     private bool _canTakeDamage;
 
+    [SerializeField]
+    private int _maxHealth = 3;
+
+    private int _currentHealth = 3;
+
+    private RespawnManager _respawnManager;
+
     private void OnEnable()
     {
         _playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
         _originalColor = _playerRenderer.material.color;
+        _respawnManager = FindObjectOfType<RespawnManager>();
+    }
+
+    private void LimitCurrentHealth()
+    {
+        if(_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+        if(_currentHealth <= 0)
+        {
+            _respawnManager.Respawn();
+            _currentHealth = _maxHealth;
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        _currentHealth += amount;
+        LimitCurrentHealth();
     }
 
     public void TakeDamage(int damage)
     {
-        // Add code to make player take damage
+        _currentHealth -= damage;
+        LimitCurrentHealth();
     }
 
     public void MakeInvulnerable(float duration)
