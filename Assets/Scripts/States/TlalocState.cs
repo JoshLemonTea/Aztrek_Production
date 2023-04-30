@@ -8,7 +8,28 @@ public class TlalocState : PlayerState
 
     private GameObject _cloud;
 
+    private GameObject _previousCloud;
+
+    private bool _hasCharge = true;
+
     private int _abilityPressCount;
+
+    private bool _previousFramePressF;
+    private bool _currentFramePressF;
+
+    private bool FPressed
+    {
+        get
+        {
+            _previousFramePressF = _currentFramePressF;
+            _currentFramePressF = InputManager.HasPressedF;
+
+            if (_previousFramePressF == false && _currentFramePressF == true)
+                return true;
+            else
+                return false;
+        }
+    }
 
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
@@ -41,15 +62,14 @@ public class TlalocState : PlayerState
     {
         if (Player.IsGrounded)
         {
-            if (InputManager.HasPressedF)
+            if (FPressed)
             {
                 if (_abilityPressCount == 0)
                 {
                     ShowCloudGhost();
                     _abilityPressCount++;
                 }
-
-                if (_abilityPressCount > 0)
+                else if (_abilityPressCount > 0)
                 {
                     HideCloudGhost();
                     PlaceCloud();
@@ -76,6 +96,21 @@ public class TlalocState : PlayerState
 
     private void PlaceCloud()
     {
-        Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
+        if (_hasCharge)
+        {
+            Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
+            _hasCharge = false;
+        }
+        else
+        {
+            GameObject.Destroy(_previousCloud);
+
+            _previousCloud = Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
+        }
+    }
+
+    public void AddCharge()
+    {
+        _hasCharge = true;
     }
 }
