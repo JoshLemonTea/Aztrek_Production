@@ -10,7 +10,7 @@ public class TlalocState : PlayerState
 
     private GameObject _previousCloud;
 
-    private bool _hasCharge = true;
+    private bool _hasCharge = false;
 
     private int _abilityPressCount;
 
