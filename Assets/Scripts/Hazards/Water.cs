@@ -13,6 +13,9 @@ public class Water : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _respawnManager.Respawn();
+        if (other.CompareTag("Player"))
+        {
+            _respawnManager.Respawn();
+        }
     }
 }
