@@ -57,6 +57,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private AudioSource _jumpSound;
 
+    [SerializeField] private Transform _cameraTarget;
+
+    public Transform CameraTarget { get => _cameraTarget; set => _cameraTarget = value; }
+
     private void Update()
     {
         if (IsGrounded)
@@ -111,6 +115,11 @@ public class Player : MonoBehaviour
         }
 
         _characterController.Move(_movement * Time.deltaTime);
+    }
+
+    public void GrappleMove(Vector3 movement)
+    {
+        _characterController.Move(movement);
     }
 
     public void WallRun(Vector3 wallrunMovement)

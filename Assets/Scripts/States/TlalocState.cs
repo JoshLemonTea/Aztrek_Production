@@ -10,7 +10,7 @@ public class TlalocState : PlayerState
 
     private GameObject _previousCloud;
 
-    private bool _hasCharge = true;
+    private bool _hasCharge = false;
 
     private int _abilityPressCount;
 
@@ -56,6 +56,9 @@ public class TlalocState : PlayerState
     public override void OnExit()
     {
         base.OnExit();
+
+        _abilityPressCount = 0;
+        HideCloudGhost();
     }
 
     private void TriggerAbility()

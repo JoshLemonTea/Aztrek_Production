@@ -11,7 +11,7 @@ public class HuitzilopochtliState : PlayerState
 
     private LayerMask _grappleLayer;
 
-    private float _grappleForce = 2f;
+    private float _grappleForce = 18f;
 
     private bool _isGrappling;
 
@@ -30,6 +30,8 @@ public class HuitzilopochtliState : PlayerState
 
     public override void OnUpdate()
     {
+        Debug.Log(Player.transform.forward);
+
         if (InputManager.HasPressedF && !_isGrappling)
         {
             Vector3 heightOffset = new Vector3(0f, 1f, 0f);
@@ -45,8 +47,8 @@ public class HuitzilopochtliState : PlayerState
 
         if (_isGrappling)
         {
-            Vector2 moveInput = new Vector2(Player.transform.forward.x, Player.transform.forward.z);
-            Player.Move(moveInput * _grappleForce);
+            Vector3 moveInput = Player.transform.forward;
+            Player.GrappleMove(moveInput * _grappleForce * Time.deltaTime);
 
             _grappleDuration += Time.deltaTime;
             if(_grappleDuration > _grappleDurationTreshold)

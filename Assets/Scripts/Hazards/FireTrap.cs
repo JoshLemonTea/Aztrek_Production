@@ -19,6 +19,8 @@ public class FireTrap : MonoBehaviour
     [SerializeField]
     private float _timeInvulnerable = 2f;
 
+    private BoxCollider _collider;
+
     private float _timer;
 
     private bool _isActive;
@@ -31,6 +33,7 @@ public class FireTrap : MonoBehaviour
     {
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
         _originalColor = _renderer.material.color;
+        _collider = GetComponent<BoxCollider>();
     }
 
 
@@ -45,6 +48,7 @@ public class FireTrap : MonoBehaviour
                 _timer = 0f;
                 _isActive = false;
                 _fireGFX.SetActive(false);
+                _collider.enabled = false;
             }
         }
         else
@@ -56,6 +60,7 @@ public class FireTrap : MonoBehaviour
                 _timer = 0f;
                 _isActive = true;
                 _fireGFX.SetActive(true);
+                _collider.enabled = true;
             }
         }
     }
