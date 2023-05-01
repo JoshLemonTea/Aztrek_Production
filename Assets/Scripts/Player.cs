@@ -77,8 +77,6 @@ public class Player : MonoBehaviour
 
         //Increased Gravity gives snappier jumps
         GravityValue = Physics.gravity.y * 6;
-
-        transform.position = Vector3.zero;
     }
 
     public void Move(Vector3 moveInput)
