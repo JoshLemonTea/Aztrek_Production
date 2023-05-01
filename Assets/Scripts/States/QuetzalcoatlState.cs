@@ -19,6 +19,23 @@ public class QuetzalcoatlState : PlayerState
 
     private float _hoverModeDeceleration = 25f;
 
+    private bool _previousFramePressF;
+    private bool _currentFramePressF;
+
+    private bool FPressed
+    {
+        get
+        {
+            _previousFramePressF = _currentFramePressF;
+            _currentFramePressF = InputManager.HasPressedF;
+
+            if (_previousFramePressF == false && _currentFramePressF == true)
+                return true;
+            else
+                return false;
+        }
+    }
+
     public override void OnEnter()
     {
         Debug.Log("Entered Quetzalcoatl State");
@@ -30,7 +47,7 @@ public class QuetzalcoatlState : PlayerState
     {
         base.OnUpdate();
       
-        if (InputManager.HasPressedF)
+        if (FPressed)
         {
             _isHovering = !_isHovering;
 
