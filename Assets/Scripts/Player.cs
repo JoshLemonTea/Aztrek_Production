@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
 
     public void GrappleMove(Vector3 movement)
     {
-        _characterController.Move(movement*2);
+        _characterController.Move(movement);
     }
 
     public void WallRun(Vector3 wallrunMovement)
