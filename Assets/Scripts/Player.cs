@@ -213,6 +213,7 @@ public class Player : MonoBehaviour
         if (IsGrounded)
         {
             CanJump = true;
+            coyoteTimer = coyoteTime;
         }
         else
         {
