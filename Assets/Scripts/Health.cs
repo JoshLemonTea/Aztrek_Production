@@ -16,9 +16,13 @@ public class Health : MonoBehaviour
     private bool _canTakeDamage;
 
     [SerializeField]
-    private int _maxHealth = 3;
+    public int _maxHealth = 3;
 
-    private int _currentHealth = 3;
+    [SerializeField]
+    private IngameUI ingameUI;
+
+    [HideInInspector]
+    public int _currentHealth = 3;
 
     private RespawnManager _respawnManager;
 
