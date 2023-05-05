@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class IngameUI : MonoBehaviour
 {
     //General
+    [Header("General")]
     [SerializeField] private GameObject player;
     private Canvas canvas;
 
     //Hearts
+    [Header("Hearts")]
     [SerializeField] private GameObject firstHeart;
     [SerializeField] private float spaceBetweenHearts;
     [Range(0,1)][SerializeField] private float emptyHeartAlpha;
@@ -17,6 +19,7 @@ public class IngameUI : MonoBehaviour
     private Health healthScript;
 
     //Tributes
+    [Header("Tributes")]
     [SerializeField] private List<Texture2D> tributes = new List<Texture2D>();
     private TributeManager tributeManager;
 
@@ -26,6 +29,8 @@ public class IngameUI : MonoBehaviour
         healthScript = player.GetComponent<Health>();
         hearts.Add(firstHeart);
         SpawnHearts(healthScript._maxHealth);
+
+        tributeManager = player.GetComponent<TributeManager>();
     }
 
     // Update is called once per frame
