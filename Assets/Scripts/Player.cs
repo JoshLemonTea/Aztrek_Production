@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
 
     public Transform CameraTarget { get => _cameraTarget; set => _cameraTarget = value; }
 
+    public Transform ActiveGrapplePoint { get; set; }
+
+    public LineRenderer LineRenderer { get; private set; }
+
     private void Update()
     {
         if (IsGrounded)
@@ -77,6 +81,9 @@ public class Player : MonoBehaviour
 
         //Increased Gravity gives snappier jumps
         GravityValue = Physics.gravity.y * 6;
+
+        LineRenderer = GetComponent<LineRenderer>();
+        LineRenderer.enabled = false;
     }
 
     public void Move(Vector3 moveInput)

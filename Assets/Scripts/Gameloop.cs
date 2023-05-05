@@ -12,6 +12,7 @@ public class Gameloop : MonoBehaviour
 
     private Altar[] _altars;
 
+
     private void OnEnable()
     {
         _input = FindObjectOfType<InputManager>();

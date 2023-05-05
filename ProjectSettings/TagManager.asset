@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tribute
+  - GrapplePoint
   layers:
   - Default
   - TransparentFX
