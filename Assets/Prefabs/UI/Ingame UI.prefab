@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstHeart: {fileID: 5100168097936288553}
   spaceBetweenHearts: 80
-  emptyHeartAlpha: 50
+  emptyHeartAlpha: 0.22
   tributes: []
   player: {fileID: 0}
 --- !u!1 &5100168097936288553
