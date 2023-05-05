@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstHeart: {fileID: 5100168097936288553}
-  spaceBetweenHearts: 20
+  spaceBetweenHearts: 80
   emptyHeartAlpha: 50
   tributes: []
   player: {fileID: 0}
@@ -146,7 +146,7 @@ RectTransform:
   m_GameObject: {fileID: 5100168097936288553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29631865, y: 0.29631865, z: 0.29631865}
+  m_LocalScale: {x: 0.61844665, y: 0.61844665, z: 0.61844665}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1296089786601319316}
@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370.8, y: 166.7}
+  m_AnchoredPosition: {x: -871, y: 485}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1206119211151200981
