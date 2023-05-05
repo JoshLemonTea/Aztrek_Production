@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class IngameUI : MonoBehaviour
 {
+    //General
+    [SerializeField] private GameObject player;
+    private Canvas canvas;
+
+    //Hearts
     [SerializeField] private GameObject firstHeart;
     [SerializeField] private float spaceBetweenHearts;
     [Range(0,1)][SerializeField] private float emptyHeartAlpha;
-    [SerializeField] private List<Texture2D> tributes = new List<Texture2D>();
-    [SerializeField] private GameObject player;
-
-    private Canvas canvas;
     private List<GameObject> hearts = new List<GameObject>();
     private Health healthScript;
+
+    //Tributes
+    [SerializeField] private List<Texture2D> tributes = new List<Texture2D>();
+    private TributeManager tributeManager;
 
     // Start is called before the first frame update
     void Start()

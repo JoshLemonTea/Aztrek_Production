@@ -32,11 +32,12 @@ public class Pickup : MonoBehaviour
         transform.Rotate(Vector3.up, _rotationSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            gameObject.SetActive(false);
-        }
-    }
+    //Should be done in other scripts that need the info, for example a HeartContainer script or a Tribute script
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        gameObject.SetActive(false);
+    //    }
+    //}
 }
