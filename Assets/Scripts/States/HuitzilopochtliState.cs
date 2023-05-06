@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,16 +10,13 @@ public class HuitzilopochtliState : PlayerState
     public HuitzilopochtliState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
     }
+    private bool _canStartGrapple;
 
-    private LayerMask _grappleLayer;
+    private float _grappleTimer;
 
-    private float _grappleForce = 18f;
+    private float _grappleDelayTimer;
 
-    private bool _isGrappling;
-
-    private float _grappleDuration;
-
-    private float _grappleDurationTreshold = 1.2f;
+    private float _grappleDelayTreshold = 0.5f;
 
     private Vector3 _grappleDirection;
 
@@ -27,45 +25,85 @@ public class HuitzilopochtliState : PlayerState
     public override void OnEnter()
     {
         Debug.Log("Entered Huitzilopochtli State");
+
         State = GodState.Huitzilopochtli;
         base.OnEnter();
 
-        _grappleLayer = LayerMask.GetMask("GrappleLayer");
+        InputManager.Controls.Player.F.performed += OnPressedF;
+    }
+
+    private void OnPressedF(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (Player.ActiveGrapplePoint != null && !Player.IsGrappling)
+        {
+            _grappleDirection = Player.ActiveGrapplePoint.position - Player.transform.position;
+
+            if(Mathf.Abs(_grappleDirection.x) > Mathf.Abs(_grappleDirection.z))
+            {
+                _grappleDirection.z = 0f;
+            }
+            else
+            {
+                _grappleDirection.x = 0f;
+            }
+
+            _grappleDirection.y = 0f;
+            _grappleDirection.Normalize();
+
+            if (Player.IsGrounded)
+            {
+                Player.Jump();
+
+                _canStartGrapple = true;
+            }
+            else 
+            {
+                Player.LineRenderer.enabled = true;
+
+                Player.IsGrappling = true;
+            }
+        }
     }
 
     public override void OnUpdate()
     {
-        if (InputManager.HasPressedF && Player.ActiveGrapplePoint != null && !_isGrappling)
+        if (_canStartGrapple)
         {
-            _isGrappling = true;
 
-            _grappleDirection = Player.ActiveGrapplePoint.position - Player.transform.position;
-            _grappleDirection.y = 0f;
-            _grappleDirection.Normalize();
+            _grappleDelayTimer += Time.deltaTime;
+            if (_grappleDelayTimer > _grappleDelayTreshold)
+            {
+                Player.LineRenderer.enabled = true;
 
-            Player.Jump();
+                _grappleDelayTimer = 0f;
+                _canStartGrapple = false;
 
-            Player.LineRenderer.enabled = true;
+                Player.IsGrappling = true;
+            }
         }
 
-        if (_isGrappling)
-        {
-            Debug.Log("Grappling");
-
+        if (Player.IsGrappling)
+        {           
             DrawWhip();
 
             Vector3 moveInput = _grappleDirection;
-            float heightChange = -Mathf.Sin(_grappleDuration * 4) * 0.4f;
-            moveInput.y = heightChange;
-            Player.GrappleMove(moveInput * _grappleForce * Time.deltaTime);
+            float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude;
+            moveInput.y = heightChange + 0.1f;
+            Player.GrappleMove(moveInput * Player.GrappleSpeed * Time.deltaTime);
+            Player.transform.forward = moveInput;
 
-            _grappleDuration += Time.deltaTime;
-            if(_grappleDuration > _grappleDurationTreshold)
+            _grappleTimer += Time.deltaTime;
+            if (_grappleTimer > Player.GrappleDuration)
             {
-                _grappleDuration = 0f;
-                _isGrappling = false;
                 Player.LineRenderer.enabled = false;
-            }
+
+                Player.Move(Player.transform.forward);
+
+                _grappleTimer = 0f;
+                Player.IsGrappling = false;
+
+                Player.transform.forward = _grappleDirection;
+            }     
         }
         else
         {
@@ -77,7 +115,8 @@ public class HuitzilopochtliState : PlayerState
     {
         if(Player.ActiveGrapplePoint != null)
         {
-            _lineRendererPositions = new Vector3[] { Player.transform.position, Player.ActiveGrapplePoint.position };
+            _lineRendererPositions = new Vector3[] { Player.ActiveGrapplePoint.position, 
+                (Player.transform.position + Player.transform.up + Player.transform.right) };
             Player.LineRenderer.SetPositions(_lineRendererPositions);
         }
     }
@@ -86,6 +125,6 @@ public class HuitzilopochtliState : PlayerState
     {
         base.OnExit();
 
-        Player.LineRenderer.enabled = false;
+        InputManager.Controls.Player.F.performed -= OnPressedF;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    private PlayerInput _playerInput;
+    public PlayerInput Controls;
 
     public Vector2 MoveInput { get; private set; }
 
@@ -18,14 +18,14 @@ public class InputManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInput = new PlayerInput();
-        _playerInput.Enable();
+        Controls = new PlayerInput();
+        Controls.Enable();
 
-        _playerInput.Player.Jump.performed += OnPressedJump;
-        _playerInput.Player.Jump.canceled += OnReleasedJump;
+        Controls.Player.Jump.performed += OnPressedJump;
+        Controls.Player.Jump.canceled += OnReleasedJump;
    
-        _playerInput.Player.F.performed += OnPressedF;
-        _playerInput.Player.F.canceled += OnReleasedF;
+        Controls.Player.F.performed += OnPressedF;
+        Controls.Player.F.canceled += OnReleasedF;
     }
 
     private void OnReleasedF(InputAction.CallbackContext obj)
@@ -49,16 +49,16 @@ public class InputManager : MonoBehaviour
     }
     public void OnUpdate()
     {
-        MoveInput = _playerInput.Player.Movement.ReadValue<Vector2>();
+        MoveInput = Controls.Player.Movement.ReadValue<Vector2>();
     }
 
     private void OnDisable()
     {
-        _playerInput.Player.Jump.performed -= OnPressedJump;
-        _playerInput.Player.Jump.canceled -= OnReleasedJump;
-        _playerInput.Player.F.performed -= OnPressedF;
-        _playerInput.Player.F.canceled -= OnReleasedF;
+        Controls.Player.Jump.performed -= OnPressedJump;
+        Controls.Player.Jump.canceled -= OnReleasedJump;
+        Controls.Player.F.performed -= OnPressedF;
+        Controls.Player.F.canceled -= OnReleasedF;
 
-        _playerInput.Disable();
+        Controls.Disable();
     }
 }

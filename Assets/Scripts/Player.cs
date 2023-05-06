@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
 
     public float Acceleration { get => _acceleration; set => _acceleration = value; }
 
- 
+
     public float Deceleration { get => _decceleration; set => _decceleration = value; }
 
 
@@ -64,6 +65,20 @@ public class Player : MonoBehaviour
     public Transform ActiveGrapplePoint { get; set; }
 
     public LineRenderer LineRenderer { get; private set; }
+
+    [SerializeField]
+    private float _grappleDuration = 1.2f;
+    public float GrappleDuration { get => _grappleDuration; set => _grappleDuration = value; }
+
+    [SerializeField]
+    private float _grappleAmplitude = 0.3f;
+    public float GrappleAmplitude { get => _grappleAmplitude; set => _grappleAmplitude = value; }
+
+    [SerializeField]
+    private float _grappleSpeed = 20f;
+    public float GrappleSpeed { get => _grappleSpeed; set => _grappleSpeed = value; }
+
+    public bool IsGrappling { get; set; }
 
     private void Update()
     {

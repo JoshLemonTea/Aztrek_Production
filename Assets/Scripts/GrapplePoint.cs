@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GrapplePoint : MonoBehaviour
 {
-    public bool IsVisible { get; private set; }
-
     private Player _player;
 
     private Renderer _renderer;
@@ -20,15 +18,12 @@ public class GrapplePoint : MonoBehaviour
         _originalColor = _renderer.material.color;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_player.IsGrappling)
         {
-            if (IsVisible)
-            {
-                _player.ActiveGrapplePoint = transform;
-                _renderer.material.color = Color.green;
-            }
+            _player.ActiveGrapplePoint = transform;
+            _renderer.material.color = Color.green;        
         }
     }
 
@@ -39,15 +34,5 @@ public class GrapplePoint : MonoBehaviour
             _player.ActiveGrapplePoint = null;
             _renderer.material.color = _originalColor;
         }
-    }
-
-    private void OnBecameVisible()
-    {
-        IsVisible = true;
-    }
-
-    private void OnBecameInvisible()
-    {
-        IsVisible = false;
     }
 }
