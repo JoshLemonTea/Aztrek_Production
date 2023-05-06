@@ -20,8 +20,13 @@ public class IngameUI : MonoBehaviour
 
     //Tributes
     [Header("Tributes")]
-    [SerializeField] private List<Texture2D> tributes = new List<Texture2D>();
+    [SerializeField] private List<Texture2D> tributeSprites = new List<Texture2D>();
+    [SerializeField] private Vector2 firstTributePos;
+    [SerializeField] private float xDistanceBetweenTributes;
+    [SerializeField] private float yDistanceBetweenTributes;
+    private List<float> currentYDistanceBetweenTributes;
     private TributeManager tributeManager;
+    private GameObject[,] tributeIcons;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +36,29 @@ public class IngameUI : MonoBehaviour
         SpawnHearts(healthScript._maxHealth);
 
         tributeManager = player.GetComponent<TributeManager>();
+        InitialiseTributes();
+    }
+
+    private void InitialiseTributes() 
+    {
+        for (int i = 0; i < tributeSprites.Count; i++)
+        {
+            currentYDistanceBetweenTributes.Add(0);
+        }
+        
+        for (int i = 1; i < tributeSprites.Count; i++)
+        {
+            for (int j = 0; j < tributeManager.collectedTributes[i]; j++)
+            {
+                currentYDistanceBetweenTributes[i] += yDistanceBetweenTributes;
+                float xPos = xDistanceBetweenTributes * i;
+                Vector3 newTributePos = new Vector3(xPos, currentYDistanceBetweenTributes[i], 0);
+
+                GameObject newTributeIcon = GameObject.Instantiate(firstHeart, newTributePos, Quaternion.identity);
+                newTributeIcon.transform.parent = this.transform;
+                tributeIcons[i, j] = newTributeIcon;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -69,5 +97,15 @@ public class IngameUI : MonoBehaviour
                 thisHeartSprite.color = newColor;
             }
         }
+    }
+
+    public void AddTributeToUI(int tributeIndex)
+    {
+        currentYDistanceBetweenTributes[tributeIndex] += yDistanceBetweenTributes;
+        float xPos = xDistanceBetweenTributes * tributeIndex;
+
+        Vector2 tributeIconPosition = new Vector2(xPos, currentYDistanceBetweenTributes[tributeIndex]);
+        GameObject newTributeIcon = GameObject.Instantiate(firstHeart, tributeIconPosition, Quaternion.identity);
+        newTributeIcon.transform.parent = this.transform;
     }
 }

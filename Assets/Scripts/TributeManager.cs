@@ -5,8 +5,8 @@ using UnityEngine;
 public class TributeManager : MonoBehaviour
 {
     [SerializeField] private List<string> tributeNames = new List<string>();
-    private List<int> collectedTributes = new List<int>();
-    private List<int> maxTributes = new List<int>();
+    [HideInInspector] public List<int> collectedTributes = new List<int>();
+    [HideInInspector] public List<int> maxTributes = new List<int>();
     private List<bool> finishedTributes = new List<bool>();
 
     // Start is called before the first frame update
