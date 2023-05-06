@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
 
     private float _timer = 0f;
 
-    private bool _canTakeDamage;
+    public bool CanTakeDamage { get; private set; }
 
     [SerializeField]
     public int _maxHealth = 3;
@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (_canTakeDamage)
+        if (CanTakeDamage)
         {
             _currentHealth -= damage;
             _hitSound.Play();
@@ -68,7 +68,7 @@ public class Health : MonoBehaviour
     public void MakeInvulnerable(float duration)
     {
         _timeInvulnerable = duration;
-        _canTakeDamage = false;
+        CanTakeDamage = false;
         _playerRenderer.material.SetColor("_BaseColor", Color.red);
     }
 
@@ -79,13 +79,13 @@ public class Health : MonoBehaviour
 
     private void LimitInvulnerability()
     {
-        if (!_canTakeDamage)
+        if (!CanTakeDamage)
         {
             _timer += Time.deltaTime;
             if (_timer > _timeInvulnerable)
             {
                 _timer = 0f;
-                _canTakeDamage = true;
+                CanTakeDamage = true;
                 _playerRenderer.material.SetColor("_BaseColor", _originalColor);
             }
         }

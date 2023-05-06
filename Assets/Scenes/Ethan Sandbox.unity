@@ -3874,6 +3874,10 @@ PrefabInstance:
       propertyPath: _cameraTarget
       value: 
       objectReference: {fileID: 864841757}
+    - target: {fileID: 9188567580307106689, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: _hoverGravityValue
+      value: -1.9620003
+      objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106690, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: m_Name
       value: Player

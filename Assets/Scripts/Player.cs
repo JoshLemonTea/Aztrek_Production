@@ -90,10 +90,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _hoverModeDeceleration = 20;
-    public float HoverModeDeceleration { get => HoverModeDeceleration; set => _hoverModeDeceleration = value; }
+    public float HoverModeDeceleration { get => _hoverModeDeceleration; set => _hoverModeDeceleration = value; }
 
     [SerializeField]
-    private float _hoverGravityValue = Physics.gravity.y / 10f;
+    private float _hoverGravityValue = Physics.gravity.y / 5f;
     public float HoverGravityValue { get => _hoverGravityValue; set => _hoverGravityValue = value; }
 
     public bool IsHovering { get; set; }
