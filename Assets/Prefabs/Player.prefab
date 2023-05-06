@@ -279,12 +279,16 @@ MonoBehaviour:
   _airDeceleration: 20
   _movement: {x: 0, y: 0, z: 0}
   lastGroundHeight: 0
-  coyoteTime: 0.1
+  coyoteTime: 0.2
   _jumpSound: {fileID: 7907787356997650595}
   _cameraTarget: {fileID: 0}
   _grappleDuration: 1.2
   _grappleAmplitude: 0.3
   _grappleSpeed: 19
+  _hoverMoveSpeed: 15
+  _hoverModeAcceleration: 50
+  _hoverModeDeceleration: 20
+  _hoverGravityValue: -1.9620003
 --- !u!114 &1398783325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tributeNames: []
+  collectedTributes: 
+  maxTributes: 
 --- !u!82 &7907787356997650595
 AudioSource:
   m_ObjectHideFlags: 0

@@ -80,15 +80,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""TeleportKey"",
-                    ""type"": ""Button"",
-                    ""id"": ""52c8b464-7f52-4d2d-b0b9-431495d903a7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -245,17 +236,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Tab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""85849508-014f-4eaa-9496-4eaa433d6d21"",
-                    ""path"": ""<Keyboard>/t"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TeleportKey"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -331,7 +311,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_CameraRotateCounterclockwise = m_Player.FindAction("Camera Rotate Counterclockwise", throwIfNotFound: true);
         m_Player_F = m_Player.FindAction("F", throwIfNotFound: true);
         m_Player_Tab = m_Player.FindAction("Tab", throwIfNotFound: true);
-        m_Player_TeleportKey = m_Player.FindAction("TeleportKey", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_OpenandClosemenu = m_Menu.FindAction("Open and Close menu", throwIfNotFound: true);
@@ -400,7 +379,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CameraRotateCounterclockwise;
     private readonly InputAction m_Player_F;
     private readonly InputAction m_Player_Tab;
-    private readonly InputAction m_Player_TeleportKey;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -411,7 +389,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @CameraRotateCounterclockwise => m_Wrapper.m_Player_CameraRotateCounterclockwise;
         public InputAction @F => m_Wrapper.m_Player_F;
         public InputAction @Tab => m_Wrapper.m_Player_Tab;
-        public InputAction @TeleportKey => m_Wrapper.m_Player_TeleportKey;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -439,9 +416,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Tab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTab;
                 @Tab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTab;
                 @Tab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTab;
-                @TeleportKey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTeleportKey;
-                @TeleportKey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTeleportKey;
-                @TeleportKey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTeleportKey;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -464,9 +438,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Tab.started += instance.OnTab;
                 @Tab.performed += instance.OnTab;
                 @Tab.canceled += instance.OnTab;
-                @TeleportKey.started += instance.OnTeleportKey;
-                @TeleportKey.performed += instance.OnTeleportKey;
-                @TeleportKey.canceled += instance.OnTeleportKey;
             }
         }
     }
@@ -512,7 +483,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnCameraRotateCounterclockwise(InputAction.CallbackContext context);
         void OnF(InputAction.CallbackContext context);
         void OnTab(InputAction.CallbackContext context);
-        void OnTeleportKey(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

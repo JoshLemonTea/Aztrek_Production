@@ -58,15 +58,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "TeleportKey",
-                    "type": "Button",
-                    "id": "52c8b464-7f52-4d2d-b0b9-431495d903a7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -221,17 +212,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Tab",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "85849508-014f-4eaa-9496-4eaa433d6d21",
-                    "path": "<Keyboard>/t",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TeleportKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
