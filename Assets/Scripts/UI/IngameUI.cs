@@ -8,25 +8,26 @@ public class IngameUI : MonoBehaviour
     //General
     [Header("General")]
     [SerializeField] private GameObject player;
+    [Range(0,1)][SerializeField] private float emptyAlpha;
     private Canvas canvas;
 
     //Hearts
     [Header("Hearts")]
     [SerializeField] private GameObject firstHeart;
     [SerializeField] private float spaceBetweenHearts;
-    [Range(0,1)][SerializeField] private float emptyHeartAlpha;
     private List<GameObject> hearts = new List<GameObject>();
     private Health healthScript;
 
     //Tributes
     [Header("Tributes")]
-    [SerializeField] private List<Texture2D> tributeSprites = new List<Texture2D>();
+    [SerializeField] private List<Sprite> tributeSprites = new List<Sprite>();
+    [SerializeField] private GameObject tributeIconExample;
     [SerializeField] private Vector2 firstTributePos;
     [SerializeField] private float xDistanceBetweenTributes;
     [SerializeField] private float yDistanceBetweenTributes;
-    private List<float> currentYDistanceBetweenTributes;
+    private List<float> currentYDistanceBetweenTributes =  new List<float>();
     private TributeManager tributeManager;
-    private GameObject[,] tributeIcons;
+    private List<List<GameObject>> tributeIcons =  new List<List<GameObject>>();
 
     // Start is called before the first frame update
     void Start()
@@ -41,22 +42,25 @@ public class IngameUI : MonoBehaviour
 
     private void InitialiseTributes() 
     {
-        for (int i = 0; i < tributeSprites.Count; i++)
+        for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
         {
-            currentYDistanceBetweenTributes.Add(0);
+            currentYDistanceBetweenTributes.Add(firstTributePos.y);
+            tributeIcons.Add(new List<GameObject>());
         }
         
-        for (int i = 1; i < tributeSprites.Count; i++)
+        for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
         {
-            for (int j = 0; j < tributeManager.collectedTributes[i]; j++)
+            for (int j = 0; j < tributeManager.maxTributes[i]; j++)
             {
-                currentYDistanceBetweenTributes[i] += yDistanceBetweenTributes;
-                float xPos = xDistanceBetweenTributes * i;
+                currentYDistanceBetweenTributes[i] -= yDistanceBetweenTributes;
+                float xPos = firstTributePos.x + (xDistanceBetweenTributes * i);
                 Vector3 newTributePos = new Vector3(xPos, currentYDistanceBetweenTributes[i], 0);
 
-                GameObject newTributeIcon = GameObject.Instantiate(firstHeart, newTributePos, Quaternion.identity);
+                GameObject newTributeIcon = GameObject.Instantiate(tributeIconExample, newTributePos, Quaternion.identity);
+                newTributeIcon.GetComponent<Image>().sprite = tributeSprites[i];
                 newTributeIcon.transform.parent = this.transform;
-                tributeIcons[i, j] = newTributeIcon;
+                List<GameObject> currentTributeIconsList = tributeIcons[i];
+                currentTributeIconsList.Add(newTributeIcon);
             }
         }
     }
@@ -65,6 +69,7 @@ public class IngameUI : MonoBehaviour
     void Update()
     {
         UpdateHearts();
+        UpdateTributeIcons();
     }
 
     private void SpawnHearts(int heartAmount)
@@ -87,7 +92,7 @@ public class IngameUI : MonoBehaviour
             if (heartNumber > healthScript._currentHealth)
             {
                 Color newColor = thisHeartSprite.color;
-                newColor.a = emptyHeartAlpha;
+                newColor.a = emptyAlpha;
                 thisHeartSprite.color = newColor;
             }
             else
@@ -99,13 +104,30 @@ public class IngameUI : MonoBehaviour
         }
     }
 
-    public void AddTributeToUI(int tributeIndex)
-    {
-        currentYDistanceBetweenTributes[tributeIndex] += yDistanceBetweenTributes;
-        float xPos = xDistanceBetweenTributes * tributeIndex;
 
-        Vector2 tributeIconPosition = new Vector2(xPos, currentYDistanceBetweenTributes[tributeIndex]);
-        GameObject newTributeIcon = GameObject.Instantiate(firstHeart, tributeIconPosition, Quaternion.identity);
-        newTributeIcon.transform.parent = this.transform;
+
+    public void UpdateTributeIcons()
+    {
+        for (int i = 0; i < tributeIcons.Count; i++) 
+        {
+            List<GameObject> currentTributeIconsList = tributeIcons[i];
+            for (int j = 0; j < currentTributeIconsList.Count; j++)
+            {
+                GameObject currentIcon = currentTributeIconsList[j];
+                //Check if the tribute has been collected
+                if (j >= tributeManager.collectedTributes[i])
+                {
+                    Color newColor = currentIcon.GetComponent<Image>().color;
+                    newColor.a = emptyAlpha;
+                    currentIcon.GetComponent<Image>().color = newColor;
+                }
+                else
+                {
+                    Color newColor = currentIcon.GetComponent<Image>().color;
+                    newColor.a = 255;
+                    currentIcon.GetComponent<Image>().color = newColor;
+                }
+            }
+        }
     }
 }
