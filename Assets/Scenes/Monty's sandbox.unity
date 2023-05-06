@@ -3289,14 +3289,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 380632133}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: xDistanceBetweenTributes
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: yDistanceBetweenTributes
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
 --- !u!1001 &2634965966101402840
