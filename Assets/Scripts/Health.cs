@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
     private void OnEnable()
     {
         _playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
-        _originalColor = _playerRenderer.material.color;
+        _originalColor = _playerRenderer.material.GetColor("_BaseColor");
         _respawnManager = FindObjectOfType<RespawnManager>();
     }
 
@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
     {
         _timeInvulnerable = duration;
         _canTakeDamage = false;
-        _playerRenderer.material.color = Color.red;
+        _playerRenderer.material.SetColor("_BaseColor", Color.red);
     }
 
     private void Update()
@@ -86,7 +86,7 @@ public class Health : MonoBehaviour
             {
                 _timer = 0f;
                 _canTakeDamage = true;
-                _playerRenderer.material.color = _originalColor;
+                _playerRenderer.material.SetColor("_BaseColor", _originalColor);
             }
         }
     }

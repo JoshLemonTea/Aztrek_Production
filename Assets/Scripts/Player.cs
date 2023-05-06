@@ -80,6 +80,24 @@ public class Player : MonoBehaviour
 
     public bool IsGrappling { get; set; }
 
+    [SerializeField]
+    private float _hoverMoveSpeed = 15f;
+    public float HoverMoveSpeed { get => _hoverMoveSpeed; set => _hoverMoveSpeed = value; }
+
+    [SerializeField]
+    private float _hoverModeAcceleration = 50;
+    public float HoverModeAcceleration { get => _hoverModeAcceleration; set => _hoverModeAcceleration = value; }
+
+    [SerializeField]
+    private float _hoverModeDeceleration = 20;
+    public float HoverModeDeceleration { get => HoverModeDeceleration; set => _hoverModeDeceleration = value; }
+
+    [SerializeField]
+    private float _hoverGravityValue = Physics.gravity.y / 10f;
+    public float HoverGravityValue { get => _hoverGravityValue; set => _hoverGravityValue = value; }
+
+    public bool IsHovering { get; set; }
+
     private void Update()
     {
         if (IsGrounded)

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class QuetzalcoatlState : PlayerState
@@ -6,58 +7,33 @@ public class QuetzalcoatlState : PlayerState
     {
     }
 
-    private bool _isHovering;
-
-    private float _hoverGravityValue = Physics.gravity.y / 10f;
-
-    private float _hoverMoveSpeed = 20f;
-
-    private float _hoverModeAcceleration = 50f;
-
-    private float _hoverModeDeceleration = 25f;
-
-    private bool _previousFramePressF;
-    private bool _currentFramePressF;
-
-    private bool FPressed
-    {
-        get
-        {
-            _previousFramePressF = _currentFramePressF;
-            _currentFramePressF = InputManager.HasPressedF;
-
-            if (_previousFramePressF == false && _currentFramePressF == true)
-                return true;
-            else
-                return false;
-        }
-    }
-
     public override void OnEnter()
     {
         Debug.Log("Entered Quetzalcoatl State");
         State = GodState.Quetzalcoatl;
         base.OnEnter();
+
+        InputManager.Controls.Player.F.performed += OnPressedF;
+    }
+
+    private void OnPressedF(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        Player.IsHovering = !Player.IsHovering;
+
+        Player.MoveSpeed = Player.HoverMoveSpeed;
+        Player.Acceleration = Player.HoverModeAcceleration;
+        Player.Deceleration = Player.HoverModeDeceleration;
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
-      
-        if (FPressed)
-        {
-            _isHovering = !_isHovering;
 
-            Player.MoveSpeed = _hoverMoveSpeed;
-            Player.Acceleration = _hoverModeAcceleration;
-            Player.Deceleration = _hoverModeDeceleration;
-        }
-
-        if (_isHovering)
+        if (Player.IsHovering)
         {
             if (InputManager.HasPressedSpace && !Player.IsGoingUp)
             {
-                Player.GravityValue = _hoverGravityValue;
+                Player.GravityValue = Player.HoverGravityValue;
             }
             else
             {
@@ -72,7 +48,11 @@ public class QuetzalcoatlState : PlayerState
 
     public override void OnExit()
     {
-        _isHovering = false;
+        InputManager.Controls.Player.F.performed -= OnPressedF;
+
+        Player.IsHovering = false;
+        ResetDefaultPlayerValues();
+
         base.OnExit();
     }
 }
