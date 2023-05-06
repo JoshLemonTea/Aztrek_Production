@@ -526,10 +526,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar_Tlaloc
       objectReference: {fileID: 0}
-    - target: {fileID: 4818707320406051021, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
-      propertyPath: _god
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
 --- !u!1001 &176768622

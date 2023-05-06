@@ -48,7 +48,10 @@ public class Altar : MonoBehaviour
                 _playerStateMachine.GoTo(_playerStateMachine.HuiztilopochtliState);
             }
 
-            _UI.gameObject.SetActive(false);
+            _UI.enabled = false;
+
+            _UI.TMPUGUI.text = "";
+
         }
     }
 
@@ -56,7 +59,7 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _UI.gameObject.SetActive(true);
+            _UI.enabled = true;
 
             _UI.TMPUGUI.text = "Press TAB to change into " + _god;
 
@@ -68,7 +71,9 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _UI.gameObject.SetActive(false);
+            _UI.enabled = false;
+
+            _UI.TMPUGUI.text = "";
 
             _isWithinRange = false;
         }

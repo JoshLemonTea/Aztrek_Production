@@ -22,7 +22,8 @@ public class UILookAtCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        _targetRotation = _camera.eulerAngles;
+        Vector3 forward = -(_camera.position - transform.position).normalized;
+        _targetRotation = Quaternion.LookRotation(forward).eulerAngles;
         _targetRotation.y = _target.rotation.eulerAngles.y;
 
         transform.rotation = Quaternion.Euler(_targetRotation);
