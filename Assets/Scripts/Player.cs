@@ -56,7 +56,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float coyoteTime;
     private float coyoteTimer;
 
-    [SerializeField] private AudioSource _jumpSound;
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _jumpSound;
 
     [SerializeField] private Transform _cameraTarget;
 
@@ -117,6 +119,8 @@ public class Player : MonoBehaviour
 
         LineRenderer = GetComponent<LineRenderer>();
         LineRenderer.enabled = false;
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void Move(Vector3 moveInput)
@@ -188,7 +192,7 @@ public class Player : MonoBehaviour
 
         if (CanJump)
         {
-            _jumpSound.Play();
+            _audioSource.PlayOneShot(_jumpSound, 0.7f);
 
             _movement.y = JumpForce;
             _currentAddedJumpForce = -GravityValue * _addedJumpForce;
