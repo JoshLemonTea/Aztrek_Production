@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
 
         if (CanJump)
         {
-            _audioSource.PlayOneShot(_jumpSound, 0.7f);
+            _audioSource.PlayOneShot(_jumpSound, 0.5f);
 
             _movement.y = JumpForce;
             _currentAddedJumpForce = -GravityValue * _addedJumpForce;
