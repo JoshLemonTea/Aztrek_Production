@@ -65,6 +65,7 @@ public class FireTrap : MonoBehaviour
                 _isActive = true;
                 _fireGFX.SetActive(true);
                 _collider.enabled = true;
+                _audioSource.Play();
             }
         }
     }
