@@ -29,11 +29,15 @@ public class FireTrap : MonoBehaviour
 
     private Color _originalColor;
 
+    private AudioSource _audioSource;
+
     private void OnEnable()
     {
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
         _originalColor = _renderer.material.color;
         _collider = GetComponent<BoxCollider>();
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
 
