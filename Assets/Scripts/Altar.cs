@@ -16,12 +16,14 @@ public class Altar : MonoBehaviour
     private InputManager _inputManager;
 
     private bool _isWithinRange;
+    private AudioSource _audioSource;
 
     private void Start()
     {
         _inputManager = FindObjectOfType<InputManager>();
         _UI.enabled = false;
         _inputManager.Controls.Player.Tab.performed += OnPressedTab;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnDisable()
@@ -47,6 +49,8 @@ public class Altar : MonoBehaviour
             {
                 _playerStateMachine.GoTo(_playerStateMachine.HuiztilopochtliState);
             }
+
+            _audioSource.Play();
 
             _UI.enabled = false;
 
