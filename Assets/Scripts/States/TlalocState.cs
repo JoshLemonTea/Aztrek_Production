@@ -14,9 +14,17 @@ public class TlalocState : PlayerState
 
     private int _abilityPressCount;
 
+    private AudioSource _audioSource;
+    private AudioClip _cloudPlaceSound;
+
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
         _cloudGhost = GameObject.Find("CloudGhost");
+
+        _cloud = Resources.Load<GameObject>("Cloud");
+
+        _audioSource = player.GetComponent<AudioSource>();
+        _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
 
         _cloudGhost.SetActive(false);
     }
@@ -26,8 +34,6 @@ public class TlalocState : PlayerState
         Debug.Log("Entered Tlaloc State");
         State = GodState.Tlaloc;
         base.OnEnter();
-
-        _cloud = Resources.Load<GameObject>("Cloud");
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -93,6 +99,8 @@ public class TlalocState : PlayerState
 
     private void PlaceCloud()
     {
+        _audioSource.PlayOneShot(_cloudPlaceSound);
+
         if (_hasCharge)
         {
             Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);

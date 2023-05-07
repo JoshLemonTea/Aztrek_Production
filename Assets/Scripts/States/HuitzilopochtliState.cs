@@ -9,6 +9,8 @@ public class HuitzilopochtliState : PlayerState
 {
     public HuitzilopochtliState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
+        _audioSource = player.GetComponent<AudioSource>();
+        _whipSound = Resources.Load<AudioClip>("Whip");
     }
     private bool _canStartGrapple;
 
@@ -21,6 +23,10 @@ public class HuitzilopochtliState : PlayerState
     private Vector3 _grappleDirection;
 
     private Vector3[] _lineRendererPositions;
+
+    private AudioSource _audioSource;
+
+    private AudioClip _whipSound;
 
     public override void OnEnter()
     {
@@ -38,7 +44,9 @@ public class HuitzilopochtliState : PlayerState
         {
             _grappleDirection = Player.ActiveGrapplePoint.position - Player.transform.position;
 
-            if(Mathf.Abs(_grappleDirection.x) > Mathf.Abs(_grappleDirection.z))
+            _audioSource.PlayOneShot(_whipSound);
+
+            if (Mathf.Abs(_grappleDirection.x) > Mathf.Abs(_grappleDirection.z))
             {
                 _grappleDirection.z = 0f;
             }
