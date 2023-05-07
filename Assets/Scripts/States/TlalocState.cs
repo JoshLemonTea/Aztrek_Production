@@ -17,6 +17,7 @@ public class TlalocState : PlayerState
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
         _cloudGhost = GameObject.Find("CloudGhost");
+
         _cloudGhost.SetActive(false);
     }
 
@@ -39,6 +40,12 @@ public class TlalocState : PlayerState
     public override void OnUpdate()
     {
         base.OnUpdate();
+
+        if (!Player.IsGrounded)
+        {
+            HideCloudGhost();
+            _abilityPressCount = 0;
+        }
     }
 
     public override void OnExit()
