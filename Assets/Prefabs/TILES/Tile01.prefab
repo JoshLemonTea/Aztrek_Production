@@ -172,6 +172,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3907522310404650416}
     m_Modifications:
+    - target: {fileID: -827054248398038937, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
+      propertyPath: m_Size.x
+      value: 2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: -827054248398038937, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
+      propertyPath: m_Size.z
+      value: 2.21
+      objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_Name
       value: Tile Top 1
