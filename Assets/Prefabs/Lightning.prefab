@@ -304,9 +304,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3516364115837589644}
-  - component: {fileID: 3516364115837589642}
   - component: {fileID: 3516364115837589645}
   - component: {fileID: 3516364115837589643}
+  - component: {fileID: 497998679024633918}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Untagged
@@ -331,19 +331,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3516364115837589642
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3516364115837589647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3516364115837589645
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -372,8 +359,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83ee7bb062b77b4f9fdabb37f6a1e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 3516364115837589642}
+  _collider: {fileID: 0}
   _strikeGFX: {fileID: 3516364114517457019}
   _strikeDelay: 1.5
   _damage: 1
   _timeInvulnerableOnHit: 2
+--- !u!136 &497998679024633918
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516364115837589647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 1
+  m_Height: 13.124468
+  m_Direction: 1
+  m_Center: {x: 0, y: 5.562234, z: 0}
