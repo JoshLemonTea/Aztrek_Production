@@ -41,7 +41,6 @@ public class TlalocState : PlayerState
     private void OnPressedF(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         TriggerAbility();
-        Player.CoyoteTime = 0;
     }
 
     public override void OnUpdate()
@@ -53,9 +52,11 @@ public class TlalocState : PlayerState
             HideCloudGhost();
             _abilityPressCount = 0;
         }
-        else
+        else if (Player.CoyoteTime < 0.2f)
         {
-            //Player.CoyoteTime = 0.2f;
+            Player.CoyoteTime += Time.deltaTime / 4;
+            if (Player.CoyoteTime > 0.2f)
+                Player.CoyoteTime = 0.2f;
         }
     }
 
@@ -82,6 +83,7 @@ public class TlalocState : PlayerState
             {
                 HideCloudGhost();
                 PlaceCloud();
+                Player.CoyoteTime = 0;
                 _abilityPressCount = 0;
             }          
         }
