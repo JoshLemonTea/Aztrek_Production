@@ -97,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.212, y: 1.7064002, z: 2.204877}
-  m_Center: {x: 0.0016699433, y: -0.25320026, z: 0.0048769116}
+  m_Size: {x: 2.212, y: 2.198821, z: 2.204877}
+  m_Center: {x: 0.0016699632, y: -0.006989658, z: 0.0048769317}
 --- !u!1001 &5962572494600220660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,7 +158,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Decor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8796844916009010779, guid: e5a6cf8986afb0543949930ead35cbf9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5a6cf8986afb0543949930ead35cbf9, type: 3}
 --- !u!4 &5289841797327813313 stripped
 Transform:
@@ -228,7 +229,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -827054248398038937, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
 --- !u!4 &1829496920769793723 stripped
 Transform:
