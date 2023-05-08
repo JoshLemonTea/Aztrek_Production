@@ -55,7 +55,7 @@ public class TlalocState : PlayerState
         }
         else
         {
-            Player.CoyoteTime = 0.2f;
+            //Player.CoyoteTime = 0.2f;
         }
     }
 
