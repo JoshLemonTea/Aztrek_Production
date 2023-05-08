@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     //Added this for the bouncy platform script
     [HideInInspector] public float lastGroundHeight;
 
-    [SerializeField] private float coyoteTime;
+    [SerializeField] public float CoyoteTime;
     private float coyoteTimer;
 
     private AudioSource _audioSource;
@@ -184,7 +184,7 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        if (coyoteTime == 0)
+        if (CoyoteTime == 0)
         {
             CanJump = IsGrounded;
         }
@@ -257,7 +257,7 @@ public class Player : MonoBehaviour
         if (IsGrounded)
         {
             CanJump = true;
-            coyoteTimer = coyoteTime;
+            coyoteTimer = CoyoteTime;
         }
         else
         {

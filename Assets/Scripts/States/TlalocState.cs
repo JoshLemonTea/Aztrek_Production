@@ -41,6 +41,7 @@ public class TlalocState : PlayerState
     private void OnPressedF(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         TriggerAbility();
+        Player.
     }
 
     public override void OnUpdate()
