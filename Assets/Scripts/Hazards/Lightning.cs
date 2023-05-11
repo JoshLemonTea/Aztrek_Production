@@ -6,7 +6,7 @@ using UnityEngine;
 public class Lightning : MonoBehaviour
 {
     [SerializeField]
-    private SphereCollider _collider;
+    private CapsuleCollider _collider;
 
     [SerializeField]
     private GameObject _strikeGFX;
@@ -33,11 +33,6 @@ public class Lightning : MonoBehaviour
     {
         _gameloop = FindObjectOfType<Gameloop>();
         _playerStateMachine = _gameloop.SetPlayerStateMachine();
-    }
-
-    private void SetPlayerStateMachine(PlayerStateMachine playerSTateMachine)
-    {
-        _playerStateMachine = playerSTateMachine;
     }
 
     private void Update()

@@ -100,6 +100,11 @@ public class Player : MonoBehaviour
 
     public bool IsHovering { get; set; }
 
+    [SerializeField]
+    private float _lavaHeightBoost = 0.5f;
+
+    public float LavaHeightBoost { get => _lavaHeightBoost; private set => _lavaHeightBoost = value; }
+
     private void Update()
     {
         if (IsGrounded)

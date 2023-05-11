@@ -11,6 +11,11 @@ public class GrapplePoint : MonoBehaviour
 
     private Color _originalColor;
 
+    [SerializeField]
+    private bool _isAboveLava;
+
+    public bool IsAboveLava { get => _isAboveLava; private set => _isAboveLava = value; }
+
     private void OnEnable()
     {
         _player = FindObjectOfType<Player>();
