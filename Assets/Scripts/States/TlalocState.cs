@@ -28,10 +28,15 @@ public class TlalocState : PlayerState
 
         _audioSource = player.GetComponent<AudioSource>();
         _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
-        _tlalocCloudUI = GameObject.Find("TlalocCloudUI").GetComponent<Image>();
+        
+        GameObject tlalocCloudUI = GameObject.Find("TlalocCloudUI");
+        if(tlalocCloudUI != null)
+        {
+            _tlalocCloudUI = tlalocCloudUI.GetComponent<Image>();
+            _tlalocCloudUI.enabled = false;
+        }
 
         _cloudGhost.SetActive(false);
-        _tlalocCloudUI.enabled = false;
     }
 
     public override void OnEnter()
@@ -130,6 +135,8 @@ public class TlalocState : PlayerState
     public void AddCharge()
     {
         _hasCharge = true;
-        _tlalocCloudUI.enabled = true;
+
+        if (_tlalocCloudUI != null)
+            _tlalocCloudUI.enabled = true;
     }
 }
