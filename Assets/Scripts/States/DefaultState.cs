@@ -10,6 +10,8 @@ public class DefaultState : PlayerState
 
     public override void OnEnter()
     {
+        ResetDefaultPlayerValues();
+
         base.OnEnter();
         State = GodState.Default;
         Debug.Log("Entered Default State");

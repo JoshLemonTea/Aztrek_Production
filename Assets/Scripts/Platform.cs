@@ -199,7 +199,7 @@ public class Platform : MonoBehaviour
     private void LaunchPlayer(Player player, float lastGroundHeight)
     {
         float launchForce = Mathf.Sqrt(-2f * player.GravityValue * lastGroundHeight);
-        player._movement.y = launchForce;
+        player.Movement.y = launchForce;
         Debug.Log("Launched Player");
     }
 }

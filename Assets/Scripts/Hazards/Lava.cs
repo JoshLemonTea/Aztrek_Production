@@ -16,7 +16,7 @@ public class Lava : MonoBehaviour
         {
             player.GetComponent<Health>().TakeDamage(_damage);
             player.GetComponent<Health>().MakeInvulnerable(_timeInvulnerable);
-            player.Jump();
+            player.JumpMovement();
         }
     }
 }

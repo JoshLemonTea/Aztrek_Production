@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TlalocState : PlayerState
 {
@@ -14,9 +15,27 @@ public class TlalocState : PlayerState
 
     private int _abilityPressCount;
 
+    private AudioSource _audioSource;
+    private AudioClip _cloudPlaceSound;
+
+    private Image _tlalocCloudUI;
+
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
         _cloudGhost = GameObject.Find("CloudGhost");
+
+        _cloud = Resources.Load<GameObject>("Cloud");
+
+        _audioSource = player.GetComponent<AudioSource>();
+        _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
+        
+        GameObject tlalocCloudUI = GameObject.Find("TlalocCloudUI");
+        if(tlalocCloudUI != null)
+        {
+            _tlalocCloudUI = tlalocCloudUI.GetComponent<Image>();
+            _tlalocCloudUI.enabled = false;
+        }
+
         _cloudGhost.SetActive(false);
     }
 
@@ -25,8 +44,6 @@ public class TlalocState : PlayerState
         Debug.Log("Entered Tlaloc State");
         State = GodState.Tlaloc;
         base.OnEnter();
-
-        _cloud = Resources.Load<GameObject>("Cloud");
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -39,6 +56,18 @@ public class TlalocState : PlayerState
     public override void OnUpdate()
     {
         base.OnUpdate();
+
+        if (!Player.IsGrounded)
+        {
+            HideCloudGhost();
+            _abilityPressCount = 0;
+        }
+        else if (Player.CoyoteTime < 0.2f)
+        {
+            Player.CoyoteTime += Time.deltaTime / 4;
+            if (Player.CoyoteTime > 0.2f)
+                Player.CoyoteTime = 0.2f;
+        }
     }
 
     public override void OnExit()
@@ -64,6 +93,7 @@ public class TlalocState : PlayerState
             {
                 HideCloudGhost();
                 PlaceCloud();
+                Player.CoyoteTime = 0;
                 _abilityPressCount = 0;
             }          
         }
@@ -86,10 +116,13 @@ public class TlalocState : PlayerState
 
     private void PlaceCloud()
     {
+        _audioSource.PlayOneShot(_cloudPlaceSound);
+
         if (_hasCharge)
         {
             Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
             _hasCharge = false;
+            _tlalocCloudUI.enabled = false;
         }
         else
         {
@@ -102,5 +135,8 @@ public class TlalocState : PlayerState
     public void AddCharge()
     {
         _hasCharge = true;
+
+        if (_tlalocCloudUI != null)
+            _tlalocCloudUI.enabled = true;
     }
 }

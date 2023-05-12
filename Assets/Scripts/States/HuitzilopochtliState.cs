@@ -9,6 +9,8 @@ public class HuitzilopochtliState : PlayerState
 {
     public HuitzilopochtliState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
+        _audioSource = player.GetComponent<AudioSource>();
+        _whipSound = Resources.Load<AudioClip>("Whip");
     }
     private bool _canStartGrapple;
 
@@ -21,6 +23,12 @@ public class HuitzilopochtliState : PlayerState
     private Vector3 _grappleDirection;
 
     private Vector3[] _lineRendererPositions;
+
+    private AudioSource _audioSource;
+
+    private AudioClip _whipSound;
+
+    private float _lavaHeightBoost;
 
     public override void OnEnter()
     {
@@ -38,7 +46,18 @@ public class HuitzilopochtliState : PlayerState
         {
             _grappleDirection = Player.ActiveGrapplePoint.position - Player.transform.position;
 
-            if(Mathf.Abs(_grappleDirection.x) > Mathf.Abs(_grappleDirection.z))
+            if (Player.ActiveGrapplePoint.GetComponent<GrapplePoint>().IsAboveLava)
+            {
+                _lavaHeightBoost = Player.LavaHeightBoost;
+            }
+            else
+            {
+                _lavaHeightBoost = 0f;
+            }
+
+            _audioSource.PlayOneShot(_whipSound);
+
+            if (Mathf.Abs(_grappleDirection.x) > Mathf.Abs(_grappleDirection.z))
             {
                 _grappleDirection.z = 0f;
             }
@@ -87,8 +106,11 @@ public class HuitzilopochtliState : PlayerState
             DrawWhip();
 
             Vector3 moveInput = _grappleDirection;
-            float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude;
+            float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude + _lavaHeightBoost;
             moveInput.y = heightChange + 0.1f;
+
+
+
             Player.GrappleMove(moveInput * Player.GrappleSpeed * Time.deltaTime);
             Player.transform.forward = moveInput;
 
@@ -103,6 +125,8 @@ public class HuitzilopochtliState : PlayerState
                 Player.IsGrappling = false;
 
                 Player.transform.forward = _grappleDirection;
+
+                _lavaHeightBoost = 0f;
             }     
         }
         else

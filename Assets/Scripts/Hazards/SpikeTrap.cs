@@ -23,7 +23,7 @@ public class SpikeTrap : MonoBehaviour
         {
             if (health.CanTakeDamage)
             {
-                _player.Jump();
+                _player.JumpMovement();
             }
             health.TakeDamage(_damage);
             health.MakeInvulnerable(_timeInvulnerableOnHit);

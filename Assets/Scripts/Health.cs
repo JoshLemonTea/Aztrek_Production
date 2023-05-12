@@ -26,14 +26,16 @@ public class Health : MonoBehaviour
 
     private RespawnManager _respawnManager;
 
+    private AudioSource _audioSource;
     [SerializeField]
-    private AudioSource _hitSound;
+    private AudioClip _hitSound;
 
     private void OnEnable()
     {
         _playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
         _originalColor = _playerRenderer.material.GetColor("_BaseColor");
         _respawnManager = FindObjectOfType<RespawnManager>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void LimitCurrentHealth()
@@ -60,7 +62,7 @@ public class Health : MonoBehaviour
         if (CanTakeDamage)
         {
             _currentHealth -= damage;
-            _hitSound.Play();
+            _audioSource.PlayOneShot(_hitSound);
             LimitCurrentHealth();
         }
     }
