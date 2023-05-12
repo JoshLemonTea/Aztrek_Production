@@ -10,6 +10,11 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField]
     private float _moveSpeed = 10f;
 
+
+    private void OnEnable()
+    {
+        transform.position = _player.position;
+    }
     void LateUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, _player.position, _moveSpeed * Time.deltaTime);

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Altar : MonoBehaviour
 {
@@ -18,12 +19,30 @@ public class Altar : MonoBehaviour
     private bool _isWithinRange;
     private AudioSource _audioSource;
 
+    [SerializeField]
+    private bool _playTutorialVideo;
+
+    [SerializeField]
+    private VideoPlayer _videoPlayer;
+
+    [SerializeField]
+    private GameObject _videoUI;
+
     private void Start()
     {
         _inputManager = FindObjectOfType<InputManager>();
         _UI.enabled = false;
         _inputManager.Controls.Player.Tab.performed += OnPressedTab;
         _audioSource = GetComponent<AudioSource>();
+
+        _videoPlayer.loopPointReached += OnVideoCompleted;
+        _videoUI.SetActive(false);
+    }
+
+    private void OnVideoCompleted(VideoPlayer source)
+    {
+        _videoUI.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void OnDisable()
@@ -56,7 +75,19 @@ public class Altar : MonoBehaviour
 
             _UI.TMPUGUI.text = "";
 
+            if (_playTutorialVideo)
+            {
+                PlayTutorialVideo();
+            }
+
         }
+    }
+
+    private void PlayTutorialVideo()
+    {
+        _videoUI.SetActive(true);
+        _videoPlayer.Play();
+        Time.timeScale = 0;
     }
 
     private void OnTriggerEnter(Collider other)

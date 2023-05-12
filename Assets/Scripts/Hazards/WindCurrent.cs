@@ -12,6 +12,9 @@ public class WindCurrent : MonoBehaviour
     private bool _isActive;
 
     [SerializeField]
+    private bool _startsActive;
+
+    [SerializeField]
     private float _timeActive = 4f;
 
     [SerializeField]
@@ -28,6 +31,11 @@ public class WindCurrent : MonoBehaviour
         _player = FindObjectOfType<Player>();
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
         _originalColor = _renderer.material.color;
+
+        if (_startsActive)
+        {
+            _isActive = true;
+        }
     }
 
 
