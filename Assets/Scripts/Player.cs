@@ -197,7 +197,7 @@ public class Player : MonoBehaviour
 
         if (CanJump)
         {
-            JumpMovement();
+            JumpMovement(true);
         }
         else
         {
@@ -213,9 +213,10 @@ public class Player : MonoBehaviour
         coyoteTimer = 0;
     }
 
-    public void JumpMovement()
+    public void JumpMovement(bool mustPlaysound)
     {
-        _audioSource.PlayOneShot(_jumpSound, 0.5f);
+        if (mustPlaysound)
+            _audioSource.PlayOneShot(_jumpSound, 0.5f);
 
         Movement.y = JumpForce;
         _currentAddedJumpForce = -GravityValue * _addedJumpForce;

@@ -21,9 +21,9 @@ public class SpikeTrap : MonoBehaviour
     {
         if(other.TryGetComponent(out Health health))
         {
-            if (health.CanTakeDamage)
+            if (health.CanTakeDamage && health._currentHealth > 1)
             {
-                _player.JumpMovement();
+                _player.JumpMovement(false);
             }
             health.TakeDamage(_damage);
             health.MakeInvulnerable(_timeInvulnerableOnHit);

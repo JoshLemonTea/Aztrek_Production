@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
         if(_currentHealth <= 0)
         {
             _respawnManager.Respawn();
-            _currentHealth = _maxHealth;
+            _playerRenderer.material.SetColor("_BaseColor", _originalColor);
         }
     }
 
@@ -69,9 +69,19 @@ public class Health : MonoBehaviour
 
     public void MakeInvulnerable(float duration)
     {
-        _timeInvulnerable = duration;
-        CanTakeDamage = false;
-        _playerRenderer.material.SetColor("_BaseColor", Color.red);
+        if (CanTakeDamage)
+        {
+            _timeInvulnerable = duration;
+            CanTakeDamage = false;
+            if (_currentHealth > 0)
+            {
+                _playerRenderer.material.SetColor("_BaseColor", Color.red);
+            }
+            else
+            {
+                _currentHealth = _maxHealth;
+            }
+        }
     }
 
     private void Update()
@@ -84,7 +94,7 @@ public class Health : MonoBehaviour
         if (!CanTakeDamage)
         {
             _timer += Time.deltaTime;
-            if (_timer > _timeInvulnerable)
+            if (_timer >= _timeInvulnerable)
             {
                 _timer = 0f;
                 CanTakeDamage = true;
