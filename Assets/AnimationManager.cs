@@ -12,21 +12,28 @@ public class AnimationManager : MonoBehaviour
     private bool isSwinging;
     private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         Player playerScript = GetComponent<Player>();
 
-        speed = new Vector2(playerScript._movement.x, playerScript._movement.z).magnitude;
-        velocityY = playerScript._movement.y;
+        speed = new Vector2(playerScript.Movement.x, playerScript.Movement.z).magnitude;
+        velocityY = playerScript.Movement.y + 1;
         isGrounded = playerScript.IsGrounded;
         isHovering = playerScript.IsHovering;
         isSwinging = playerScript.IsGrappling;
 
-        if (isGrounded || velocityY < 0)
+        if (isGrounded || velocityY < 1)
         {
             jumped = false;
         }
+
+        SetParams();
     }
 
     public void OnJump()
@@ -41,6 +48,6 @@ public class AnimationManager : MonoBehaviour
         animator.SetBool("Jumped", jumped);
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsHovering", isHovering);
-        animator.SetBool("isSwinging", isSwinging);
+        animator.SetBool("IsSwinging", isSwinging);
     }
 }
