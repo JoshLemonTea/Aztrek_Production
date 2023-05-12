@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83ee7bb062b77b4f9fdabb37f6a1e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 0}
+  _collider: {fileID: 497998679024633918}
   _strikeGFX: {fileID: 3516364114517457019}
   _strikeDelay: 1.5
   _damage: 1
@@ -372,7 +372,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3516364115837589647}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   m_Radius: 1
   m_Height: 13.124468

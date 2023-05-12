@@ -23,9 +23,13 @@ public class Tornado : MonoBehaviour
 
     private int _currentIndex = 0;
 
-    private void OnEnable()
+    private PlayerStateMachine _playerStateMachine;
+
+    private void Start()
     {
         _player = FindObjectOfType<Player>();
+
+        _playerStateMachine = FindObjectOfType<Gameloop>().SetPlayerStateMachine();
 
         foreach(Transform target in _targets)
         {
@@ -49,7 +53,7 @@ public class Tornado : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Health health))
+        if (other.TryGetComponent(out Health health) && _playerStateMachine.CurrentState.State != GodState.Quetzalcoatl)
         {
             health.TakeDamage(_damage);
             health.MakeInvulnerable(_timeInvulnerable);

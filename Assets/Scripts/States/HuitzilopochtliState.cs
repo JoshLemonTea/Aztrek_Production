@@ -28,6 +28,8 @@ public class HuitzilopochtliState : PlayerState
 
     private AudioClip _whipSound;
 
+    private float _lavaHeightBoost;
+
     public override void OnEnter()
     {
         Debug.Log("Entered Huitzilopochtli State");
@@ -43,6 +45,15 @@ public class HuitzilopochtliState : PlayerState
         if (Player.ActiveGrapplePoint != null && !Player.IsGrappling)
         {
             _grappleDirection = Player.ActiveGrapplePoint.position - Player.transform.position;
+
+            if (Player.ActiveGrapplePoint.GetComponent<GrapplePoint>().IsAboveLava)
+            {
+                _lavaHeightBoost = Player.LavaHeightBoost;
+            }
+            else
+            {
+                _lavaHeightBoost = 0f;
+            }
 
             _audioSource.PlayOneShot(_whipSound);
 
@@ -95,8 +106,11 @@ public class HuitzilopochtliState : PlayerState
             DrawWhip();
 
             Vector3 moveInput = _grappleDirection;
-            float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude;
+            float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude + _lavaHeightBoost;
             moveInput.y = heightChange + 0.1f;
+
+
+
             Player.GrappleMove(moveInput * Player.GrappleSpeed * Time.deltaTime);
             Player.transform.forward = moveInput;
 
@@ -111,6 +125,8 @@ public class HuitzilopochtliState : PlayerState
                 Player.IsGrappling = false;
 
                 Player.transform.forward = _grappleDirection;
+
+                _lavaHeightBoost = 0f;
             }     
         }
         else

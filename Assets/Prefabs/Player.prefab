@@ -193,7 +193,7 @@ MonoBehaviour:
   _decceleration: 40
   _airAcceleration: 25
   _airDeceleration: 20
-  _movement: {x: 0, y: 0, z: 0}
+  Movement: {x: 0, y: 0, z: 0}
   lastGroundHeight: 0
   CoyoteTime: 0.2
   _jumpSound: {fileID: 8300000, guid: 8d6fd1172f0e46140813ac85e2c344f6, type: 3}
@@ -205,6 +205,7 @@ MonoBehaviour:
   _hoverModeAcceleration: 50
   _hoverModeDeceleration: 20
   _hoverGravityValue: -1.9620003
+  _lavaHeightBoost: 0.5
 --- !u!114 &1398783325
 MonoBehaviour:
   m_ObjectHideFlags: 0

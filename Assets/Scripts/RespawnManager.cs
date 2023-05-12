@@ -19,7 +19,8 @@ public class RespawnManager : MonoBehaviour
 
     public void Respawn()
     {
-        _player.position = ActiveCheckpoint.position;
+        Vector3 offset = new Vector3(0f, 0f, 0.5f);
+        _player.position = ActiveCheckpoint.position - offset; 
         _cameraTarget.position = ActiveCheckpoint.position;
     }
 }

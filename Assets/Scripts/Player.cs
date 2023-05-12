@@ -42,11 +42,11 @@ public class Player : MonoBehaviour
     public float AirAcceleration { get => _airAcceleration; set => _airAcceleration = value; }
 
     //Changed this for the bouncy platform script
-    [HideInInspector] public Vector3 _movement;
+    [HideInInspector] public Vector3 Movement;
 
     public bool IsGrounded { get { return _characterController.isGrounded; } }
 
-    public bool IsGoingUp { get { return _movement.y > 0f; } }
+    public bool IsGoingUp { get { return Movement.y > 0f; } }
 
     public bool CanJump { get; set; }
 
@@ -100,6 +100,11 @@ public class Player : MonoBehaviour
 
     public bool IsHovering { get; set; }
 
+    [SerializeField]
+    private float _lavaHeightBoost = 0.5f;
+
+    public float LavaHeightBoost { get => _lavaHeightBoost; private set => _lavaHeightBoost = value; }
+
     private void Update()
     {
         if (IsGrounded)
@@ -131,13 +136,13 @@ public class Player : MonoBehaviour
         {
             if(moveInput.magnitude > 0f)
             {
-                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, Acceleration * Time.deltaTime);
-                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, Acceleration * Time.deltaTime);
+                Movement.x = Mathf.MoveTowards(Movement.x, relativeInput.x * MoveSpeed, Acceleration * Time.deltaTime);
+                Movement.z = Mathf.MoveTowards(Movement.z, relativeInput.y * MoveSpeed, Acceleration * Time.deltaTime);
             }
             else
             {
-                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, Deceleration * Time.deltaTime);
-                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, Deceleration * Time.deltaTime);
+                Movement.x = Mathf.MoveTowards(Movement.x, relativeInput.x * MoveSpeed, Deceleration * Time.deltaTime);
+                Movement.z = Mathf.MoveTowards(Movement.z, relativeInput.y * MoveSpeed, Deceleration * Time.deltaTime);
             }
         }
         else
@@ -146,17 +151,17 @@ public class Player : MonoBehaviour
             {
 
 
-                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, AirAcceleration * Time.deltaTime);
-                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, AirAcceleration * Time.deltaTime);
+                Movement.x = Mathf.MoveTowards(Movement.x, relativeInput.x * MoveSpeed, AirAcceleration * Time.deltaTime);
+                Movement.z = Mathf.MoveTowards(Movement.z, relativeInput.y * MoveSpeed, AirAcceleration * Time.deltaTime);
             }
             else
             {
-                _movement.x = Mathf.MoveTowards(_movement.x, relativeInput.x * MoveSpeed, AirDeceleration * Time.deltaTime);
-                _movement.z = Mathf.MoveTowards(_movement.z, relativeInput.y * MoveSpeed, AirDeceleration * Time.deltaTime);
+                Movement.x = Mathf.MoveTowards(Movement.x, relativeInput.x * MoveSpeed, AirDeceleration * Time.deltaTime);
+                Movement.z = Mathf.MoveTowards(Movement.z, relativeInput.y * MoveSpeed, AirDeceleration * Time.deltaTime);
             }
         }
 
-        _characterController.Move(_movement * Time.deltaTime);
+        _characterController.Move(Movement * Time.deltaTime);
     }
 
     public void GrappleMove(Vector3 movement)
@@ -173,12 +178,12 @@ public class Player : MonoBehaviour
     {
         if (!IsGrounded)
         {
-            _movement.y += GravityValue * Time.deltaTime;
+            Movement.y += GravityValue * Time.deltaTime;
         }
         else
         {
             float defaultDownwardForce = -1f;
-            _movement.y = defaultDownwardForce;
+            Movement.y = defaultDownwardForce;
         }
     }
 
@@ -192,17 +197,14 @@ public class Player : MonoBehaviour
 
         if (CanJump)
         {
-            _audioSource.PlayOneShot(_jumpSound, 0.5f);
-
-            _movement.y = JumpForce;
-            _currentAddedJumpForce = -GravityValue * _addedJumpForce;
+            JumpMovement();
         }
         else
         {
-            if (_movement.y > 0.2f)
+            if (Movement.y > 0.2f)
             {
                 _currentAddedJumpForce -= Time.deltaTime * _addedJumpFalloff;
-                _movement.y += _currentAddedJumpForce * Time.deltaTime;
+                Movement.y += _currentAddedJumpForce * Time.deltaTime;
                 Debug.Log(_currentAddedJumpForce);
             }
         }
@@ -211,20 +213,28 @@ public class Player : MonoBehaviour
         coyoteTimer = 0;
     }
 
+    public void JumpMovement()
+    {
+        _audioSource.PlayOneShot(_jumpSound, 0.5f);
+
+        Movement.y = JumpForce;
+        _currentAddedJumpForce = -GravityValue * _addedJumpForce;
+    }
+
     public void FaceForward(Vector2 moveInput)
     {
         if(moveInput != Vector2.zero)
-        transform.forward = new Vector3(_movement.x, 0f, _movement.z);
+        transform.forward = new Vector3(Movement.x, 0f, Movement.z);
     }
     
     public void AddMovement(Vector3 movement)
     {
-        _movement += movement;
+        Movement += movement;
     }
 
     public void AdjustYMovement(float yMovement)
     {
-        _movement.y = yMovement;
+        Movement.y = yMovement;
     }
 
     //Function that calculates the movement input relative to the active camera
