@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TlalocState : PlayerState
 {
@@ -17,6 +18,8 @@ public class TlalocState : PlayerState
     private AudioSource _audioSource;
     private AudioClip _cloudPlaceSound;
 
+    private Image _tlalocCloudUI;
+
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
         _cloudGhost = GameObject.Find("CloudGhost");
@@ -25,8 +28,10 @@ public class TlalocState : PlayerState
 
         _audioSource = player.GetComponent<AudioSource>();
         _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
+        _tlalocCloudUI = GameObject.Find("TlalocCloudUI").GetComponent<Image>();
 
         _cloudGhost.SetActive(false);
+        _tlalocCloudUI.enabled = false;
     }
 
     public override void OnEnter()
@@ -112,6 +117,7 @@ public class TlalocState : PlayerState
         {
             Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
             _hasCharge = false;
+            _tlalocCloudUI.enabled = false;
         }
         else
         {
@@ -124,5 +130,6 @@ public class TlalocState : PlayerState
     public void AddCharge()
     {
         _hasCharge = true;
+        _tlalocCloudUI.enabled = true;
     }
 }
