@@ -32,8 +32,8 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
-        _originalColor = _playerRenderer.material.GetColor("_BaseColor");
+        //_playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
+        //_originalColor = _playerRenderer.material.GetColor("_BaseColor");
         _respawnManager = FindObjectOfType<RespawnManager>();
         _audioSource = GetComponent<AudioSource>();
     }
@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
         if(_currentHealth <= 0)
         {
             _respawnManager.Respawn();
-            _playerRenderer.material.SetColor("_BaseColor", _originalColor);
+            //_playerRenderer.material.SetColor("_BaseColor", _originalColor);
         }
     }
 
@@ -62,7 +62,7 @@ public class Health : MonoBehaviour
         if (CanTakeDamage)
         {
             _currentHealth -= damage;
-            _audioSource.PlayOneShot(_hitSound);
+            //_audioSource.PlayOneShot(_hitSound);
             LimitCurrentHealth();
         }
     }
@@ -98,7 +98,7 @@ public class Health : MonoBehaviour
             {
                 _timer = 0f;
                 CanTakeDamage = true;
-                _playerRenderer.material.SetColor("_BaseColor", _originalColor);
+                //_playerRenderer.material.SetColor("_BaseColor", _originalColor);
             }
         }
     }

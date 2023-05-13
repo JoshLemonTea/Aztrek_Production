@@ -589,7 +589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREDITS
+  m_text: CREDITOS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5edb1dff0c461e24783f5e98ebc167e1, type: 2}
   m_sharedMaterial: {fileID: 6120062803385261212, guid: 5edb1dff0c461e24783f5e98ebc167e1, type: 2}
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: INICIO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5edb1dff0c461e24783f5e98ebc167e1, type: 2}
   m_sharedMaterial: {fileID: 6120062803385261212, guid: 5edb1dff0c461e24783f5e98ebc167e1, type: 2}
@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: SALIR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5edb1dff0c461e24783f5e98ebc167e1, type: 2}
   m_sharedMaterial: {fileID: 6120062803385261212, guid: 5edb1dff0c461e24783f5e98ebc167e1, type: 2}
