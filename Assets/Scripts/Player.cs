@@ -212,7 +212,7 @@ public class Player : MonoBehaviour
         //Immediately disable Coyote Time
         coyoteTimer = 0;
 
-        GetComponent<AnimationManager>().OnJump();
+        GetComponentInChildren<AnimationManager>().OnJump();
     }
 
     public void JumpMovement(bool mustPlaysound)
