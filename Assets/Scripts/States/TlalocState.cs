@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TlalocState : PlayerState
 {
+    private GameObject _tlalocGodUI;
     private GameObject _cloudGhost;
 
     private GameObject _cloud;
@@ -22,6 +23,8 @@ public class TlalocState : PlayerState
 
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
+        _tlalocGodUI = GameObject.Find("TlalocGodUI");
+        _tlalocGodUI.SetActive(false);
         _cloudGhost = GameObject.Find("CloudGhost");
 
         _cloud = Resources.Load<GameObject>("Cloud");
@@ -44,6 +47,8 @@ public class TlalocState : PlayerState
         Debug.Log("Entered Tlaloc State");
         State = GodState.Tlaloc;
         base.OnEnter();
+
+        _tlalocGodUI.SetActive(true);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -73,6 +78,8 @@ public class TlalocState : PlayerState
     public override void OnExit()
     {
         InputManager.Controls.Player.F.performed -= OnPressedF;
+
+        _tlalocGodUI.SetActive(false);
 
         base.OnExit();
 

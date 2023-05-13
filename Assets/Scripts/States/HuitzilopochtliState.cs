@@ -11,6 +11,8 @@ public class HuitzilopochtliState : PlayerState
     {
         _audioSource = player.GetComponent<AudioSource>();
         _whipSound = Resources.Load<AudioClip>("Whip");
+        _huitziGodUI = GameObject.Find("HuitziGodUI");
+        _huitziGodUI.SetActive(false);
     }
     private bool _canStartGrapple;
 
@@ -28,6 +30,8 @@ public class HuitzilopochtliState : PlayerState
 
     private AudioClip _whipSound;
 
+    private GameObject _huitziGodUI;
+
     private float _lavaHeightBoost;
 
     public override void OnEnter()
@@ -36,6 +40,8 @@ public class HuitzilopochtliState : PlayerState
 
         State = GodState.Huitzilopochtli;
         base.OnEnter();
+
+        _huitziGodUI.SetActive(true);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -147,6 +153,8 @@ public class HuitzilopochtliState : PlayerState
 
     public override void OnExit()
     {
+        _huitziGodUI.SetActive(false);
+
         base.OnExit();
 
         InputManager.Controls.Player.F.performed -= OnPressedF;

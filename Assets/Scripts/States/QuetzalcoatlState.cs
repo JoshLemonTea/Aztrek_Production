@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class QuetzalcoatlState : PlayerState
 {
+    private GameObject _quetzalGodUI;
+
     public QuetzalcoatlState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
+        _quetzalGodUI = GameObject.Find("QuetzalGodUI");
+        _quetzalGodUI.SetActive(false);
     }
 
     public override void OnEnter()
@@ -12,6 +16,8 @@ public class QuetzalcoatlState : PlayerState
         Debug.Log("Entered Quetzalcoatl State");
         State = GodState.Quetzalcoatl;
         base.OnEnter();
+
+        _quetzalGodUI.SetActive(true);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -52,6 +58,8 @@ public class QuetzalcoatlState : PlayerState
 
         Player.IsHovering = false;
         ResetDefaultPlayerValues();
+
+        _quetzalGodUI.SetActive(false);
 
         base.OnExit();
     }
