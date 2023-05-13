@@ -11,6 +11,7 @@ public class AnimationManager : MonoBehaviour
     private bool isHovering;
     private bool isSwinging;
     private Animator animator;
+    [SerializeField] private Player playerScript;
 
     private void Start()
     {
@@ -20,8 +21,6 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Player playerScript = GetComponent<Player>();
-
         speed = new Vector2(playerScript.Movement.x, playerScript.Movement.z).magnitude;
         velocityY = playerScript.Movement.y + 1;
         isGrounded = playerScript.IsGrounded;
