@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
-    [SerializeField] private string startScene;
+    public string transitionID;
+    public float loadDelay;
+    public EasyTransition.TransitionManager transitionManager;
+
+    //[SerializeField] private string startScene;
 
     public void OnStart()
     {
-        SceneManager.LoadScene(startScene);
+        //SceneManager.LoadScene("LevelDesign");
+        transitionManager.LoadScene("LevelDesign", transitionID, loadDelay);
     }
 
     public void OnCredits()

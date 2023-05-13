@@ -617,6 +617,17 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &657887558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8563850711039052526, guid: b76eac688d8be2e4d90ea8b25f4005f7, type: 3}
+  m_PrefabInstance: {fileID: 2112356045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61430b0086307cc4da3ccc8d39ae88da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704001527
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4500e0b2f5c52b04fa7bb69872039e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: LevelDesign
+  transitionID: Noise
+  loadDelay: 0
+  transitionManager: {fileID: 657887558}
 --- !u!4 &821037229
 Transform:
   m_ObjectHideFlags: 0
