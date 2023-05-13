@@ -198,7 +198,7 @@ MonoBehaviour:
   Movement: {x: 0, y: 0, z: 0}
   lastGroundHeight: 0
   CoyoteTime: 0.2
-  _jumpSound: {fileID: 8300000, guid: 8d6fd1172f0e46140813ac85e2c344f6, type: 3}
+  _jumpSound: {fileID: 8300000, guid: 3bdbd0c057900b244a98c53d00eb1c6b, type: 3}
   _cameraTarget: {fileID: 0}
   _grappleDuration: 1.2
   _grappleAmplitude: 0.3
@@ -251,8 +251,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.5
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
