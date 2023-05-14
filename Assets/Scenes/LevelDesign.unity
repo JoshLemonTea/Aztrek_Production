@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -14903,7 +14903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 534990854492479928, guid: 2407c7e603b20e14089eb35145061013, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59000015
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 534990854492479928, guid: 2407c7e603b20e14089eb35145061013, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14911,7 +14911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 534990854492479928, guid: 2407c7e603b20e14089eb35145061013, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.8599987
+      value: 6.86
       objectReference: {fileID: 0}
     - target: {fileID: 534990854492479928, guid: 2407c7e603b20e14089eb35145061013, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14945,6 +14945,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeTrap (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2314885257590900760, guid: 2407c7e603b20e14089eb35145061013, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7159cf1825c434e4189da0d3688d1897, type: 2}
+    - target: {fileID: 2314885257590900760, guid: 2407c7e603b20e14089eb35145061013, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9604d33ac8f0b9346b7155c0f7f4f1e4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2407c7e603b20e14089eb35145061013, type: 3}
 --- !u!4 &640842459 stripped
@@ -43536,7 +43544,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
