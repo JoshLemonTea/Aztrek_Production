@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8311400494784457210}
   - component: {fileID: 8237203113465489353}
   - component: {fileID: 6744761927805116723}
+  - component: {fileID: 5728470412377177690}
   m_Layer: 0
   m_Name: CameraTarget
   m_TagString: Untagged
@@ -137,6 +138,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c02bb1e1-74c5-4e65-b5a4-91d343e363c3
     m_ActionName: Player/Tab[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bae12d09-1ac8-4dea-85a2-14428ea4a727
+    m_ActionName: Menu/Open and Close menu[/Keyboard/escape,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -189,6 +194,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 0.2
+--- !u!114 &5728470412377177690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016563640072254911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0d166e73a07564bb4bdd740c92c7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothing: 0
+  blockingRadius: 0
 --- !u!1 &1016563641539830229
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +218,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1016563641539830224}
   - component: {fileID: 1016563641539830231}
-  - component: {fileID: 1016563641539830230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -265,11 +283,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1016563641539830230
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016563641539830229}
-  m_Enabled: 1
