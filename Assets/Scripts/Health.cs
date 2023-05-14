@@ -15,20 +15,19 @@ public class Health : MonoBehaviour
 
     public bool CanTakeDamage { get; private set; }
 
-    [SerializeField]
-    public int _maxHealth = 3;
+    [SerializeField] public int _maxHealth = 3;
 
-    [SerializeField]
-    private IngameUI ingameUI;
+    [SerializeField] private IngameUI ingameUI;
 
-    [HideInInspector]
-    public int _currentHealth = 3;
+    [HideInInspector] public int _currentHealth = 3;
 
     private RespawnManager _respawnManager;
 
     private AudioSource _audioSource;
-    [SerializeField]
-    private AudioClip _hitSound;
+    [SerializeField] private AudioClip _hitSound;
+
+    // screenshake
+    [SerializeField] private ScreenShake shake;
 
     private void OnEnable()
     {
@@ -40,11 +39,11 @@ public class Health : MonoBehaviour
 
     private void LimitCurrentHealth()
     {
-        if(_currentHealth > _maxHealth)
+        if (_currentHealth > _maxHealth)
         {
             _currentHealth = _maxHealth;
         }
-        if(_currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             _respawnManager.Respawn();
             //_playerRenderer.material.SetColor("_BaseColor", _originalColor);
@@ -64,6 +63,7 @@ public class Health : MonoBehaviour
             _currentHealth -= damage;
             //_audioSource.PlayOneShot(_hitSound);
             LimitCurrentHealth();
+            shake.ShakeScreen();
         }
     }
 
