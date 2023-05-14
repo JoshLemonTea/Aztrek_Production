@@ -65,6 +65,7 @@ MonoBehaviour:
   _startsActive: 0
   _timeActive: 3
   _timeDisabled: 3
+  _windVFX: {fileID: 441746041437388291}
 --- !u!54 &1253982060062479120
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,6 +181,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -224,5 +237,10 @@ PrefabInstance:
 --- !u!4 &441746041437388290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+  m_PrefabInstance: {fileID: 3849380657442976571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &441746041437388291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3696007233179127096, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
   m_PrefabInstance: {fileID: 3849380657442976571}
   m_PrefabAsset: {fileID: 0}
