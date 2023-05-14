@@ -26,6 +26,9 @@ public class WindCurrent : MonoBehaviour
 
     private Color _originalColor;
 
+    [SerializeField]
+    private GameObject _windVFX;
+
     private void OnEnable()
     {
         _player = FindObjectOfType<Player>();
@@ -49,6 +52,7 @@ public class WindCurrent : MonoBehaviour
                 _renderer.material.color = Color.green;
                 _timer = 0f;
                 _isActive = false;
+                _windVFX.gameObject.SetActive(false);
             }
         }
         else
@@ -59,6 +63,7 @@ public class WindCurrent : MonoBehaviour
                 _renderer.material.color = _originalColor;
                 _timer = 0f;
                 _isActive = true;
+                _windVFX.gameObject.SetActive(true);
             }
         }
     }
