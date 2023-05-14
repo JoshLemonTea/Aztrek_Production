@@ -49,7 +49,7 @@ public class MoveCameraWhenBlocked : MonoBehaviour
                 targetCameraPos = normalCameraPos + (directionTowardsPlayer * safeDistance);
                 newHits.Clear();
                 newHits.AddRange(Physics.OverlapSphere(targetCameraPos, blockingRadius));
-                //newHits = clearList(newHits);
+                newHits = clearList(newHits);
             }
             Debug.Log(safeDistance);
         }
