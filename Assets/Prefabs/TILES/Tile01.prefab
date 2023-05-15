@@ -44,7 +44,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_Name
-      value: Tile Bot 1
+      value: Tile Bottom rotate
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -115,7 +115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_Name
-      value: Tile Bot 1 (1)
+      value: Tile Bottom 1
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_StaticEditorFlags

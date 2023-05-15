@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8569049185289328770
 Transform:
@@ -110,6 +110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 5846710458952921695, guid: 900e6f9432fab1f4e86d7e9e63e57f0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8203353526558691702, guid: 900e6f9432fab1f4e86d7e9e63e57f0c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -171,6 +175,10 @@ PrefabInstance:
     - target: {fileID: 1991170482874974529, guid: f928cfed68cd2fa41a97871b63b7d54c, type: 3}
       propertyPath: m_Name
       value: Tile Top 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991170482874974529, guid: f928cfed68cd2fa41a97871b63b7d54c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7060381642040426190, guid: f928cfed68cd2fa41a97871b63b7d54c, type: 3}
       propertyPath: m_RootOrder
