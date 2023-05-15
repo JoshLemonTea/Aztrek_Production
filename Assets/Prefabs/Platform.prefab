@@ -123,7 +123,7 @@ MonoBehaviour:
   isTrap: 1
   spikeDamageAmount: 1
   invulnerableTime: 1
-  spikes: {fileID: 534990854492479929, guid: 2407c7e603b20e14089eb35145061013, type: 3}
+  spikes: {fileID: 4196351611168280354}
   isReactionTrap: 0
   trapSetOffTime: 2
   trapDamageTime: 0.5
@@ -227,6 +227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2407c7e603b20e14089eb35145061013, type: 3}
+--- !u!1 &4196351611168280354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 534990854492479929, guid: 2407c7e603b20e14089eb35145061013, type: 3}
+  m_PrefabInstance: {fileID: 4418247664836652699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4196351611168280355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 534990854492479928, guid: 2407c7e603b20e14089eb35145061013, type: 3}
