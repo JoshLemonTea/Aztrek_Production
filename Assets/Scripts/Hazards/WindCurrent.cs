@@ -33,7 +33,7 @@ public class WindCurrent : MonoBehaviour
     {
         _player = FindObjectOfType<Player>();
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
-        _originalColor = _renderer.material.color;
+        //_originalColor = _renderer.material.color;
 
         if (_startsActive)
         {
