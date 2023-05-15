@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3907522310404650416}
   - component: {fileID: 3149242553499254772}
   - component: {fileID: 4840709871523979}
-  - component: {fileID: 6093491989863355560}
+  - component: {fileID: 1439068006350975250}
+  - component: {fileID: 3339178708547086614}
   m_Layer: 0
   m_Name: Tile Bot 1
   m_TagString: Untagged
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092910722396494324}
-  m_Mesh: {fileID: 7853296732758158492, guid: 65ee16ee7413b524cbebe2fb52bfbd1c, type: 3}
+  m_Mesh: {fileID: 5471225641704852259, guid: 2c2eafe5a9ef81140ae5b4a34a8ff60c, type: 3}
 --- !u!23 &4840709871523979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -84,7 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6093491989863355560
+--- !u!114 &1439068006350975250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092910722396494324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dd8841f9a34734185defa612939bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3339178708547086614
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,5 +108,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.095996, y: 1.7064002, z: 2.0520751}
-  m_Center: {x: 0.023730576, y: -0.2532003, z: 0.0033141375}
+  m_Size: {x: 2.3, y: 6.489892, z: 2.3}
+  m_Center: {x: 0.008427858, y: -2.542181, z: 0.0104801655}
