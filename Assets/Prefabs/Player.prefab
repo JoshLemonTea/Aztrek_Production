@@ -272,7 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e5e063721d61b46b67972511907293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tributeNames: []
+  tributeNames:
+  - Seashell
+  - Feather
+  - Amber
   collectedTributes: 
   maxTributes: 
 --- !u!82 &8806002476363975801
