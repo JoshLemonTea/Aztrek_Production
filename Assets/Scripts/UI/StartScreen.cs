@@ -14,7 +14,7 @@ public class StartScreen : MonoBehaviour
     public void OnStart()
     {
         //SceneManager.LoadScene("LevelDesign");
-        transitionManager.LoadScene("LevelDesign", transitionID, loadDelay);
+        transitionManager.LoadScene("Tutorial", transitionID, loadDelay);
     }
 
     public void OnCredits()

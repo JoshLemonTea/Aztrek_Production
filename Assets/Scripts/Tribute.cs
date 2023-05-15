@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.EditorTools;
 
 public class Tribute : MonoBehaviour
 {
