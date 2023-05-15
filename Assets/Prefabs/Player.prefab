@@ -198,7 +198,7 @@ MonoBehaviour:
   Movement: {x: 0, y: 0, z: 0}
   lastGroundHeight: 0
   CoyoteTime: 0.2
-  _jumpSound: {fileID: 8300000, guid: 3bdbd0c057900b244a98c53d00eb1c6b, type: 3}
+  _jumpSound: {fileID: 8300000, guid: 443fc8c2e405d5e4189fccd46956ffaf, type: 3}
   _cameraTarget: {fileID: 0}
   _grappleDuration: 1.2
   _grappleAmplitude: 0.3

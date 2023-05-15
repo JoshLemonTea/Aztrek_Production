@@ -218,7 +218,7 @@ public class Player : MonoBehaviour
     public void JumpMovement(bool mustPlaysound)
     {
         if (mustPlaysound)
-            _audioSource.PlayOneShot(_jumpSound, 0.5f);
+            _audioSource.PlayOneShot(_jumpSound, 0.75f);
 
         Movement.y = JumpForce;
         _currentAddedJumpForce = -GravityValue * _addedJumpForce;

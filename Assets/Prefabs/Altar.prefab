@@ -416,6 +416,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _god: 1
   _UI: {fileID: 1446909541}
+  _playTutorialVideo: 0
+  _videoPlayer: {fileID: 0}
+  _videoUI: {fileID: 0}
 --- !u!82 &4423058883340718849
 AudioSource:
   m_ObjectHideFlags: 0
@@ -426,7 +429,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5cce5078df0e829488baef6af74fbe3f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b6d55b83902ac994cbdce1b6fd918239, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
