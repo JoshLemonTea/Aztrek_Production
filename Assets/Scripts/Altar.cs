@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.Video;
 
 public class Altar : MonoBehaviour
@@ -96,8 +97,9 @@ public class Altar : MonoBehaviour
         {
             _UI.enabled = true;
 
-            _UI.TMPUGUI.text = "Press TAB to change into " + _god;
-
+            //_UI.TMPUGUI.text = "Press TAB to change into " + _god;
+            _UI.TMPUGUI.text = "Presiona TAB para interactuar con " + _god + ".";
+            
             _isWithinRange = true;
         }
     }
