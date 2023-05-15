@@ -75,7 +75,7 @@ public class Health : MonoBehaviour
             CanTakeDamage = false;
             if (_currentHealth > 0)
             {
-                _playerRenderer.material.SetColor("_BaseColor", Color.red);
+               // _playerRenderer.material.SetColor("_BaseColor", Color.red);
             }
             else
             {
