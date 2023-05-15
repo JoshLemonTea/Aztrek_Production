@@ -180,9 +180,12 @@ public class Platform : MonoBehaviour
             {
                 //Take Damage here
                 Debug.Log("Ouch!");
+                if (hit.GetComponent<Health>().CanTakeDamage && hit.GetComponent<Health>()._currentHealth > 1)
+                {
+                    hit.GetComponent<Player>().JumpMovement(false);
+                }
                 hit.GetComponent<Health>().TakeDamage(spikeDamageAmount);
                 hit.GetComponent<Health>().MakeInvulnerable(invulnerableTime);
-                hit.GetComponent<Player>().Jump();
                 damagedPlayer = true;
                 StartCoroutine(DamagePlayerCooldown());
             }
