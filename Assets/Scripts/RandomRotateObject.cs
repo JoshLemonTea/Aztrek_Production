@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomRotateObject : MonoBehaviour
+public class RandomTileRotate : MonoBehaviour
 {
     void Start()
     {
