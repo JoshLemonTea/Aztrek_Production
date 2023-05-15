@@ -79366,6 +79366,38 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1817361717}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: firstTributePos.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: firstTributePos.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: xDistanceBetweenTributes
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: yDistanceBetweenTributes
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: tributeSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: tributeSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b458dcc1a5524b94b8ef0d4cb7762a3c, type: 3}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: tributeSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3bcf4f39b22e51a4f9b1485edda815c8, type: 3}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: tributeSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 56da8175c3d1f884bbcaa97f0b537f7d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
 --- !u!224 &1771532982 stripped
@@ -81607,6 +81639,18 @@ PrefabInstance:
       propertyPath: ingameUI
       value: 
       objectReference: {fileID: 1771532983}
+    - target: {fileID: 95421436871743597, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: tributeNames.Array.data[0]
+      value: Amber
+      objectReference: {fileID: 0}
+    - target: {fileID: 95421436871743597, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: tributeNames.Array.data[1]
+      value: Feather
+      objectReference: {fileID: 0}
+    - target: {fileID: 95421436871743597, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: tributeNames.Array.data[2]
+      value: Seashell
+      objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106688, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: m_RootOrder
       value: 5
