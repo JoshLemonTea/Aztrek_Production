@@ -8,7 +8,7 @@ public class Gameloop : MonoBehaviour
 
     private Player _player;
 
-    private PlayerStateMachine _playerSM;
+    [HideInInspector]public PlayerStateMachine _playerSM;
 
     private Altar[] _altars;
 
