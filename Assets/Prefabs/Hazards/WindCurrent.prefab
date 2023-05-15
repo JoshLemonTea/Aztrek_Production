@@ -172,14 +172,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1253982060062479123}
     m_Modifications:
-    - target: {fileID: 3696007233179127047, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
-      propertyPath: TrailModule.lifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3696007233179127047, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.65
-      objectReference: {fileID: 0}
     - target: {fileID: 3696007233179127096, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
       propertyPath: m_Name
       value: CFXR4 Wind Trails
