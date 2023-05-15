@@ -26,6 +26,17 @@ public class QuetzalcoatlState : PlayerState
     {
         Player.IsHovering = !Player.IsHovering;
 
+        if (Player.IsHovering)
+        {
+            Player.HoverVFX.SetActive(true);
+        }
+        else
+        {
+            Player.HoverVFX.SetActive(false);
+
+        }
+
+
         Player.MoveSpeed = Player.HoverMoveSpeed;
         Player.Acceleration = Player.HoverModeAcceleration;
         Player.Deceleration = Player.HoverModeDeceleration;
@@ -60,6 +71,8 @@ public class QuetzalcoatlState : PlayerState
         ResetDefaultPlayerValues();
 
         _quetzalGodUI.SetActive(false);
+
+        Player.HoverVFX.SetActive(false);
 
         base.OnExit();
     }

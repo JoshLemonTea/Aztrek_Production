@@ -105,6 +105,12 @@ public class Player : MonoBehaviour
 
     public float LavaHeightBoost { get => _lavaHeightBoost; private set => _lavaHeightBoost = value; }
 
+    [SerializeField]
+    private GameObject _hoverVFX;
+
+    public GameObject HoverVFX { get => _hoverVFX; private set => _hoverVFX = value; }
+
+
     private void Update()
     {
         if (IsGrounded)
