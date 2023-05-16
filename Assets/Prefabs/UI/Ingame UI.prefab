@@ -689,14 +689,13 @@ MonoBehaviour:
   firstHeart: {fileID: 1315487233184363536}
   spaceBetweenHearts: 100
   tributeSprites:
-  - {fileID: 21300000, guid: 27fa9366931609844a5de504d6b788f0, type: 3}
-  - {fileID: 21300000, guid: fb76f15d57c186349a27b3c4f89442d6, type: 3}
-  - {fileID: 21300000, guid: e63852d3cbfe5d44fb1702eec00e7bb1, type: 3}
-  - {fileID: 21300000, guid: 48d48b12d12c29e49914c4b40fee890d, type: 3}
+  - {fileID: 21300000, guid: b458dcc1a5524b94b8ef0d4cb7762a3c, type: 3}
+  - {fileID: 21300000, guid: 3bcf4f39b22e51a4f9b1485edda815c8, type: 3}
+  - {fileID: 21300000, guid: 56da8175c3d1f884bbcaa97f0b537f7d, type: 3}
   tributeIconExample: {fileID: 4041198193683617762, guid: 2a4f800b1bea7394da5392998eee6bba, type: 3}
-  firstTributePos: {x: 180, y: 380}
-  xDistanceBetweenTributes: 40
-  yDistanceBetweenTributes: 15
+  firstTributePos: {x: 75, y: 300}
+  xDistanceBetweenTributes: 75
+  yDistanceBetweenTributes: 75
 --- !u!1 &1315487233184363536
 GameObject:
   m_ObjectHideFlags: 0

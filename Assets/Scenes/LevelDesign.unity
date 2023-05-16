@@ -2471,9 +2471,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6532584999576799768, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
       propertyPath: m_text
-      value: "Quetzalcoatl, la Serpiente Emplumada te ha concedido su poder de viento.\nPresiona
-        F para comenzar a flotar. Mientras flotas, mant\xE9n presionada la barra
-        espaciadora para descender lentamente."
+      value: "Quetzalcoatl, the feathered Serpent has blessed you with his wind powers.\nPress
+        F to start hovering. When hovering, hold space to descend slowly.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 6532585000175829310, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
       propertyPath: m_VideoClip
@@ -44919,9 +44918,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6532584999576799768, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
       propertyPath: m_text
-      value: "Huitzilopochtli, dios de la guerra, te ha concedido su l\xE1tigo \u201CSerpiente
-        de Fuego\u201D.\nPresiona F para balancearte de una plataforma a otra cuando
-        veas un punto de colibri activo."
+      value: 'Huitzilopochtli, god of war has blessed you with his fire serpent whip.
+
+        Press
+        F to swing across gaps when a hummingbird point is active.'
       objectReference: {fileID: 0}
     - target: {fileID: 6532585000175829310, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
       propertyPath: m_VideoClip
@@ -79366,38 +79366,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1817361717}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: firstTributePos.x
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: firstTributePos.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: xDistanceBetweenTributes
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: yDistanceBetweenTributes
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: tributeSprites.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: tributeSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: b458dcc1a5524b94b8ef0d4cb7762a3c, type: 3}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: tributeSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 3bcf4f39b22e51a4f9b1485edda815c8, type: 3}
-    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
-      propertyPath: tributeSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 56da8175c3d1f884bbcaa97f0b537f7d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
 --- !u!224 &1771532982 stripped
@@ -79797,10 +79765,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6532584999576799768, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
       propertyPath: m_text
-      value: 'Tlaloc, dios de la lluvia, te ha concedido su poder de lluvia.
+      value: 'Ttaloc, god of rain has blessed you with his rain powers.
 
-        Presiona
-        F para colocar una plataforma de nubes.'
+        Press
+        F to place rain cloud platforms.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
