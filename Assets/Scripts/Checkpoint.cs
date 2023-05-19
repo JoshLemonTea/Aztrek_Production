@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _respawnManager = FindObjectOfType<RespawnManager>();
     }
 
