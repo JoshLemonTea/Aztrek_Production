@@ -9,8 +9,10 @@ public class Platform : MonoBehaviour
 
     [Header("Moving Platform")]
     [SerializeField] private bool doesMove;
-    [SerializeField] private Vector3 startPosition;
-    [SerializeField] private Vector3 endPosition;
+    [SerializeField] private GameObject startPosition;
+    [SerializeField] private GameObject endPosition;
+    private Vector3 startPos;
+    private Vector3 endPos;
     [Range(0.01f, 3)] [SerializeField] private float moveSpeed;
     private float movingPlatformTimer;
 
@@ -20,6 +22,7 @@ public class Platform : MonoBehaviour
     [Header("Breaking Platform")]
     [SerializeField] private bool doesBreak;
     [SerializeField] private float breakTime;
+    [SerializeField] private float respawnTime;
 
     [Header("Trap Platform")]
     [SerializeField] private bool isTrap;
@@ -54,6 +57,9 @@ public class Platform : MonoBehaviour
         {
             isMovingPlatform = true;
         }
+
+        startPos = startPosition.transform.position;
+        endPos = endPosition.transform.position;
 
         spikes.SetActive(false);
     }
@@ -124,7 +130,7 @@ public class Platform : MonoBehaviour
     private void MovePlatform()
     {
         float period = CalculateLerpPeriod();
-        Vector3 newPlatformPosition = Vector3.Lerp(startPosition, endPosition, period);
+        Vector3 newPlatformPosition = Vector3.Lerp(startPos, endPos, period);
         transform.position = newPlatformPosition;
     }
 
@@ -154,7 +160,9 @@ public class Platform : MonoBehaviour
         {
             gameObject.transform.GetChild(0).transform.parent = null;
         }
-        Destroy(gameObject);
+        ChangeVisibility(false);
+        yield return new WaitForSeconds(respawnTime);
+        ChangeVisibility(true);
     }
 
     private IEnumerator ShootUpSpikes()
@@ -204,5 +212,29 @@ public class Platform : MonoBehaviour
         float launchForce = Mathf.Sqrt(-2f * player.GravityValue * lastGroundHeight) / 3f;
         player.Movement.y = launchForce;
         Debug.Log("Launched Player");
+    }
+
+    private void ChangeVisibility(bool state)
+    {
+        if (GetComponentInChildren<Player>() != null)
+        {
+            GetComponentInChildren<Player>().gameObject.transform.parent = null;
+        }
+
+        BoxCollider[] colliders = GetComponents<BoxCollider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = state;
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(state);
+        }
+
+        if (canDamagePlayer == false)
+        {
+            spikes.SetActive(false);
+        }
     }
 }
