@@ -76980,19 +76980,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1164688668032494352, guid: ae902112e60b8aa4a91e746da1387ce6, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1164688668032494354, guid: ae902112e60b8aa4a91e746da1387ce6, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1164688668032494356, guid: ae902112e60b8aa4a91e746da1387ce6, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1164688668032494358, guid: ae902112e60b8aa4a91e746da1387ce6, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8008030628466007272, guid: ae902112e60b8aa4a91e746da1387ce6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81670,6 +81670,10 @@ PrefabInstance:
     - target: {fileID: 95421436871743597, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: tributeNames.Array.data[2]
       value: Seashell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422539207449388317, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188567580307106688, guid: 751cd2e1280d9b5458d651beec2dbbeb, type: 3}
       propertyPath: m_RootOrder
