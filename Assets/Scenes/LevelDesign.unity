@@ -75919,14 +75919,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraTarget
       objectReference: {fileID: 0}
-    - target: {fileID: 1016563641539830224, guid: c18e130dc4b0bff44b45355e6b3feeaf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1016563641539830231, guid: c18e130dc4b0bff44b45355e6b3feeaf, type: 3}
-      propertyPath: field of view
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8237203113465489353, guid: c18e130dc4b0bff44b45355e6b3feeaf, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 7
