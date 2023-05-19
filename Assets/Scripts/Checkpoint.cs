@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     private RespawnManager _respawnManager;
+    public GameObject resurrectionVFX;
 
     private void OnEnable()
     {
@@ -16,6 +17,7 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _respawnManager.ActiveCheckpoint = this.transform;
+            resurrectionVFX.SetActive(true);
         }
     }
 }
