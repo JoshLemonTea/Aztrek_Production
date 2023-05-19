@@ -160,9 +160,11 @@ public class HuitzilopochtliState : PlayerState
     private void AttachHead()
     {
         Player.WhipHead.position = Player.ActiveGrapplePoint.position;
-        Player.WhipHead.LookAt(Player.WhipTail.position);
         Player.WhipTail.LookAt(Player.WhipHead.position);
 
+        Vector3 direction = (Player.WhipHead.position - Player.WhipTail.position).normalized;
+        Vector3 lookAtPosition = Player.WhipHead.position + direction;
+        Player.WhipHead.LookAt(lookAtPosition);
     }
 
     private void DrawWhip()
