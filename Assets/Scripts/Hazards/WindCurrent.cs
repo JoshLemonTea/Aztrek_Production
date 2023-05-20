@@ -71,7 +71,7 @@ public class WindCurrent : MonoBehaviour
                 _isActive = true;
                 //_windVFX.gameObject.SetActive(true);
                 _particleSystem.playbackSpeed = 1f;
-                _particleSystem.startSpeed = 20f;
+                _particleSystem.startSpeed = 30f;
                 _particleSystem.maxParticles = 10;
             }
         }
