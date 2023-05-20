@@ -117,8 +117,9 @@ public class HuitzilopochtliState : PlayerState
         {
             if (Player.ActiveGrapplePoint != null)
             {
-                DrawWhip();
+               // DrawWhip();
                 AttachHead();
+                StretchBody();
             }
             Vector3 moveInput = _grappleDirection;
             float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude + _lavaHeightBoost;
@@ -142,12 +143,26 @@ public class HuitzilopochtliState : PlayerState
                 _lavaHeightBoost = 0f;
 
                 ResetHead();
+                ResetBody();
             }     
         }
         else
         {
             base.OnUpdate();
         }
+    }
+
+    private void ResetBody()
+    {
+        Player.WhipBody.localScale = Vector3.one;
+    }
+
+    private void StretchBody()
+    {
+        float distance = Vector3.Distance(Player.WhipHead.position, Player.WhipTail.position);
+        Vector3 bodyScale = Player.WhipBody.localScale;
+        bodyScale.z = distance * 3.1f;
+        Player.WhipBody.localScale = bodyScale;
     }
 
     private void ResetHead()

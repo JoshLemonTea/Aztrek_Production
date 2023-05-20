@@ -117,6 +117,9 @@ public class Player : MonoBehaviour
     private Transform _whipHead;
 
     [SerializeField]
+    private Transform _whipBody;
+
+    [SerializeField]
     private Transform _originalHeadPosition;
 
     [SerializeField]
@@ -125,6 +128,8 @@ public class Player : MonoBehaviour
     public Transform WhipTail { get => _whipTail;}
 
     public Transform WhipHead { get => _whipHead; }
+
+    public Transform WhipBody { get => _whipBody;}
 
     public Transform OriginalHeadPosition { get => _originalHeadPosition; }
 
