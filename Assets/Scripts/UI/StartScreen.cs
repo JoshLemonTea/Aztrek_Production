@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
+    public string nextScene = "Tutorial";
     public string transitionID;
     public float loadDelay;
     public EasyTransition.TransitionManager transitionManager;
@@ -14,7 +15,7 @@ public class StartScreen : MonoBehaviour
     public void OnStart()
     {
         //SceneManager.LoadScene("LevelDesign");
-        transitionManager.LoadScene("Tutorial", transitionID, loadDelay);
+        transitionManager.LoadScene(nextScene, transitionID, loadDelay);
     }
 
     public void OnCredits()

@@ -29,6 +29,9 @@ public class WindCurrent : MonoBehaviour
     [SerializeField]
     private GameObject _windVFX;
 
+    [SerializeField]
+    private ParticleSystem _particleSystem;
+
     private void OnEnable()
     {
         _player = FindObjectOfType<Player>();
@@ -52,7 +55,10 @@ public class WindCurrent : MonoBehaviour
                 _renderer.material.color = Color.green;
                 _timer = 0f;
                 _isActive = false;
-                _windVFX.gameObject.SetActive(false);
+                //_windVFX.gameObject.SetActive(false);
+                _particleSystem.playbackSpeed = 0.5f;
+                _particleSystem.startSpeed = 10f;
+                _particleSystem.maxParticles = 5;
             }
         }
         else
@@ -63,7 +69,10 @@ public class WindCurrent : MonoBehaviour
                 _renderer.material.color = _originalColor;
                 _timer = 0f;
                 _isActive = true;
-                _windVFX.gameObject.SetActive(true);
+                //_windVFX.gameObject.SetActive(true);
+                _particleSystem.playbackSpeed = 1f;
+                _particleSystem.startSpeed = 30f;
+                _particleSystem.maxParticles = 10;
             }
         }
     }

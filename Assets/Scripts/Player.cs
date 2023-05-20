@@ -110,6 +110,42 @@ public class Player : MonoBehaviour
 
     public GameObject HoverVFX { get => _hoverVFX; private set => _hoverVFX = value; }
 
+    [SerializeField]
+    private Transform _whipTail;
+
+    [SerializeField]
+    private Transform _whipHead;
+
+    [SerializeField]
+    private Transform _whipBody;
+
+    [SerializeField]
+    private Transform _originalHeadPosition;
+
+    [SerializeField]
+    private GameObject _whip;
+
+    public Transform WhipTail { get => _whipTail;}
+
+    public Transform WhipHead { get => _whipHead; }
+
+    public Transform WhipBody { get => _whipBody;}
+
+    public Transform OriginalHeadPosition { get => _originalHeadPosition; }
+
+    public GameObject Whip { get => _whip;}
+
+    public Quaternion OriginalHeadRotation { get; private set; }
+
+    public Quaternion OriginalTailRotation { get; private set; }
+
+    [SerializeField]
+    private Transform _shadow;
+
+    public Transform Shadow { get => _shadow; private set => _shadow = value; }
+
+    [SerializeField]
+    private LayerMask _defaultLayer;
 
     private void Update()
     {
@@ -119,6 +155,14 @@ public class Player : MonoBehaviour
         }
 
         HandleCoyoteTime();
+    }
+
+    public void SetShadowPosition()
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 50f, _defaultLayer))
+        {
+            Shadow.position = hit.point;       
+        }
     }
 
     public void OnEnter()
@@ -132,6 +176,10 @@ public class Player : MonoBehaviour
         LineRenderer.enabled = false;
 
         _audioSource = GetComponent<AudioSource>();
+
+        OriginalHeadRotation = WhipHead.localRotation;
+
+        OriginalTailRotation = WhipTail.localRotation;
     }
 
     public void Move(Vector3 moveInput)
@@ -211,7 +259,7 @@ public class Player : MonoBehaviour
             {
                 _currentAddedJumpForce -= Time.deltaTime * _addedJumpFalloff;
                 Movement.y += _currentAddedJumpForce * Time.deltaTime;
-                Debug.Log(_currentAddedJumpForce);
+                //Debug.Log(_currentAddedJumpForce);
             }
         }
 

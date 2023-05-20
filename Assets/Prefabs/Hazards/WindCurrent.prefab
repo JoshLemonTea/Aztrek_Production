@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1253982060062479125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6550215, y: 0.4, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441746041437388290}
@@ -66,6 +66,7 @@ MonoBehaviour:
   _timeActive: 3
   _timeDisabled: 3
   _windVFX: {fileID: 441746041437388291}
+  _particleSystem: {fileID: 441746041437388348}
 --- !u!54 &1253982060062479120
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,6 +173,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1253982060062479123}
     m_Modifications:
+    - target: {fileID: 3696007233179127047, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3696007233179127096, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
       propertyPath: m_Name
       value: CFXR4 Wind Trails
@@ -190,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.91845
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -232,6 +237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3696007233179127097, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
 --- !u!4 &441746041437388290 stripped
@@ -242,5 +251,10 @@ Transform:
 --- !u!1 &441746041437388291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3696007233179127096, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
+  m_PrefabInstance: {fileID: 3849380657442976571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &441746041437388348 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3696007233179127047, guid: c248f95ffea8b8543bc7ad0fffe0216d, type: 3}
   m_PrefabInstance: {fileID: 3849380657442976571}
   m_PrefabAsset: {fileID: 0}

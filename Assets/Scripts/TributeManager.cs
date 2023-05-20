@@ -5,9 +5,16 @@ using UnityEngine;
 public class TributeManager : MonoBehaviour
 {
     [SerializeField] private List<string> tributeNames = new List<string>();
+    [SerializeField] private string endScene;
     [HideInInspector] public List<int> collectedTributes = new List<int>();
     [HideInInspector] public List<int> maxTributes = new List<int>();
     private List<bool> finishedTributes = new List<bool>();
+
+    //Transition
+    [Header("Transition stuff")]
+    public string transitionID;
+    public float loadDelay;
+    public EasyTransition.TransitionManager transitionManager;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +60,7 @@ public class TributeManager : MonoBehaviour
             }
         }
         CheckIfTributeGoalReached();
+        CheckIfAllTributesCollected();
     }
 
     private void CheckIfTributeGoalReached()
@@ -67,6 +75,23 @@ public class TributeManager : MonoBehaviour
                     Debug.Log("Collected all tributes of type: " + tributeNames[i]);
                 }
             }
+        }
+    }
+
+    private void CheckIfAllTributesCollected()
+    {
+        bool hasAllTributes = true;
+        foreach (bool hasFinished in finishedTributes)
+        {
+            if (hasFinished == false)
+            {
+                hasAllTributes = false;
+            }
+        }
+
+        if (hasAllTributes)
+        {
+            transitionManager.LoadScene(endScene, transitionID, loadDelay);
         }
     }
 }

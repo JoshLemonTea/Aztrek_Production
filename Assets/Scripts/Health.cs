@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -29,12 +30,32 @@ public class Health : MonoBehaviour
     // screenshake
     [SerializeField] private ScreenShake shake;
 
+    public int HeartPieceCount {get; private set;}
+
+    [SerializeField]
+    private int RequiredHearthPieces = 10;
+
     private void OnEnable()
     {
         //_playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
         //_originalColor = _playerRenderer.material.GetColor("_BaseColor");
         _respawnManager = FindObjectOfType<RespawnManager>();
         _audioSource = GetComponent<AudioSource>();
+    }
+
+    public void IncrementHearthPieceCount()
+    {
+        HeartPieceCount++;
+        if(HeartPieceCount >= RequiredHearthPieces)
+        {
+            ResetHealthPieceCount();
+            Heal(1);
+        }
+    }
+
+    public void ResetHealthPieceCount()
+    {
+        HeartPieceCount = 0;
     }
 
     private void LimitCurrentHealth()

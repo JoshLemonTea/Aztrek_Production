@@ -34,6 +34,8 @@ public class HuitzilopochtliState : PlayerState
 
     private float _lavaHeightBoost;
 
+    private Vector3 _originalWhipTailRotation;
+
     public override void OnEnter()
     {
         Debug.Log("Entered Huitzilopochtli State");
@@ -44,6 +46,10 @@ public class HuitzilopochtliState : PlayerState
         _huitziGodUI.SetActive(true);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
+
+        _originalWhipTailRotation = Player.WhipTail.eulerAngles;
+
+        Player.Whip.SetActive(true);
     }
 
     private void OnPressedF(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -108,14 +114,16 @@ public class HuitzilopochtliState : PlayerState
         }
 
         if (Player.IsGrappling)
-        {           
-            DrawWhip();
-
+        {
+            if (Player.ActiveGrapplePoint != null)
+            {
+               // DrawWhip();
+                AttachHead();
+                StretchBody();
+            }
             Vector3 moveInput = _grappleDirection;
             float heightChange = -Mathf.Sin(_grappleTimer * 4) * Player.GrappleAmplitude + _lavaHeightBoost;
             moveInput.y = heightChange + 0.1f;
-
-
 
             Player.GrappleMove(moveInput * Player.GrappleSpeed * Time.deltaTime);
             Player.transform.forward = moveInput;
@@ -133,6 +141,9 @@ public class HuitzilopochtliState : PlayerState
                 Player.transform.forward = _grappleDirection;
 
                 _lavaHeightBoost = 0f;
+
+                ResetHead();
+                ResetBody();
             }     
         }
         else
@@ -141,14 +152,41 @@ public class HuitzilopochtliState : PlayerState
         }
     }
 
+    private void ResetBody()
+    {
+        Player.WhipBody.localScale = Vector3.one;
+    }
+
+    private void StretchBody()
+    {
+        float distance = Vector3.Distance(Player.WhipHead.position, Player.WhipTail.position);
+        Vector3 bodyScale = Player.WhipBody.localScale;
+        bodyScale.z = distance * 2.65f;
+        Player.WhipBody.localScale = bodyScale;
+    }
+
+    private void ResetHead()
+    {
+        Player.WhipHead.position = Player.OriginalHeadPosition.position;
+        Player.WhipHead.localRotation = Player.OriginalHeadRotation;
+        Player.WhipTail.localRotation = Player.OriginalTailRotation;
+    }
+
+    private void AttachHead()
+    {
+        Player.WhipHead.position = Player.ActiveGrapplePoint.position;
+        Player.WhipTail.LookAt(Player.WhipHead.position);
+
+        Vector3 direction = (Player.WhipHead.position - Player.WhipTail.position).normalized;
+        Vector3 lookAtPosition = Player.WhipHead.position + direction;
+        Player.WhipHead.LookAt(lookAtPosition);
+    }
+
     private void DrawWhip()
     {
-        if(Player.ActiveGrapplePoint != null)
-        {
-            _lineRendererPositions = new Vector3[] { Player.ActiveGrapplePoint.position, 
-                (Player.transform.position + Player.transform.up + Player.transform.right) };
-            Player.LineRenderer.SetPositions(_lineRendererPositions);
-        }
+        _lineRendererPositions = new Vector3[] { Player.ActiveGrapplePoint.position, 
+            (Player.WhipTail.position) };
+        Player.LineRenderer.SetPositions(_lineRendererPositions);     
     }
 
     public override void OnExit()
@@ -158,5 +196,8 @@ public class HuitzilopochtliState : PlayerState
         base.OnExit();
 
         InputManager.Controls.Player.F.performed -= OnPressedF;
+
+        Player.Whip.SetActive(false);
+
     }
 }
