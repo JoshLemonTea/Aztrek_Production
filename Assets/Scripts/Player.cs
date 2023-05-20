@@ -243,7 +243,7 @@ public class Player : MonoBehaviour
             {
                 _currentAddedJumpForce -= Time.deltaTime * _addedJumpFalloff;
                 Movement.y += _currentAddedJumpForce * Time.deltaTime;
-                Debug.Log(_currentAddedJumpForce);
+                //Debug.Log(_currentAddedJumpForce);
             }
         }
 
