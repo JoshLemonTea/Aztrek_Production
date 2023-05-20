@@ -64,37 +64,6 @@ Transform:
   m_Father: {fileID: 9188567580307106688}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6356546264815414729
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5189573150620388156}
-  m_Layer: 0
-  m_Name: OriginalHeadPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5189573150620388156
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6356546264815414729}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.018, z: 0.855}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7649731819692954567}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9188567578619740815
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +246,7 @@ MonoBehaviour:
   _whipTail: {fileID: 58800345876627783}
   _whipHead: {fileID: 1589601084845166281}
   _whipBody: {fileID: 5049934040408660617}
-  _originalHeadPosition: {fileID: 5189573150620388156}
+  _originalHeadPosition: {fileID: 7698135051077004520}
   _whip: {fileID: 591466612725172738}
 --- !u!114 &1398783325
 MonoBehaviour:
@@ -599,37 +568,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6232612361742709684}
     m_Modifications:
-    - target: {fileID: 1123978341395227843, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2450154839991789203, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3090906965244866006, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
       propertyPath: m_Name
       value: Whip
       objectReference: {fileID: 0}
     - target: {fileID: 3090906965244866006, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.019300072
-      objectReference: {fileID: 0}
-    - target: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.019300088
-      objectReference: {fileID: 0}
-    - target: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.01930008
       objectReference: {fileID: 0}
     - target: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -693,9 +642,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7261117628573924701, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
   m_PrefabInstance: {fileID: 2508597635205539796}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7649731819692954567 stripped
+--- !u!4 &7698135051077004520 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5189573150620388156, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
   m_PrefabInstance: {fileID: 2508597635205539796}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2543238337650736664

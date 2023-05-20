@@ -161,7 +161,7 @@ public class HuitzilopochtliState : PlayerState
     {
         float distance = Vector3.Distance(Player.WhipHead.position, Player.WhipTail.position);
         Vector3 bodyScale = Player.WhipBody.localScale;
-        bodyScale.z = distance * 3.1f;
+        bodyScale.z = distance * 2.65f;
         Player.WhipBody.localScale = bodyScale;
     }
 
