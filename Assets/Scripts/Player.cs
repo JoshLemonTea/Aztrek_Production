@@ -139,6 +139,14 @@ public class Player : MonoBehaviour
 
     public Quaternion OriginalTailRotation { get; private set; }
 
+    [SerializeField]
+    private Transform _shadow;
+
+    public Transform Shadow { get => _shadow; private set => _shadow = value; }
+
+    [SerializeField]
+    private LayerMask _defaultLayer;
+
     private void Update()
     {
         if (IsGrounded)
@@ -147,6 +155,14 @@ public class Player : MonoBehaviour
         }
 
         HandleCoyoteTime();
+    }
+
+    public void SetShadowPosition()
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 50f, _defaultLayer))
+        {
+            Shadow.position = hit.point;       
+        }
     }
 
     public void OnEnter()

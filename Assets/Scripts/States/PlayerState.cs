@@ -51,6 +51,8 @@ public abstract class PlayerState
         {
             Player.Jump();
         }
+
+        Player.SetShadowPosition();       
     }
 
     public virtual void OnExit()
