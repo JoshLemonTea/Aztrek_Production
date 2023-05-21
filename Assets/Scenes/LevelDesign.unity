@@ -45613,6 +45613,30 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 973359250047286837, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636731636027733682, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
+      propertyPath: doesMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636731636027733693, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024226978756275120, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024226978756275135, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
+      propertyPath: moveSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2458319779234639432, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7325b0a761851db49a60561ced5e424b, type: 3}
 --- !u!1001 &1077316791
