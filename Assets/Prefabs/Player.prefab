@@ -269,6 +269,7 @@ MonoBehaviour:
   ingameUI: {fileID: 0}
   _currentHealth: 3
   _hitSound: {fileID: 8300000, guid: a8e4a19d4ae9f304892667150ee9685c, type: 3}
+  _respawnSound: {fileID: 8300000, guid: f88f19ef565eff043bdf2d3a3d6f38c5, type: 3}
   shake: {fileID: 0}
   RequiredHearthPieces: 10
 --- !u!114 &95421436871743597
