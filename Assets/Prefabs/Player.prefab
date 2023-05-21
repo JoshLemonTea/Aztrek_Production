@@ -252,7 +252,7 @@ MonoBehaviour:
   _shadow: {fileID: 7388656567559790735}
   _defaultLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!114 &1398783325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   ingameUI: {fileID: 0}
   _currentHealth: 3
   _hitSound: {fileID: 8300000, guid: a8e4a19d4ae9f304892667150ee9685c, type: 3}
+  _respawnSound: {fileID: 8300000, guid: f88f19ef565eff043bdf2d3a3d6f38c5, type: 3}
   shake: {fileID: 0}
   RequiredHearthPieces: 10
 --- !u!114 &95421436871743597
@@ -584,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3090906965244866006, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5258263508927296531, guid: 37ad9297a42912945b9a761356e0c39d, type: 3}
       propertyPath: m_RootOrder

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomTileRotate : MonoBehaviour
+public class RandomRotateObject : MonoBehaviour
 {
-    void Start()
+    private void Awake()
     {
-        this.transform.rotation = new Quaternion(transform.rotation.x, Random.rotation.y,transform.rotation.z,transform.rotation.w);
+        // random rotation in y as
+        gameObject.transform.rotation = new Quaternion(transform.rotation.x, Random.rotation.y, transform.rotation.z, transform.rotation.w);
     }
 }
