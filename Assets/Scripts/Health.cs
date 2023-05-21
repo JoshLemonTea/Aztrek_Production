@@ -26,7 +26,6 @@ public class Health : MonoBehaviour
 
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _hitSound;
-    [SerializeField] private AudioClip _respawnSound;
 
     // screenshake
     [SerializeField] private ScreenShake shake;
@@ -69,7 +68,6 @@ public class Health : MonoBehaviour
         {
             _respawnManager.Respawn();
             //_playerRenderer.material.SetColor("_BaseColor", _originalColor);
-            _audioSource.PlayOneShot(_respawnSound, 0.8f);
         }
     }
 
