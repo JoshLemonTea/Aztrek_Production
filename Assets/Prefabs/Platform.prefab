@@ -129,7 +129,7 @@ MonoBehaviour:
   doesMove: 0
   startPosition: {fileID: 4438505627045358274}
   endPosition: {fileID: 2461920859149110565}
-  moveSpeed: 1
+  moveSpeed: 0.5
   rotationSpeed: 0
   doesBreak: 0
   breakTime: 2

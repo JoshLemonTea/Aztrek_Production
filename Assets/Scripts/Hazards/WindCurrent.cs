@@ -56,9 +56,9 @@ public class WindCurrent : MonoBehaviour
                 _timer = 0f;
                 _isActive = false;
                 //_windVFX.gameObject.SetActive(false);
-                _particleSystem.playbackSpeed = 0.5f;
+                _particleSystem.playbackSpeed = 1f;
                 _particleSystem.startSpeed = 10f;
-                _particleSystem.maxParticles = 5;
+                _particleSystem.maxParticles = 15;
             }
         }
         else
@@ -70,9 +70,9 @@ public class WindCurrent : MonoBehaviour
                 _timer = 0f;
                 _isActive = true;
                 //_windVFX.gameObject.SetActive(true);
-                _particleSystem.playbackSpeed = 1f;
-                _particleSystem.startSpeed = 30f;
-                _particleSystem.maxParticles = 10;
+                _particleSystem.playbackSpeed = 2f;
+                _particleSystem.startSpeed = 50f;
+                _particleSystem.maxParticles = 20;
             }
         }
     }
