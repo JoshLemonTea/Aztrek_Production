@@ -27,9 +27,9 @@ public class AnimationManager : MonoBehaviour
         isHovering = playerScript.IsHovering;
         isSwinging = playerScript.IsGrappling;
 
-        if (isGrounded || velocityY < 1)
+        if (isGrounded)
         {
-            jumped = false;
+            animator.ResetTrigger("Jumped");
         }
 
         SetParams();
@@ -37,14 +37,17 @@ public class AnimationManager : MonoBehaviour
 
     public void OnJump()
     {
-        jumped = true;
+        if (isGrounded)
+        {
+            animator.ResetTrigger("Jumped");
+            animator.SetTrigger("Jumped");
+        }
     }
 
     private void SetParams()
     {
         animator.SetFloat("Speed", speed);
         animator.SetFloat("VelocityY", velocityY);
-        animator.SetBool("Jumped", jumped);
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsHovering", isHovering);
         animator.SetBool("IsSwinging", isSwinging);

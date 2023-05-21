@@ -6,6 +6,7 @@ public class MoveCameraWhenBlocked : MonoBehaviour
 {
     [Range(0, 1)] [SerializeField] private float smoothing;
     [SerializeField] private float blockingRadius;
+    [SerializeField] private float closeEnough;
     private GameObject childCamera;
     private Vector3 normalCameraPos;
     private Vector3 targetCameraPos;
@@ -31,7 +32,7 @@ public class MoveCameraWhenBlocked : MonoBehaviour
     private void CheckIfCameraIsBlocked()
     {
         float safeDistance = 0;
-        Vector3 directionTowardsPlayer = (transform.position - childCamera.transform.position).normalized;
+        Vector3 directionTowardsPlayer = ((transform.position) - childCamera.transform.position).normalized;
         List<Collider> hits = new List<Collider>();
         hits.AddRange(Physics.OverlapSphere(normalCameraPos, blockingRadius));
         hits = clearList(hits);
@@ -42,10 +43,15 @@ public class MoveCameraWhenBlocked : MonoBehaviour
             List<Collider> newHits = new List<Collider>();
             newHits.AddRange(Physics.OverlapSphere(targetCameraPos, blockingRadius));
             newHits = clearList(newHits);
+            bool tooClose = false;
 
-            while (newHits.Count > 0)
+            while (newHits.Count > 0 && !tooClose)
             {
                 safeDistance += 0.1f;
+                if (safeDistance > (normalDistance - closeEnough))
+                {
+                    tooClose = true;
+                }
                 targetCameraPos = normalCameraPos + (directionTowardsPlayer * safeDistance);
                 newHits.Clear();
                 newHits.AddRange(Physics.OverlapSphere(targetCameraPos, blockingRadius));
