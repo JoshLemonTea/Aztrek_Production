@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3241094533611754590}
   - component: {fileID: 3241094533611754561}
   - component: {fileID: 3241094533611754560}
+  - component: {fileID: 8093365162151648879}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -47,8 +48,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 4, y: 4.761388, z: 4}
+  m_Center: {x: 0, y: 2.0738397, z: 0}
 --- !u!54 &3241094533611754561
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resurrectionVFX: {fileID: 6048718097795906241}
+--- !u!136 &8093365162151648879
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3241094533611754563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.99
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: 0, y: -1.86, z: 0}
 --- !u!1001 &668269069491094250
 PrefabInstance:
   m_ObjectHideFlags: 0
