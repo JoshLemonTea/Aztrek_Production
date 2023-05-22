@@ -7,27 +7,22 @@ using UnityEngine.Video;
 
 public class Altar : MonoBehaviour
 {
-    [SerializeField]
-    private GodState _god;
+    [SerializeField] private GodState _god;
 
     private PlayerStateMachine _playerStateMachine;
 
-    [SerializeField]
-    private UILookAtCamera _UI;
+    [SerializeField] private UILookAtCamera _UI;
 
     private InputManager _inputManager;
 
     private bool _isWithinRange;
     private AudioSource _audioSource;
 
-    [SerializeField]
-    private bool _playTutorialVideo;
+    [SerializeField] private bool _playTutorialVideo;
 
-    [SerializeField]
-    private VideoPlayer _videoPlayer;
+    [SerializeField] private VideoPlayer _videoPlayer;
 
-    [SerializeField]
-    private GameObject _videoUI;
+    [SerializeField] private GameObject _videoUI;
 
     private void Start()
     {
@@ -38,6 +33,22 @@ public class Altar : MonoBehaviour
 
         _videoPlayer.loopPointReached += OnVideoCompleted;
         _videoUI.SetActive(false);
+
+
+        if (_god == GodState.Tlaloc)
+        {
+            _playerStateMachine.GoTo(_playerStateMachine.TlalocState);
+        }
+
+        if (_god == GodState.Quetzalcoatl)
+        {
+            _playerStateMachine.GoTo(_playerStateMachine.QuetzalcoatlState);
+        }
+
+        if (_god == GodState.Huitzilopochtli)
+        {
+            _playerStateMachine.GoTo(_playerStateMachine.HuiztilopochtliState);
+        }
     }
 
     private void OnVideoCompleted(VideoPlayer source)
@@ -99,7 +110,7 @@ public class Altar : MonoBehaviour
 
             //_UI.TMPUGUI.text = "Press TAB to change into " + _god;
             _UI.TMPUGUI.text = "Presiona TAB para interactuar con " + _god + ".";
-            
+
             _isWithinRange = true;
         }
     }
