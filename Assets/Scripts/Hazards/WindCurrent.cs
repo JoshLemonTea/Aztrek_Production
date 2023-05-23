@@ -44,7 +44,7 @@ public class WindCurrent : MonoBehaviour
         }
     }
 
-
+    [System.Obsolete]
     private void Update()
     {
         if (_isActive)
