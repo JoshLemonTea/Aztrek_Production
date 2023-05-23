@@ -8,7 +8,7 @@ public class IngameUI : MonoBehaviour
     //General
     [Header("General")]
     [SerializeField] private GameObject player;
-    [Range(0,1)][SerializeField] private float emptyAlpha;
+    [Range(0, 1)][SerializeField] private float emptyAlpha;
     private Canvas canvas;
 
     //Hearts
@@ -25,9 +25,9 @@ public class IngameUI : MonoBehaviour
     [SerializeField] private Vector2 firstTributePos;
     [SerializeField] private float xDistanceBetweenTributes;
     [SerializeField] private float yDistanceBetweenTributes;
-    private List<float> currentYDistanceBetweenTributes =  new List<float>();
+    private List<float> currentYDistanceBetweenTributes = new List<float>();
     private TributeManager tributeManager;
-    private List<List<GameObject>> tributeIcons =  new List<List<GameObject>>();
+    private List<List<GameObject>> tributeIcons = new List<List<GameObject>>();
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +40,14 @@ public class IngameUI : MonoBehaviour
         InitialiseTributes();
     }
 
-    private void InitialiseTributes() 
+    private void InitialiseTributes()
     {
         for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
         {
             currentYDistanceBetweenTributes.Add(firstTributePos.y);
             tributeIcons.Add(new List<GameObject>());
         }
-        
+
         for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
         {
             for (int j = 0; j < tributeManager.maxTributes[i]; j++)
@@ -79,6 +79,7 @@ public class IngameUI : MonoBehaviour
             Vector3 newHeartPos = firstHeart.transform.position + new Vector3(spaceBetweenHearts * i, 0, 0);
             GameObject newHeart = GameObject.Instantiate(firstHeart, newHeartPos, Quaternion.identity);
             newHeart.transform.parent = this.transform;
+            newHeart.transform.localScale = new Vector3(.9f, .9f, .9f);
             hearts.Add(newHeart);
         }
     }
@@ -105,11 +106,9 @@ public class IngameUI : MonoBehaviour
         }
     }
 
-
-
     public void UpdateTributeIcons()
     {
-        for (int i = 0; i < tributeIcons.Count; i++) 
+        for (int i = 0; i < tributeIcons.Count; i++)
         {
             List<GameObject> currentTributeIconsList = tributeIcons[i];
             for (int j = 0; j < currentTributeIconsList.Count; j++)
