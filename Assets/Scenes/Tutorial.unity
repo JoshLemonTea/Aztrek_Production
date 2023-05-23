@@ -5407,8 +5407,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6330468244284433308, guid: de17ec3b7a4d75d4695d8cbea71a7a1e, type: 3}
       propertyPath: m_text
-      value: "Avoid dangerous traps, but if you\n do get hurt you'll return to the
-        flag"
+      value: "Avoid dangerous traps,\nbut if you do get hurt you'll \nreturn to the
+        checkpoint"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330468244284433311, guid: de17ec3b7a4d75d4695d8cbea71a7a1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 6330468244284433311, guid: de17ec3b7a4d75d4695d8cbea71a7a1e, type: 3}
       propertyPath: m_AnchoredPosition.y
