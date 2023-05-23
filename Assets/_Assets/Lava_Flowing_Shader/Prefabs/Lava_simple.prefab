@@ -96,5 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d28cb150ad86f4a8100312a4aea7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uvAnimationRate: {x: 0.84, y: 0}
+  uvAnimationRate: {x: 0.48, y: 0}
   textureName: _LavaTex
