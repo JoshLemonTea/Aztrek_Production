@@ -80,9 +80,17 @@ public class WindCurrent : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (_isActive && other.CompareTag("Player"))
-        {
+        {         
             Vector3 movement = transform.right * _windSpeed;
-            _player.Move(_player.Movement + movement);
+            _player.AddMovement(movement);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (_isActive && other.CompareTag("Player"))
+        {
+            _player.JumpMovement(false);
         }
     }
 }
