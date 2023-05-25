@@ -82,7 +82,7 @@ public class Health : MonoBehaviour
         if (CanTakeDamage)
         {
             _currentHealth -= damage;
-            _audioSource.PlayOneShot(_hitSound);
+            SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.25f);
             LimitCurrentHealth();
             shake.ShakeScreen();
         }
