@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6580572870306042273, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042273, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042273, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042273, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6580572870306042302, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 6580572870306042303, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
       propertyPath: m_Name
       value: HeartPiece
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580572870994469805, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
