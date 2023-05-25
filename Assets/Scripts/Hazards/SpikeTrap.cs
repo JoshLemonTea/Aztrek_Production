@@ -19,7 +19,7 @@ public class SpikeTrap : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.TryGetComponent(out Health health))
+        if (other.TryGetComponent(out Health health))
         {
             if (health.CanTakeDamage && health._currentHealth > 1)
             {

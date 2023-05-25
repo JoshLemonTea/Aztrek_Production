@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     // screenshake
     [SerializeField] private ScreenShake shake;
 
-    public int HeartPieceCount {get; private set;}
+    public int HeartPieceCount { get; private set; }
 
     [SerializeField]
     private int RequiredHearthPieces = 10;
@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
     public void IncrementHearthPieceCount()
     {
         HeartPieceCount++;
-        if(HeartPieceCount >= RequiredHearthPieces)
+        if (HeartPieceCount >= RequiredHearthPieces)
         {
             ResetHealthPieceCount();
             Heal(1);
@@ -84,7 +84,7 @@ public class Health : MonoBehaviour
             _currentHealth -= damage;
             SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.25f);
             LimitCurrentHealth();
-            shake.ShakeScreen();
+            shake.ShakeScreen(); // Screen Shake
         }
     }
 
@@ -96,7 +96,7 @@ public class Health : MonoBehaviour
             CanTakeDamage = false;
             if (_currentHealth > 0)
             {
-               // _playerRenderer.material.SetColor("_BaseColor", Color.red);
+                // _playerRenderer.material.SetColor("_BaseColor", Color.red);
             }
             else
             {

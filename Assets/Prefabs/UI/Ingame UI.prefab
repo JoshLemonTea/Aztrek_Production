@@ -725,7 +725,7 @@ MonoBehaviour:
   player: {fileID: 0}
   emptyAlpha: 0.3
   firstHeart: {fileID: 1315487233184363536}
-  spaceBetweenHearts: 60
+  spaceBetweenHearts: 100
   tributeSprites:
   - {fileID: 21300000, guid: 27fa9366931609844a5de504d6b788f0, type: 3}
   - {fileID: 21300000, guid: fb76f15d57c186349a27b3c4f89442d6, type: 3}
