@@ -102,7 +102,6 @@ public class IngameUI : MonoBehaviour
                 newColor.a = 255;
                 thisHeartSprite.color = newColor;
             }
-            Debug.Log(healthScript._currentHealth);
         }
     }
 

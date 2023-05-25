@@ -33,7 +33,6 @@ public class QuetzalcoatlState : PlayerState
         else
         {
             Player.HoverVFX.SetActive(false);
-
         }
 
 
@@ -46,11 +45,13 @@ public class QuetzalcoatlState : PlayerState
     {
         base.OnUpdate();
 
+        Debug.Log(Player.IsGoingUp + ": going up");
+
         if (Player.IsHovering)
         {
             if (InputManager.HasPressedSpace && !Player.IsGoingUp)
             {
-                Player.GravityValue = Player.HoverGravityValue;
+                Player.GravityValue = Player.HoverGravityValue;           
             }
             else
             {

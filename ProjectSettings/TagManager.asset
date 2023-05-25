@@ -7,6 +7,7 @@ TagManager:
   - Folder
   - Tribute
   - GrapplePoint
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX

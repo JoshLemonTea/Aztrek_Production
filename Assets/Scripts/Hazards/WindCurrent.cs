@@ -82,7 +82,7 @@ public class WindCurrent : MonoBehaviour
         if (_isActive && other.CompareTag("Player"))
         {
             Vector3 movement = transform.right * _windSpeed;
-            _player.AddMovement(movement);
+            _player.Move(_player.Movement + movement);
         }
     }
 }

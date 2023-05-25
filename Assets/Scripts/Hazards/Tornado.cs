@@ -53,10 +53,13 @@ public class Tornado : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Health health) && _playerStateMachine.CurrentState.State != GodState.Quetzalcoatl)
+        if (other.TryGetComponent(out Health health))
         {
-            health.TakeDamage(_damage);
-            health.MakeInvulnerable(_timeInvulnerable);
+            if(_playerStateMachine.CurrentState.State != GodState.Quetzalcoatl)
+            {
+                health.TakeDamage(_damage);
+                health.MakeInvulnerable(_timeInvulnerable);
+            }
         }
     }
 
@@ -64,9 +67,15 @@ public class Tornado : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Vector3 movement = transform.up * _windSpeed;
             _player.AdjustYMovement(_windSpeed);
-            //_player.AddMovement(movement);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _player.JumpMovement(false);
         }
     }
 
