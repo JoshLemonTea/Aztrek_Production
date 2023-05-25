@@ -65,7 +65,8 @@ public class Tornado : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Vector3 movement = transform.up * _windSpeed;
-            _player.AddMovement(movement);
+            _player.AdjustYMovement(_windSpeed);
+            //_player.AddMovement(movement);
         }
     }
 
