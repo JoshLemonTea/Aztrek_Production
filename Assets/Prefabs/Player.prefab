@@ -238,10 +238,10 @@ MonoBehaviour:
   _grappleDuration: 1.2
   _grappleAmplitude: 0.3
   _grappleSpeed: 19
-  _hoverMoveSpeed: 15
+  _hoverMoveSpeed: 13
   _hoverModeAcceleration: 50
-  _hoverModeDeceleration: 20
-  _hoverGravityValue: -1.9620003
+  _hoverModeDeceleration: 15
+  _hoverGravityValue: -2.5
   _lavaHeightBoost: 0.5
   _hoverVFX: {fileID: 4533308633826310054}
   _whipTail: {fileID: 58800345876627783}
@@ -269,7 +269,6 @@ MonoBehaviour:
   ingameUI: {fileID: 0}
   _currentHealth: 3
   _hitSound: {fileID: 8300000, guid: a8e4a19d4ae9f304892667150ee9685c, type: 3}
-  _respawnSound: {fileID: 8300000, guid: f88f19ef565eff043bdf2d3a3d6f38c5, type: 3}
   shake: {fileID: 0}
   RequiredHearthPieces: 10
 --- !u!114 &95421436871743597
