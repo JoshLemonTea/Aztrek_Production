@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 254998855982946784}
   - component: {fileID: 97138356302425318}
   - component: {fileID: 99008664228359938}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CFX3 Fire Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 254681410588843582}
   - component: {fileID: 97242671650436022}
   - component: {fileID: 98460977461261496}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CFX3 Fire CCW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9507,7 +9507,7 @@ GameObject:
   - component: {fileID: 254594861225719458}
   - component: {fileID: 97837176484737316}
   - component: {fileID: 97572264611500220}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CFX3 Fire Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14205,7 +14205,7 @@ GameObject:
   - component: {fileID: 254509702191046594}
   - component: {fileID: 96953429018578280}
   - component: {fileID: 98422149237284552}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19029,7 +19029,7 @@ GameObject:
   - component: {fileID: 258664619052263086}
   - component: {fileID: 96843377254577136}
   - component: {fileID: 98334585403773674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CFX3 Fire CW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23825,8 +23825,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5098245286895491332}
-  m_Layer: 0
-  m_Name: GameObject
+  m_Layer: 3
+  m_Name: Fire_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23859,7 +23859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3809818242819172637}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HeadPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23891,7 +23891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5258263508927296531}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Whip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23927,7 +23927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5189573150620388156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OriginalHeadPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23958,7 +23958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7261117628573924701}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MiddleScalePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23990,7 +23990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2450154839991789203}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TailPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24081,10 +24081,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3747067464712168560, guid: 0888d57fedc53ee44a00bb3db089a89e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0888d57fedc53ee44a00bb3db089a89e, type: 3}
       propertyPath: m_Name
       value: SnakeWhip Tail
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0888d57fedc53ee44a00bb3db089a89e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698167935213097627, guid: 0888d57fedc53ee44a00bb3db089a89e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7159cf1825c434e4189da0d3688d1897, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0888d57fedc53ee44a00bb3db089a89e, type: 3}
 --- !u!4 &1123978341395227843 stripped
@@ -24099,9 +24111,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5258263508927296531}
     m_Modifications:
+    - target: {fileID: 1491176741756148382, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1491176742319812693, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
       propertyPath: m_Name
-      value: CFXR4 Sun
+      value: Sun_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491176742319812693, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1491176742319812696, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
       propertyPath: m_RootOrder
@@ -24162,6 +24182,10 @@ PrefabInstance:
     - target: {fileID: 3119800237104335860, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
       propertyPath: m_Intensity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038098251150367913, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7443d8af2962f084cbd6844430855da2, type: 3}
@@ -24241,6 +24265,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnakeWhip Head
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5913d27a516a45048ac584852a2e3ce9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883251064728592897, guid: 5913d27a516a45048ac584852a2e3ce9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7159cf1825c434e4189da0d3688d1897, type: 2}
+    - target: {fileID: 6341613943321044423, guid: 5913d27a516a45048ac584852a2e3ce9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5913d27a516a45048ac584852a2e3ce9, type: 3}
 --- !u!4 &5739747974963258843 stripped
@@ -24311,9 +24347,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7848464155015328164, guid: 5a9ace45c00778042a47c8d09a510e88, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2116634020825804649, guid: 5a9ace45c00778042a47c8d09a510e88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7159cf1825c434e4189da0d3688d1897, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a9ace45c00778042a47c8d09a510e88, type: 3}
       propertyPath: m_Name
       value: SnakeWhip Middle Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a9ace45c00778042a47c8d09a510e88, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a9ace45c00778042a47c8d09a510e88, type: 3}
