@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class FireTrap : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _fireGFX;
+    //[SerializeField] private GameObject _fireGFX; // old
+    [SerializeField] private ParticleSystem _fireGFX;
 
-    [SerializeField]
-    private float _timeActive = 4f;
+    [SerializeField] private float _timeActive = 4f;
 
-    [SerializeField]
-    private float _timeDisabled = 2.5f;
+    [SerializeField] private float _timeDisabled = 2.5f;
 
-    [SerializeField]
-    private int _damage = 1;
+    [SerializeField] private int _damage = 1;
 
-    [SerializeField]
-    private float _timeInvulnerable = 2f;
+    [SerializeField] private float _timeInvulnerable = 2f;
 
     private BoxCollider _collider;
 
@@ -51,7 +47,8 @@ public class FireTrap : MonoBehaviour
                 _renderer.material.color = Color.green;
                 _timer = 0f;
                 _isActive = false;
-                _fireGFX.SetActive(false);
+                //_fireGFX.SetActive(false); // old
+                _fireGFX.Play();
                 _collider.enabled = false;
             }
         }
@@ -63,7 +60,8 @@ public class FireTrap : MonoBehaviour
                 _renderer.material.color = _originalColor;
                 _timer = 0f;
                 _isActive = true;
-                _fireGFX.SetActive(true);
+                //_fireGFX.SetActive(true); // old
+                _fireGFX.Stop();
                 _collider.enabled = true;
                 _audioSource.Play();
             }
