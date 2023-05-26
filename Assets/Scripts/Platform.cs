@@ -23,6 +23,7 @@ public class Platform : MonoBehaviour
     [SerializeField] private bool doesBreak;
     [SerializeField] private float breakTime;
     [SerializeField] private float respawnTime;
+    [SerializeField] private AudioClip _breakSound;
 
     [Header("Trap Platform")]
     [SerializeField] private bool isTrap;
@@ -34,9 +35,12 @@ public class Platform : MonoBehaviour
     [SerializeField] private float trapSetOffTime;
     [SerializeField] private float trapDamageTime;
     [SerializeField] private float damageCooldown;
+    [SerializeField] private AudioClip _trapTriggerSound;
     private bool canDamagePlayer = false;
     private bool spikeCoroutineStarted = false;
     private bool isCoolingDown;
+    
+    private AudioSource _audioSource;
 
     [Header("Bouncy Platform (Need to turn Main Collider to Trigger for this)")]
     [Tooltip("Turn main Box Collider to Trigger for this")]
@@ -60,6 +64,8 @@ public class Platform : MonoBehaviour
 
         startPos = startPosition.transform.position;
         endPos = endPosition.transform.position;
+
+        _audioSource = GetComponent<AudioSource>();
 
         spikes.SetActive(false);
     }
@@ -160,6 +166,7 @@ public class Platform : MonoBehaviour
         {
             gameObject.transform.GetChild(0).transform.parent = null;
         }
+        SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _breakSound, 0.6f, 0.1f);
         ChangeVisibility(false);
         yield return new WaitForSeconds(respawnTime);
         ChangeVisibility(true);
@@ -171,6 +178,7 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(trapSetOffTime);
         canDamagePlayer = true;
         spikes.SetActive(true);
+        SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _trapTriggerSound, 0.55f, 0.15f);
         yield return new WaitForSeconds(trapDamageTime);
         canDamagePlayer = false;
         spikeCoroutineStarted = false;
