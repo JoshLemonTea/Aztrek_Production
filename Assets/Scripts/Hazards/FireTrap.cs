@@ -50,7 +50,7 @@ public class FireTrap : MonoBehaviour
                 _timer = 0f;
                 _isActive = false;
                 //_fireGFX.SetActive(false); // old
-                _fireGFX.Play();
+                _fireGFX.Stop();
                 _collider.enabled = false;
             }
         }
@@ -63,7 +63,7 @@ public class FireTrap : MonoBehaviour
                 _timer = 0f;
                 _isActive = true;
                 //_fireGFX.SetActive(true); // old
-                _fireGFX.Stop();
+                _fireGFX.Play();
                 _collider.enabled = true;
                 SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _fireSound, 0.7f, 0.2f);
             }
