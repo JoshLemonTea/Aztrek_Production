@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3af6f68141914ca43ba39b2403757bd0, type: 3}
       propertyPath: stopAction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3af6f68141914ca43ba39b2403757bd0, type: 3}
       propertyPath: lengthInSec
