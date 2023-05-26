@@ -4,6 +4,7 @@ public class Tribute : MonoBehaviour
 {
     public string tributeType;
 
+    private bool _collected = false;
     private AudioSource _audioSource;
 
     private void OnEnable()
@@ -13,8 +14,9 @@ public class Tribute : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_collected)
         {
+            _collected = true;
             other.gameObject.GetComponent<TributeManager>().CollectTribute(tributeType);
             _audioSource.Play();
             Destroy(gameObject, 0.9f);
