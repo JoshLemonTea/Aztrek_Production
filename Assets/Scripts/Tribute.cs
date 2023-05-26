@@ -17,7 +17,7 @@ public class Tribute : MonoBehaviour
         {
             other.gameObject.GetComponent<TributeManager>().CollectTribute(tributeType);
             _audioSource.Play();
-            Destroy(gameObject,0.75f);
+            Destroy(gameObject, 0.9f);
             //gameObject.SetActive(false);
         }
     }
