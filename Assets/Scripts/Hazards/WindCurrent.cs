@@ -32,11 +32,22 @@ public class WindCurrent : MonoBehaviour
     [SerializeField]
     private ParticleSystem _particleSystem;
 
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _windSound;
+    [SerializeField]
+    private float _volumeAtRest;
+    [SerializeField]
+    private float _volumeWhenPushing;
+
     private void OnEnable()
     {
         _player = FindObjectOfType<Player>();
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
         //_originalColor = _renderer.material.color;
+
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = _windSound;
 
         if (_startsActive)
         {
@@ -55,6 +66,11 @@ public class WindCurrent : MonoBehaviour
                 _renderer.material.color = Color.green;
                 _timer = 0f;
                 _isActive = false;
+
+                _audioSource.volume = _volumeAtRest;
+                _audioSource.Stop();
+                _audioSource.Play();
+
                 //_windVFX.gameObject.SetActive(false);
                 _particleSystem.playbackSpeed = 1f;
                 _particleSystem.startSpeed = 10f;
@@ -69,6 +85,11 @@ public class WindCurrent : MonoBehaviour
                 _renderer.material.color = _originalColor;
                 _timer = 0f;
                 _isActive = true;
+
+                _audioSource.volume = _volumeWhenPushing;
+                _audioSource.Stop();
+                _audioSource.Play();
+
                 //_windVFX.gameObject.SetActive(true);
                 _particleSystem.playbackSpeed = 2f;
                 _particleSystem.startSpeed = 50f;
