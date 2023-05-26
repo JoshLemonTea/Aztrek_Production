@@ -35,6 +35,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int RequiredHearthPieces = 10;
 
+    public GameObject hitVFX;
+
     private void OnEnable()
     {
         //_playerRenderer = FindObjectOfType<Player>().transform.GetChild(0).GetComponent<Renderer>();
@@ -85,6 +87,7 @@ public class Health : MonoBehaviour
             SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.25f);
             LimitCurrentHealth();
             shake.ShakeScreen(); // Screen Shake
+            hitVFX.SetActive(true);
         }
     }
 
@@ -92,6 +95,7 @@ public class Health : MonoBehaviour
     {
         if (CanTakeDamage)
         {
+            //hitVFX.SetActive(false);
             _timeInvulnerable = duration;
             CanTakeDamage = false;
             if (_currentHealth > 0)

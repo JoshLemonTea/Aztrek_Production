@@ -272,8 +272,7 @@ MonoBehaviour:
   _hitSound: {fileID: 8300000, guid: a8e4a19d4ae9f304892667150ee9685c, type: 3}
   shake: {fileID: 0}
   RequiredHearthPieces: 10
-  damageVFX: {fileID: 1761494481291515945}
-  _particleSystem: {fileID: 1761494481273520457}
+  hitVFX: {fileID: 1761494481291515945}
 --- !u!114 &95421436871743597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,11 +818,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
---- !u!198 &1761494481273520457 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
-  m_PrefabInstance: {fileID: 5327441545431756678}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1761494481291515945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
