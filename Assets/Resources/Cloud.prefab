@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3532449396732648808}
   - component: {fileID: 2483875272188245113}
   - component: {fileID: 3449156027806401429}
+  - component: {fileID: 7251794388298103403}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: Untagged
@@ -117,6 +118,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.031000208, y: 0.01574882, z: 0.01098353}
   m_Center: {x: 0.00076955673, y: -0.0003009657, z: 0.0015773737}
+--- !u!65 &7251794388298103403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3027883990886743229}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.031000208, y: 0.01574882, z: 0.01098353}
+  m_Center: {x: 0.0007695567, y: -0.0003009657, z: 0.02}
 --- !u!1 &3180610148406941202
 GameObject:
   m_ObjectHideFlags: 0
