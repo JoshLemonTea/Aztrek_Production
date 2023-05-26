@@ -84,7 +84,7 @@ public class Health : MonoBehaviour
         if (CanTakeDamage)
         {
             _currentHealth -= damage;
-            SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.25f);
+            SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.2f);
             LimitCurrentHealth();
             shake.ShakeScreen(); // Screen Shake
             hitVFX.SetActive(true);

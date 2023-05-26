@@ -26,6 +26,7 @@ public class FireTrap : MonoBehaviour
     private Color _originalColor;
 
     private AudioSource _audioSource;
+    private AudioClip _fireSound;
 
     private void OnEnable()
     {
@@ -34,6 +35,7 @@ public class FireTrap : MonoBehaviour
         _collider = GetComponent<BoxCollider>();
 
         _audioSource = GetComponent<AudioSource>();
+        _fireSound = _audioSource.clip;
     }
 
 
@@ -63,7 +65,7 @@ public class FireTrap : MonoBehaviour
                 //_fireGFX.SetActive(true); // old
                 _fireGFX.Stop();
                 _collider.enabled = true;
-                _audioSource.Play();
+                SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _fireSound, 0.7f, 0.2f);
             }
         }
     }

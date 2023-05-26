@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveCheckpoint: {fileID: 8008030628466007272}
-  _respawnSound: {fileID: 8300000, guid: f88f19ef565eff043bdf2d3a3d6f38c5, type: 3}
+  AudioSource: {fileID: 8000493949009939218}
+  RespawnSound: {fileID: 8300000, guid: f88f19ef565eff043bdf2d3a3d6f38c5, type: 3}
 --- !u!82 &8000493949009939218
 AudioSource:
   m_ObjectHideFlags: 0

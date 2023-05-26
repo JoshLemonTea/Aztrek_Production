@@ -10,15 +10,15 @@ public class RespawnManager : MonoBehaviour
 
     private Transform _cameraTarget;
 
-    private AudioSource _audioSource;
+    public AudioSource AudioSource;
     [SerializeField]
-    private AudioClip _respawnSound;
+    public AudioClip RespawnSound;
 
     private void OnEnable()
     {
         _player = FindObjectOfType<Player>().transform;
         _cameraTarget = GameObject.Find("CameraTarget").transform;
-        _audioSource = GetComponent<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     public void Respawn()
@@ -27,6 +27,6 @@ public class RespawnManager : MonoBehaviour
         _player.position = ActiveCheckpoint.position - offset; 
         _cameraTarget.position = ActiveCheckpoint.position;
         _player.GetComponent<Player>().Movement = Vector3.zero;
-        _audioSource.PlayOneShot(_respawnSound, 0.5f);
+        AudioSource.PlayOneShot(RespawnSound, 0.3f);
     }
 }
