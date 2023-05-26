@@ -123,7 +123,7 @@ public class TlalocState : PlayerState
 
     private void PlaceCloud()
     {
-        SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _cloudPlaceSound, 1f, 0.3f)
+        SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _cloudPlaceSound, 1f, 0.3f);
 
         if (_hasCharge)
         {
