@@ -23,7 +23,7 @@ public class Checkpoint : MonoBehaviour
         {
             _respawnManager.ActiveCheckpoint = this.transform;
             resurrectionVFX.SetActive(true);
-            _audioSource.PlayOneShot(_respawnSound, 0.5f);
+            _audioSource.PlayOneShot(_respawnSound, 0.35f);
         }
     }
 }
