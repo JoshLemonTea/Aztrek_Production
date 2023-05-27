@@ -98,22 +98,22 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.285
+    - _OutlineWidth: 0.6
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimStep: 0.545
-    - _RimStepSmooth: 0.268
+    - _RimStep: 0.846
+    - _RimStepSmooth: 0
     - _Rim_Light_Brightness: 0.65
     - _Rim_Power: 0.84
     - _ShadowStep: 0.431
-    - _ShadowStepSmooth: 0.349
+    - _ShadowStepSmooth: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularStep: 0.292
-    - _SpecularStepSmooth: 0.081
+    - _SpecularStep: 1
+    - _SpecularStepSmooth: 0
     - _SrcBlend: 1
     - _Surface: 0
     - _Toon_Ramp_Offset: 0.18
@@ -125,9 +125,9 @@ Material:
     - _Color: {r: 0.8584906, g: 0.7653525, b: 0.7653525, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 1, g: 0.93442994, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 0.80092657, b: 0, a: 1}
+    - _RimColor: {r: 1, g: 0.42806163, b: 0.11792451, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 1, g: 0.08614111, b: 0, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _Toon_Ramp_Tinting: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1293079629402331483
