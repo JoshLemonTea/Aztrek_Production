@@ -27,6 +27,7 @@ public class RespawnManager : MonoBehaviour
         _player.position = ActiveCheckpoint.position - offset; 
         _cameraTarget.position = ActiveCheckpoint.position;
         _player.GetComponent<Player>().Movement = Vector3.zero;
+        _player.GetComponent<Health>().Heal(3);
         AudioSource.PlayOneShot(RespawnSound, 0.8f);
     }
 }
