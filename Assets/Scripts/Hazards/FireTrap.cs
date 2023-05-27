@@ -5,7 +5,9 @@ using UnityEngine;
 public class FireTrap : MonoBehaviour
 {
     //[SerializeField] private GameObject _fireGFX; // old
-    [SerializeField] private ParticleSystem _fireGFX;
+    [SerializeField] private ParticleSystem _fireParticleSystem;
+
+    [SerializeField] private ParticleSystem _smokeParticleSystem;
 
     [SerializeField] private float _timeActive = 4f;
 
@@ -49,9 +51,16 @@ public class FireTrap : MonoBehaviour
                 _renderer.material.color = Color.green;
                 _timer = 0f;
                 _isActive = false;
-                //_fireGFX.SetActive(false); // old
-                _fireGFX.Stop();
+
                 _collider.enabled = false;
+
+                _fireParticleSystem.playbackSpeed = 1f;
+                _fireParticleSystem.startSpeed = 1f;
+                _fireParticleSystem.maxParticles = 0;
+
+                //_smokeParticleSystem.playbackSpeed = 0.5f;
+                //_smokeParticleSystem.startSpeed = 1f;
+                //_smokeParticleSystem.maxParticles = 30;
             }
         }
         else
@@ -62,9 +71,17 @@ public class FireTrap : MonoBehaviour
                 _renderer.material.color = _originalColor;
                 _timer = 0f;
                 _isActive = true;
-                //_fireGFX.SetActive(true); // old
-                _fireGFX.Play();
+
                 _collider.enabled = true;
+
+                _fireParticleSystem.playbackSpeed = 1f;
+                _fireParticleSystem.startSpeed = 4.5f;
+                _fireParticleSystem.maxParticles = 30;
+
+                //_smokeParticleSystem.playbackSpeed = 1f;
+                //_smokeParticleSystem.startSpeed = 5f;
+                //_smokeParticleSystem.maxParticles = 150;
+
                 SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _fireSound, 0.7f, 0.2f);
             }
         }

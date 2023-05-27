@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] private IngameUI ingameUI;
 
-    [HideInInspector] public int _currentHealth = 3;
+    [HideInInspector] public int CurrentHealth = 3;
 
     private RespawnManager _respawnManager;
 
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip _hitSound;
 
     // screenshake
-    [SerializeField] private ScreenShake shake;
+    //[SerializeField] private ScreenShake shake;
 
     public int HeartPieceCount { get; private set; }
 
@@ -62,11 +62,11 @@ public class Health : MonoBehaviour
 
     private void LimitCurrentHealth()
     {
-        if (_currentHealth > _maxHealth)
+        if (CurrentHealth > _maxHealth)
         {
-            _currentHealth = _maxHealth;
+            CurrentHealth = _maxHealth;
         }
-        if (_currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             _respawnManager.Respawn();
             //_playerRenderer.material.SetColor("_BaseColor", _originalColor);
@@ -75,7 +75,7 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
-        _currentHealth += amount;
+        CurrentHealth += amount;
         LimitCurrentHealth();
     }
 
@@ -83,10 +83,10 @@ public class Health : MonoBehaviour
     {
         if (CanTakeDamage)
         {
-            _currentHealth -= damage;
+            CurrentHealth -= damage;
             SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.2f);
             LimitCurrentHealth();
-            shake.ShakeScreen(); // Screen Shake
+            //shake.ShakeScreen(); // Screen Shake
             hitVFX.SetActive(true);
         }
     }
@@ -98,13 +98,13 @@ public class Health : MonoBehaviour
             //hitVFX.SetActive(false);
             _timeInvulnerable = duration;
             CanTakeDamage = false;
-            if (_currentHealth > 0)
+            if (CurrentHealth > 0)
             {
                 // _playerRenderer.material.SetColor("_BaseColor", Color.red);
             }
             else
             {
-                _currentHealth = _maxHealth;
+                CurrentHealth = _maxHealth;
             }
         }
     }

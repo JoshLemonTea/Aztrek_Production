@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _addedJumpFalloff;
     private float _currentAddedJumpForce;
 
-    private float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
+    public float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
 
     [SerializeField] private float _acceleration;
 
@@ -125,27 +125,25 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _whip;
 
-    public Transform WhipTail { get => _whipTail;}
+    public Transform WhipTail { get => _whipTail; }
 
     public Transform WhipHead { get => _whipHead; }
 
-    public Transform WhipBody { get => _whipBody;}
+    public Transform WhipBody { get => _whipBody; }
 
     public Transform OriginalHeadPosition { get => _originalHeadPosition; }
 
-    public GameObject Whip { get => _whip;}
+    public GameObject Whip { get => _whip; }
 
     public Quaternion OriginalHeadRotation { get; private set; }
 
     public Quaternion OriginalTailRotation { get; private set; }
 
-    [SerializeField]
-    private Transform _shadow;
+    [SerializeField] private Transform _shadow;
 
     public Transform Shadow { get => _shadow; private set => _shadow = value; }
 
-    [SerializeField]
-    private LayerMask _defaultLayer;
+    [SerializeField] private LayerMask _defaultLayer;
 
     private void Update()
     {
@@ -159,9 +157,9 @@ public class Player : MonoBehaviour
 
     public void SetShadowPosition()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 50f, _defaultLayer))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 50f, _defaultLayer))
         {
-            Shadow.position = hit.point;       
+            Shadow.position = hit.point;
         }
     }
 
@@ -188,7 +186,7 @@ public class Player : MonoBehaviour
 
         if (IsGrounded)
         {
-            if(moveInput.magnitude > 0f)
+            if (moveInput.magnitude > 0f)
             {
                 Movement.x = Mathf.MoveTowards(Movement.x, relativeInput.x * MoveSpeed, Acceleration * Time.deltaTime);
                 Movement.z = Mathf.MoveTowards(Movement.z, relativeInput.y * MoveSpeed, Acceleration * Time.deltaTime);
@@ -201,7 +199,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(moveInput.magnitude > 0f)
+            if (moveInput.magnitude > 0f)
             {
 
 
@@ -280,10 +278,10 @@ public class Player : MonoBehaviour
 
     public void FaceForward(Vector2 moveInput)
     {
-        if(moveInput != Vector2.zero)
-        transform.forward = new Vector3(Movement.x, 0f, Movement.z);
+        if (moveInput != Vector2.zero)
+            transform.forward = new Vector3(Movement.x, 0f, Movement.z);
     }
-    
+
     public void AddMovement(Vector3 movement)
     {
         Movement += movement;
