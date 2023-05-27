@@ -7,6 +7,11 @@ public class TlalocState : PlayerState
 {
     private GameObject _tlalocGodUI;
     private GameObject _cloudGhost;
+    private GameObject _miniCloudPivot;
+    private GameObject _miniCloud;
+    private GameObject _miniCloudPowerUp;
+
+    private float _miniCloudRespawnTime;
 
     private GameObject _cloud;
 
@@ -26,6 +31,11 @@ public class TlalocState : PlayerState
         _tlalocGodUI = GameObject.Find("TlalocGodUI");
         _tlalocGodUI.SetActive(false);
         _cloudGhost = GameObject.Find("CloudGhost");
+        _miniCloud = GameObject.Find("MiniCloud");
+        _miniCloudPowerUp = GameObject.Find("MiniCloudPowerUp");
+        _miniCloudPivot = GameObject.Find("MiniCloudPivot");
+        _miniCloudPowerUp.SetActive(false);
+        _miniCloud.SetActive(false);
 
         _cloud = Resources.Load<GameObject>("Cloud");
 
@@ -49,6 +59,8 @@ public class TlalocState : PlayerState
         base.OnEnter();
 
         _tlalocGodUI.SetActive(true);
+        _miniCloud.SetActive(true);
+        _miniCloudPowerUp.SetActive(false);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -73,6 +85,13 @@ public class TlalocState : PlayerState
             if (Player.CoyoteTime > 0.2f)
                 Player.CoyoteTime = 0.2f;
         }
+
+        _miniCloudPivot.transform.Rotate(Vector3.up, 220 * Time.deltaTime);
+
+        if (_miniCloudRespawnTime > 0)
+            _miniCloudRespawnTime -= Time.deltaTime;
+        else
+            _miniCloud.SetActive(true);
     }
 
     public override void OnExit()
@@ -80,6 +99,8 @@ public class TlalocState : PlayerState
         InputManager.Controls.Player.F.performed -= OnPressedF;
 
         _tlalocGodUI.SetActive(false);
+        _miniCloudPowerUp.SetActive(false);
+        _miniCloud.SetActive(false);
 
         base.OnExit();
 
@@ -130,12 +151,16 @@ public class TlalocState : PlayerState
             Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
             _hasCharge = false;
             _tlalocCloudUI.enabled = false;
+            _miniCloudPowerUp.SetActive(false);
         }
         else
         {
             GameObject.Destroy(_previousCloud);
 
             _previousCloud = Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
+
+            _miniCloud.SetActive(false);
+            _miniCloudRespawnTime = 15f;
         }
     }
 
@@ -145,5 +170,7 @@ public class TlalocState : PlayerState
 
         if (_tlalocCloudUI != null)
             _tlalocCloudUI.enabled = true;
+
+        _miniCloudPowerUp.SetActive(true);
     }
 }
