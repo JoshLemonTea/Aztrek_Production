@@ -196,7 +196,7 @@ public class Platform : MonoBehaviour
             {
                 //Take Damage here
                 Debug.Log("Ouch!");
-                if (hit.GetComponent<Health>().CanTakeDamage && hit.GetComponent<Health>()._currentHealth > 1)
+                if (hit.GetComponent<Health>().CanTakeDamage && hit.GetComponent<Health>().CurrentHealth > 1)
                 {
                     hit.GetComponent<Player>().JumpMovement(false);
                 }

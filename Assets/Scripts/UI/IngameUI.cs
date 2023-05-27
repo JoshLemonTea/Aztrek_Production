@@ -90,7 +90,7 @@ public class IngameUI : MonoBehaviour
         {
             Image thisHeartSprite = hearts[i].GetComponent<Image>();
             int heartNumber = i + 1;
-            if (heartNumber > healthScript._currentHealth)
+            if (heartNumber > healthScript.CurrentHealth)
             {
                 Color newColor = thisHeartSprite.color;
                 newColor.a = emptyAlpha;

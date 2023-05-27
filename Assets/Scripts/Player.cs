@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _addedJumpFalloff;
     private float _currentAddedJumpForce;
 
-    private float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
+    public float JumpForce { get { return Mathf.Sqrt(-2f * GravityValue * JumpHeight); } }
 
     [SerializeField] private float _acceleration;
 
