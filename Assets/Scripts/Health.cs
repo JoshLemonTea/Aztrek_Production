@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip _hitSound;
 
     // screenshake
-    [SerializeField] private ScreenShake shake;
+    //[SerializeField] private ScreenShake shake;
 
     public int HeartPieceCount { get; private set; }
 
@@ -86,7 +86,7 @@ public class Health : MonoBehaviour
             _currentHealth -= damage;
             SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _hitSound, 1, 0.2f);
             LimitCurrentHealth();
-            shake.ShakeScreen(); // Screen Shake
+            //shake.ShakeScreen(); // Screen Shake
             hitVFX.SetActive(true);
         }
     }
