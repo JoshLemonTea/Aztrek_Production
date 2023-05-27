@@ -32,8 +32,6 @@ public class TlalocState : PlayerState
         _miniCloud = GameObject.Find("MiniCloud");
         _miniCloudPowerUp = GameObject.Find("MiniCloudPowerUp");
         _miniCloudPivot = GameObject.Find("MiniCloudPivot");
-        _miniCloudPowerUp.SetActive(false);
-        _miniCloud.SetActive(false);
 
         _cloud = Resources.Load<GameObject>("Cloud");
 
@@ -41,6 +39,9 @@ public class TlalocState : PlayerState
         _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
 
         _cloudGhost.SetActive(false);
+        _miniCloudPowerUp.SetActive(false);
+        _miniCloud.SetActive(false);
+        _miniCloudPivot.SetActive(false);
     }
 
     public override void OnEnter()
@@ -52,6 +53,7 @@ public class TlalocState : PlayerState
         _tlalocGodUI.SetActive(true);
         _miniCloud.SetActive(true);
         _miniCloudPowerUp.SetActive(false);
+        _miniCloudPivot.SetActive(true);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
     }
@@ -92,6 +94,7 @@ public class TlalocState : PlayerState
         _tlalocGodUI.SetActive(false);
         _miniCloudPowerUp.SetActive(false);
         _miniCloud.SetActive(false);
+        _miniCloudPivot.SetActive(false);
 
         base.OnExit();
 
