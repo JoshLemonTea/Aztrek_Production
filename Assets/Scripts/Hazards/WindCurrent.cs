@@ -46,7 +46,7 @@ public class WindCurrent : MonoBehaviour
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
         //_originalColor = _renderer.material.color;
 
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponentInChildren<AudioSource>();
         _audioSource.clip = _windSound;
 
         if (_startsActive)
