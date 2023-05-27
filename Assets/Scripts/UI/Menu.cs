@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject miniMap;
     private bool showCanvas = false;
+    private bool showMiniMap = true;
 
     public void ShowAndHideMenu(InputAction.CallbackContext context)
     {
@@ -15,6 +17,7 @@ public class Menu : MonoBehaviour
         if (context.performed == true)
         {
             showCanvas = !showCanvas;
+            miniMap.SetActive(!showCanvas);
         }
         ChangeCanvasState();
     }
