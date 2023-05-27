@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,10 @@ public class TlalocState : PlayerState
     private AudioClip _cloudPlaceSound;
 
     private Image _tlalocCloudUI;
+    private TextMeshProUGUI _tlalocCloudAmountUI;
+
+    private int _cloudsInInventory;
+    private float _chargeAdded;
 
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
@@ -33,12 +38,14 @@ public class TlalocState : PlayerState
         _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
         
         GameObject tlalocCloudUI = GameObject.Find("TlalocCloudUI");
+        _tlalocCloudAmountUI = GameObject.Find("TlalocCloudAmountUI").GetComponent<TextMeshProUGUI>();
         if(tlalocCloudUI != null)
         {
             _tlalocCloudUI = tlalocCloudUI.GetComponent<Image>();
             _tlalocCloudUI.enabled = false;
         }
 
+        _tlalocCloudAmountUI.gameObject.SetActive(false);
         _cloudGhost.SetActive(false);
     }
 
@@ -49,8 +56,14 @@ public class TlalocState : PlayerState
         base.OnEnter();
 
         _tlalocGodUI.SetActive(true);
+        _tlalocCloudAmountUI.gameObject.SetActive(true);
 
         InputManager.Controls.Player.F.performed += OnPressedF;
+
+        if (_tlalocCloudUI != null)
+            _tlalocCloudUI.enabled = true;
+
+        _cloudsInInventory = 1;
     }
 
     private void OnPressedF(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -73,6 +86,15 @@ public class TlalocState : PlayerState
             if (Player.CoyoteTime > 0.2f)
                 Player.CoyoteTime = 0.2f;
         }
+
+        if (_chargeAdded <= 0)
+        {
+            _cloudsInInventory = 1;
+        }
+        else
+            _chargeAdded -= Time.deltaTime;
+
+        _tlalocCloudAmountUI.text = "X " + (_cloudsInInventory - GameObject.FindObjectsOfType<Cloud>().Length) + "/" + _cloudsInInventory;
     }
 
     public override void OnExit()
@@ -80,11 +102,16 @@ public class TlalocState : PlayerState
         InputManager.Controls.Player.F.performed -= OnPressedF;
 
         _tlalocGodUI.SetActive(false);
+        _tlalocCloudAmountUI.gameObject.SetActive(false);
 
         base.OnExit();
 
         _abilityPressCount = 0;
         HideCloudGhost();
+
+
+        if (_tlalocCloudUI != null)
+            _tlalocCloudUI.enabled = false;
     }
 
     private void TriggerAbility()
@@ -129,7 +156,6 @@ public class TlalocState : PlayerState
         {
             Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
             _hasCharge = false;
-            _tlalocCloudUI.enabled = false;
         }
         else
         {
@@ -142,8 +168,7 @@ public class TlalocState : PlayerState
     public void AddCharge()
     {
         _hasCharge = true;
-
-        if (_tlalocCloudUI != null)
-            _tlalocCloudUI.enabled = true;
+        _cloudsInInventory = 2;
+        _chargeAdded = 15f;
     }
 }
