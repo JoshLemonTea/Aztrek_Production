@@ -32,8 +32,8 @@ public class Health : MonoBehaviour
 
     public int HeartPieceCount { get; private set; }
 
-    [SerializeField]
-    private int RequiredHearthPieces = 10;
+
+    public int RequiredHearthPieces = 10;
 
     public GameObject hitVFX;
 
@@ -47,12 +47,16 @@ public class Health : MonoBehaviour
 
     public void IncrementHearthPieceCount()
     {
-        HeartPieceCount++;
-        if (HeartPieceCount >= RequiredHearthPieces)
+        if (CurrentHealth != _maxHealth)
         {
-            ResetHealthPieceCount();
-            Heal(1);
+            HeartPieceCount++;
+            if (HeartPieceCount >= RequiredHearthPieces)
+            {
+                ResetHealthPieceCount();
+                Heal(1);
+            }
         }
+
     }
 
     public void ResetHealthPieceCount()

@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class IngameUI : MonoBehaviour
 {
-    //General
     [Header("General")]
     [SerializeField] private GameObject player;
     [Range(0, 1)][SerializeField] private float emptyAlpha;
     private Canvas canvas;
 
-    //Hearts
+    // Hearts
     [Header("Hearts")]
     [SerializeField] private GameObject firstHeart;
     [SerializeField] private float spaceBetweenHearts;
@@ -97,20 +96,33 @@ public class IngameUI : MonoBehaviour
         {
             Image thisHeartSprite = hearts[i].GetComponent<Image>();
             int heartNumber = i + 1;
+
             if (heartNumber > healthScript.CurrentHealth)
             {
                 Color newColor = thisHeartSprite.color;
-                newColor.a = emptyAlpha;
+                //newColor.a = emptyAlpha;
                 thisHeartSprite.color = newColor;
+
+                if (i == healthScript.CurrentHealth && healthScript.HeartPieceCount > 0)
+                {
+                    float fillAmount = (float)healthScript.HeartPieceCount / healthScript.RequiredHearthPieces;
+                    thisHeartSprite.fillAmount = fillAmount;
+                }
+                else
+                {
+                    thisHeartSprite.fillAmount = 0f; // Empty heart
+                }
             }
             else
             {
-                Color newColor = thisHeartSprite.color;
-                newColor.a = 255;
-                thisHeartSprite.color = newColor;
+                thisHeartSprite.color = Color.white;
+                thisHeartSprite.fillAmount = 1f; // Filled heart
             }
         }
     }
+
+
+
 
     public void UpdateTributeIcons()
     {
