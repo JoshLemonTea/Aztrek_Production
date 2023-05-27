@@ -183,9 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   ingameUI: {fileID: 0}
-  _currentHealth: 3
+  CurrentHealth: 3
   _hitSound: {fileID: 8300000, guid: a8e4a19d4ae9f304892667150ee9685c, type: 3}
-  shake: {fileID: 0}
   RequiredHearthPieces: 10
   hitVFX: {fileID: 1761494481291515945}
 --- !u!114 &95421436871743597
@@ -222,7 +221,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
