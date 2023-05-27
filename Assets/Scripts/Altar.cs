@@ -35,20 +35,20 @@ public class Altar : MonoBehaviour
         _videoUI.SetActive(false);
 
 
-        if (_god == GodState.Tlaloc)
-        {
-            _playerStateMachine.GoTo(_playerStateMachine.TlalocState);
-        }
-
-        if (_god == GodState.Quetzalcoatl)
-        {
-            _playerStateMachine.GoTo(_playerStateMachine.QuetzalcoatlState);
-        }
-
-        if (_god == GodState.Huitzilopochtli)
-        {
-            _playerStateMachine.GoTo(_playerStateMachine.HuiztilopochtliState);
-        }
+        //if (_god == GodState.Tlaloc)
+        //{
+        //    _playerStateMachine.GoTo(_playerStateMachine.TlalocState);
+        //}
+        //
+        //if (_god == GodState.Quetzalcoatl)
+        //{
+        //    _playerStateMachine.GoTo(_playerStateMachine.QuetzalcoatlState);
+        //}
+        //
+        //if (_god == GodState.Huitzilopochtli)
+        //{
+        //    _playerStateMachine.GoTo(_playerStateMachine.HuiztilopochtliState);
+        //}
     }
 
     private void OnVideoCompleted(VideoPlayer source)
