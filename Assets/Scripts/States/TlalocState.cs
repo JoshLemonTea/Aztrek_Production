@@ -24,8 +24,6 @@ public class TlalocState : PlayerState
     private AudioSource _audioSource;
     private AudioClip _cloudPlaceSound;
 
-    private Image _tlalocCloudUI;
-
     public TlalocState(PlayerStateMachine playerStateMachine, InputManager inputManager, Player player) : base(playerStateMachine, inputManager, player)
     {
         _tlalocGodUI = GameObject.Find("TlalocGodUI");
@@ -41,13 +39,6 @@ public class TlalocState : PlayerState
 
         _audioSource = player.GetComponent<AudioSource>();
         _cloudPlaceSound = Resources.Load<AudioClip>("Put Cloud");
-        
-        GameObject tlalocCloudUI = GameObject.Find("TlalocCloudUI");
-        if(tlalocCloudUI != null)
-        {
-            _tlalocCloudUI = tlalocCloudUI.GetComponent<Image>();
-            _tlalocCloudUI.enabled = false;
-        }
 
         _cloudGhost.SetActive(false);
     }
@@ -150,7 +141,6 @@ public class TlalocState : PlayerState
         {
             Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
             _hasCharge = false;
-            _tlalocCloudUI.enabled = false;
             _miniCloudPowerUp.SetActive(false);
         }
         else
@@ -167,9 +157,6 @@ public class TlalocState : PlayerState
     public void AddCharge()
     {
         _hasCharge = true;
-
-        if (_tlalocCloudUI != null)
-            _tlalocCloudUI.enabled = true;
 
         _miniCloudPowerUp.SetActive(true);
     }
