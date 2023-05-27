@@ -18,8 +18,8 @@ TagManager:
   - GrappleLayer
   - Ground
   - Wall
-  - 
-  - 
+  - NotMiniMap
+  - OnlyMiniMap
   - 
   - 
   - 

@@ -29,6 +29,10 @@ public class IngameUI : MonoBehaviour
     private TributeManager tributeManager;
     private List<List<GameObject>> tributeIcons = new List<List<GameObject>>();
 
+    //MiniMap
+    [Header("Minimap")]
+    [SerializeField] private GameObject playerArrow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +74,9 @@ public class IngameUI : MonoBehaviour
     {
         UpdateHearts();
         UpdateTributeIcons();
+        Vector3 newArrowRotation = playerArrow.GetComponent<RectTransform>().eulerAngles;
+        newArrowRotation.z = player.transform.eulerAngles.y;
+        playerArrow.GetComponent<RectTransform>().eulerAngles = newArrowRotation;
     }
 
     private void SpawnHearts(int heartAmount)
