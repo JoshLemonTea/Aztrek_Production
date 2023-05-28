@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 95421436871743597}
   - component: {fileID: 8806002476363975801}
   - component: {fileID: 1398783329}
+  - component: {fileID: 2576930531032779509}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -441,6 +442,20 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2576930531032779509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188567580307106690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae850326c0d7d1d4b8b7096ebca13a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  girlModel: {fileID: 7014409868176939047}
+  boyModel: {fileID: 6815105264333196685}
 --- !u!1001 &137618979784401757
 PrefabInstance:
   m_ObjectHideFlags: 0
