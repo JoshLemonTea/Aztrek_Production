@@ -46,6 +46,9 @@ public class Platform : MonoBehaviour
     [Tooltip("Turn main Box Collider to Trigger for this")]
     [SerializeField] private bool isBouncyPlatform;
 
+    [SerializeField]
+    private Animator _animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +107,8 @@ public class Platform : MonoBehaviour
         if (doesBreak && playerInTrigger)
         {
             StartCoroutine(BreakPlatform());
+
+            _animator.SetBool("IsBreaking", true);
         }
 
         if (isTrap && isReactionTrap && playerInTrigger)
@@ -167,6 +172,9 @@ public class Platform : MonoBehaviour
             gameObject.transform.GetChild(0).transform.parent = null;
         }
         SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _breakSound, 0.6f, 0.1f);
+
+        _animator.SetBool("IsBreaking", false);
+
         ChangeVisibility(false);
         yield return new WaitForSeconds(respawnTime);
         ChangeVisibility(true);
