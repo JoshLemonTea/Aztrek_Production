@@ -145,6 +145,17 @@ public class Player : MonoBehaviour
 
     [SerializeField] private LayerMask _defaultLayer;
 
+    public GodState State { get; set; }
+
+    [SerializeField]
+    private GameObject _tlalocMask;
+
+    [SerializeField]
+    private GameObject _huitzilopochtliMask;
+
+    [SerializeField]
+    private GameObject _quetzalcoatlMask;
+
     private void Update()
     {
         if (IsGrounded)
@@ -153,6 +164,28 @@ public class Player : MonoBehaviour
         }
 
         HandleCoyoteTime();
+    }
+
+    public void ChangeMask()
+    {
+        if(State == GodState.Default)
+        {
+            _tlalocMask.SetActive(false);
+            _huitzilopochtliMask.SetActive(false);
+            _quetzalcoatlMask.SetActive(false);
+        }
+        if(State == GodState.Tlaloc)
+        {
+            _tlalocMask.SetActive(true);
+        }
+        if(State == GodState.Huitzilopochtli)
+        {
+            _huitzilopochtliMask.SetActive(true);
+        }
+        if(State == GodState.Quetzalcoatl)
+        {
+            _quetzalcoatlMask.SetActive(true);
+        }
     }
 
     public void SetShadowPosition()

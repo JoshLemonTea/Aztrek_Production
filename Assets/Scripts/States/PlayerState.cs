@@ -35,7 +35,10 @@ public abstract class PlayerState
         _originalAirDeceleration = Player.AirDeceleration;
     }
 
-    public virtual void OnEnter() { }
+    public virtual void OnEnter() 
+    {
+        Player.ChangeMask();
+    }
 
     public virtual void OnUpdate()
     {

@@ -44,8 +44,8 @@ public class TlalocState : PlayerState
 
     public override void OnEnter()
     {
-        Debug.Log("Entered Tlaloc State");
         State = GodState.Tlaloc;
+        Player.State = GodState.Tlaloc;
         base.OnEnter();
 
         _tlalocGodUI.SetActive(true);

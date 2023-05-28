@@ -12,9 +12,9 @@ public class DefaultState : PlayerState
     {
         ResetDefaultPlayerValues();
 
-        base.OnEnter();
         State = GodState.Default;
-        Debug.Log("Entered Default State");
+        Player.State = GodState.Default;
+        base.OnEnter();
     }
 
     public override void OnUpdate()

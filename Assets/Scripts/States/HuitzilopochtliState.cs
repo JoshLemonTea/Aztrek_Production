@@ -38,9 +38,8 @@ public class HuitzilopochtliState : PlayerState
 
     public override void OnEnter()
     {
-        Debug.Log("Entered Huitzilopochtli State");
-
         State = GodState.Huitzilopochtli;
+        Player.State = GodState.Huitzilopochtli;
         base.OnEnter();
 
         _huitziGodUI.SetActive(true);
@@ -117,7 +116,6 @@ public class HuitzilopochtliState : PlayerState
         {
             if (Player.ActiveGrapplePoint != null)
             {
-               // DrawWhip();
                 AttachHead();
                 StretchBody();
             }

@@ -13,8 +13,8 @@ public class QuetzalcoatlState : PlayerState
 
     public override void OnEnter()
     {
-        Debug.Log("Entered Quetzalcoatl State");
         State = GodState.Quetzalcoatl;
+        Player.State = GodState.Quetzalcoatl;
         base.OnEnter();
 
         _quetzalGodUI.SetActive(true);
@@ -44,8 +44,6 @@ public class QuetzalcoatlState : PlayerState
     public override void OnUpdate()
     {
         base.OnUpdate();
-
-        Debug.Log(Player.IsGoingUp + ": going up");
 
         if (Player.IsHovering)
         {
