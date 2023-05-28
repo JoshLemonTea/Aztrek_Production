@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 386200997180977989, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 386560950788025603, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_SortingFudge
@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 387158943585420433, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 387158943585420433, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: scalingMode
@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 387158943585420433, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 387158943585420433, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
@@ -507,8 +507,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 544454179516702085, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.49728835
+      objectReference: {fileID: 0}
+    - target: {fileID: 544454179516702085, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.49728835
+      objectReference: {fileID: 0}
+    - target: {fileID: 544454179516702085, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2721
+      value: 0.41285905
       objectReference: {fileID: 0}
     - target: {fileID: 544454179516702085, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -532,15 +540,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545079590452427341, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.1964696
       objectReference: {fileID: 0}
     - target: {fileID: 545079590452427341, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.1964696
       objectReference: {fileID: 0}
     - target: {fileID: 545079590452427341, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.1964696
       objectReference: {fileID: 0}
     - target: {fileID: 545079590452427341, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -629,6 +637,14 @@ PrefabInstance:
     - target: {fileID: 547802699393112439, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_Name
       value: Flame_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 547802699393112439, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 548213272774195865, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354853360684351912, guid: 7876c7a5743d3a54792f21e8fe01c1ea, type: 3}
       propertyPath: m_Intensity
