@@ -1590,9 +1590,9 @@ Transform:
   - {fileID: 943754428}
   - {fileID: 82595683}
   - {fileID: 100132018}
+  - {fileID: 239111475}
   - {fileID: 43432928}
   - {fileID: 741486644}
-  - {fileID: 239111475}
   - {fileID: 148679770}
   - {fileID: 1479812572}
   - {fileID: 370116789}
@@ -8883,7 +8883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302070358989508345, guid: 3e5451c8dc9e91e468cd088ef4aea6b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -226.61134
+      value: -228.36134
       objectReference: {fileID: 0}
     - target: {fileID: 3302070358989508345, guid: 3e5451c8dc9e91e468cd088ef4aea6b9, type: 3}
       propertyPath: m_LocalRotation.w
