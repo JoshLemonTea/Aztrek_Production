@@ -168,12 +168,7 @@ public class Player : MonoBehaviour
 
     public void ChangeMask()
     {
-        if(State == GodState.Default)
-        {
-            _tlalocMask.SetActive(false);
-            _huitzilopochtliMask.SetActive(false);
-            _quetzalcoatlMask.SetActive(false);
-        }
+        DisableAllMasks();   
         if(State == GodState.Tlaloc)
         {
             _tlalocMask.SetActive(true);
@@ -186,6 +181,13 @@ public class Player : MonoBehaviour
         {
             _quetzalcoatlMask.SetActive(true);
         }
+    }
+
+    private void DisableAllMasks()
+    {
+        _tlalocMask.SetActive(false);
+        _huitzilopochtliMask.SetActive(false);
+        _quetzalcoatlMask.SetActive(false);
     }
 
     public void SetShadowPosition()
