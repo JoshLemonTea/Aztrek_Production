@@ -11,8 +11,6 @@ public class TlalocState : PlayerState
     private GameObject _miniCloud;
     private GameObject _miniCloudPowerUp;
 
-    private float _miniCloudRespawnTime;
-
     private GameObject _cloud;
 
     private GameObject _previousCloud;
@@ -80,11 +78,6 @@ public class TlalocState : PlayerState
         }
 
         _miniCloudPivot.transform.Rotate(Vector3.up, 220 * Time.deltaTime);
-
-        if (_miniCloudRespawnTime > 0)
-            _miniCloudRespawnTime -= Time.deltaTime;
-        else
-            _miniCloud.SetActive(true);
     }
 
     public override void OnExit()
@@ -151,9 +144,6 @@ public class TlalocState : PlayerState
             GameObject.Destroy(_previousCloud);
 
             _previousCloud = Object.Instantiate(_cloud, _cloudGhost.transform.position, _cloudGhost.transform.rotation);
-
-            _miniCloud.SetActive(false);
-            _miniCloudRespawnTime = 15f;
         }
     }
 
