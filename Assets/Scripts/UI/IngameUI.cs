@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class IngameUI : MonoBehaviour
 {
@@ -19,14 +20,8 @@ public class IngameUI : MonoBehaviour
 
     //Tributes
     [Header("Tributes")]
-    [SerializeField] private List<Sprite> tributeSprites = new List<Sprite>();
-    [SerializeField] private GameObject tributeIconExample;
-    [SerializeField] private Vector2 firstTributePos;
-    [SerializeField] private float xDistanceBetweenTributes;
-    [SerializeField] private float yDistanceBetweenTributes;
-    private List<float> currentYDistanceBetweenTributes = new List<float>();
+    [SerializeField] private List<TMPro.TextMeshProUGUI> tributeCounts = new List<TMPro.TextMeshProUGUI>();
     private TributeManager tributeManager;
-    private List<List<GameObject>> tributeIcons = new List<List<GameObject>>();
 
     //MiniMap
     [Header("Minimap")]
@@ -40,42 +35,52 @@ public class IngameUI : MonoBehaviour
         SpawnHearts(healthScript._maxHealth);
 
         tributeManager = player.GetComponent<TributeManager>();
-        InitialiseTributes();
+        //InitialiseTributes();
     }
 
-    private void InitialiseTributes()
+    private void UpdateTributeCounts()
     {
-        for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
+        for (int i = 0; i < tributeManager.collectedTributes.Count; i++)
         {
-            currentYDistanceBetweenTributes.Add(firstTributePos.y);
-            tributeIcons.Add(new List<GameObject>());
-        }
-
-        for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
-        {
-            for (int j = 0; j < tributeManager.maxTributes[i]; j++)
-            {
-                currentYDistanceBetweenTributes[i] -= yDistanceBetweenTributes;
-                float xPos = firstTributePos.x + (xDistanceBetweenTributes * i);
-                Vector3 newTributePos = new Vector3(xPos, currentYDistanceBetweenTributes[i], 0);
-
-                GameObject newTributeIcon = GameObject.Instantiate(tributeIconExample, newTributePos, Quaternion.identity);
-                newTributeIcon.GetComponent<Image>().sprite = tributeSprites[i];
-                newTributeIcon.transform.parent = this.transform;
-                List<GameObject> currentTributeIconsList = tributeIcons[i];
-                currentTributeIconsList.Add(newTributeIcon);
-            }
+            string newText = tributeManager.collectedTributes[i] + "/" + tributeManager.maxTributes[i];
+            tributeCounts[i].text = newText;
         }
     }
+
+    //private void InitialiseTributes()
+    //{
+    //    for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
+    //    {
+    //        currentYDistanceBetweenTributes.Add(firstTributePos.y);
+    //        tributeIcons.Add(new List<GameObject>());
+    //    }
+
+    //    for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
+    //    {
+    //        for (int j = 0; j < tributeManager.maxTributes[i]; j++)
+    //        {
+    //            currentYDistanceBetweenTributes[i] -= yDistanceBetweenTributes;
+    //            float xPos = firstTributePos.x + (xDistanceBetweenTributes * i);
+    //            Vector3 newTributePos = new Vector3(xPos, currentYDistanceBetweenTributes[i], 0);
+
+    //            GameObject newTributeIcon = GameObject.Instantiate(tributeIconExample, newTributePos, Quaternion.identity);
+    //            newTributeIcon.GetComponent<Image>().sprite = tributeSprites[i];
+    //            newTributeIcon.transform.parent = this.transform;
+    //            List<GameObject> currentTributeIconsList = tributeIcons[i];
+    //            currentTributeIconsList.Add(newTributeIcon);
+    //        }
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
     {
         UpdateHearts();
-        UpdateTributeIcons();
+        //UpdateTributeIcons();
         Vector3 newArrowRotation = playerArrow.GetComponent<RectTransform>().eulerAngles;
         newArrowRotation.z = player.transform.eulerAngles.y;
         playerArrow.GetComponent<RectTransform>().eulerAngles = newArrowRotation;
+        UpdateTributeCounts();
     }
 
     private void SpawnHearts(int heartAmount)
@@ -121,31 +126,28 @@ public class IngameUI : MonoBehaviour
         }
     }
 
-
-
-
-    public void UpdateTributeIcons()
-    {
-        for (int i = 0; i < tributeIcons.Count; i++)
-        {
-            List<GameObject> currentTributeIconsList = tributeIcons[i];
-            for (int j = 0; j < currentTributeIconsList.Count; j++)
-            {
-                GameObject currentIcon = currentTributeIconsList[j];
-                //Check if the tribute has been collected
-                if (j >= tributeManager.collectedTributes[i])
-                {
-                    Color newColor = currentIcon.GetComponent<Image>().color;
-                    newColor.a = emptyAlpha;
-                    currentIcon.GetComponent<Image>().color = newColor;
-                }
-                else
-                {
-                    Color newColor = currentIcon.GetComponent<Image>().color;
-                    newColor.a = 255;
-                    currentIcon.GetComponent<Image>().color = newColor;
-                }
-            }
-        }
-    }
+    //public void UpdateTributeIcons()
+    //{
+    //    for (int i = 0; i < tributeIcons.Count; i++)
+    //    {
+    //        List<GameObject> currentTributeIconsList = tributeIcons[i];
+    //        for (int j = 0; j < currentTributeIconsList.Count; j++)
+    //        {
+    //            GameObject currentIcon = currentTributeIconsList[j];
+    //            //Check if the tribute has been collected
+    //            if (j >= tributeManager.collectedTributes[i])
+    //            {
+    //                Color newColor = currentIcon.GetComponent<Image>().color;
+    //                newColor.a = emptyAlpha;
+    //                currentIcon.GetComponent<Image>().color = newColor;
+    //            }
+    //            else
+    //            {
+    //                Color newColor = currentIcon.GetComponent<Image>().color;
+    //                newColor.a = 255;
+    //                currentIcon.GetComponent<Image>().color = newColor;
+    //            }
+    //        }
+    //    }
+    //}
 }
