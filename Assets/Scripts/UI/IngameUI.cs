@@ -82,7 +82,7 @@ public class IngameUI : MonoBehaviour
             if (heartNumber > healthScript.CurrentHealth)
             {
                 Color newColor = thisHeartSprite.color;
-                //newColor.a = emptyAlpha;
+                newColor.a = emptyAlpha;
                 thisHeartSprite.color = newColor;
 
                 if (i == healthScript.CurrentHealth && healthScript.HeartPieceCount > 0)
