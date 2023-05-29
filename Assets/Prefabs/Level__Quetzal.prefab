@@ -315,6 +315,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7747662270622043832, guid: eee62f1e96865a243a9efd818c0f74db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eee62f1e96865a243a9efd818c0f74db, type: 3}
 --- !u!4 &5591885381116742361 stripped
@@ -2504,6 +2508,10 @@ PrefabInstance:
       value: Feather
       objectReference: {fileID: 0}
     - target: {fileID: 7273983728791191830, guid: eee62f1e96865a243a9efd818c0f74db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747662270622043832, guid: eee62f1e96865a243a9efd818c0f74db, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
