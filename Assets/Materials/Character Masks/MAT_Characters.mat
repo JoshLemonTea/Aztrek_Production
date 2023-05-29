@@ -108,7 +108,7 @@ Material:
     - _RimStepSmooth: 0
     - _Rim_Light_Brightness: 13.8
     - _Rim_Power: 0.43
-    - _ShadowStep: 0.582
+    - _ShadowStep: 0.55
     - _ShadowStepSmooth: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -123,7 +123,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.9063317, g: 0.6441518, b: 0.3875317, a: 1}
+    - _BaseColor: {r: 1, g: 0.905761, b: 0.87169814, a: 1}
     - _Color: {r: 0.9063317, g: 0.6441518, b: 0.38753164, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
