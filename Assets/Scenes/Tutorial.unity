@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10693466, g: 0.3396484, b: 0.4512331, a: 1}
+  m_IndirectSpecularColor: {r: 0.10693964, g: 0.33967492, b: 0.45132172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -604,6 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d3f526198dae440bb2ce6005d86055, type: 3}
+--- !u!1 &48475089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6532584999354946969, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
+  m_PrefabInstance: {fileID: 264515249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &73601761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3773,6 +3778,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6532584999354946969, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6532584999393672115, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6749,6 +6758,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818707320406051021, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
       propertyPath: _god
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818707320406051021, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
+      propertyPath: _videoUI
+      value: 
+      objectReference: {fileID: 48475089}
+    - target: {fileID: 4818707320406051021, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
+      propertyPath: _videoPlayer
+      value: 
+      objectReference: {fileID: 2105916490}
+    - target: {fileID: 4818707320406051021, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
+      propertyPath: _playTutorialVideo
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -27637,6 +27658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d3f526198dae440bb2ce6005d86055, type: 3}
+--- !u!328 &2105916490 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 6532585000175829310, guid: 77d1b1a3d21c2fa4990b34730ee1e27f, type: 3}
+  m_PrefabInstance: {fileID: 264515249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2110559100
 GameObject:
   m_ObjectHideFlags: 0
