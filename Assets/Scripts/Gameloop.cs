@@ -36,4 +36,9 @@ public class Gameloop : MonoBehaviour
 
         _playerSM.CurrentState.OnUpdate();
     }
+
+    public PlayerStateMachine SetPlayerStateMachine()
+    {
+        return _playerSM;
+    }
 }
