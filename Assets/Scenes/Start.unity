@@ -1921,6 +1921,10 @@ PrefabInstance:
       value: MusicBox
       objectReference: {fileID: 0}
     - target: {fileID: 5475273194791358516, guid: 3a2c308e5f797e74783b2a8c612cd78a, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475273194791358516, guid: 3a2c308e5f797e74783b2a8c612cd78a, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 1b193e3aac6c54140b410675cee812a8, type: 3}
