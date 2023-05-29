@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 22b9a63f221977447a696c3dc5330a6b
+guid: aa3d6194928841c4d99cd040d049de90
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: -4548509247309348820
-    second: Hover2.0
-  - first:
-      74: 5522812681064789136
-    second: Run
-  - first:
-      74: -4799307388311082208
-    second: JumpMiddle
-  - first:
-      74: -7702779327198432767
-    second: RopeSwing
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Texture
+      name: Material.011
     second: {fileID: 2100000, guid: 23ed0739ff33afc4c9ac868afb597756, type: 2}
   materials:
     materialImportMode: 2
@@ -110,11 +98,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2310587ab3e16c7429a145d7b0120b30, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
