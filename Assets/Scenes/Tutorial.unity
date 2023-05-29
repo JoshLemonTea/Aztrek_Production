@@ -23121,7 +23121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6330468244284433308, guid: de17ec3b7a4d75d4695d8cbea71a7a1e, type: 3}
       propertyPath: m_text
-      value: "Some Hazards can \npower up an ability"
+      value: Algunos peligros pueden potenciar ciertas habilidades
       objectReference: {fileID: 0}
     - target: {fileID: 6330468244284433311, guid: de17ec3b7a4d75d4695d8cbea71a7a1e, type: 3}
       propertyPath: m_AnchoredPosition.y
