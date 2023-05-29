@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class HeartPiece : MonoBehaviour
 {
-    private Health _health;
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _heartPickupSound;
 
     private void OnEnable()
     {
-        _health =FindObjectOfType<Health>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Health health))
         {
+            SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _heartPickupSound, 1f, 0.2f);
             health.IncrementHearthPieceCount();
-            gameObject.SetActive(false);
+            Destroy(gameObject, 0.3f);
         }
     }
 }
