@@ -83,6 +83,11 @@ public class Health : MonoBehaviour
         LimitCurrentHealth();
     }
 
+    public void SetHealth(int health)
+    {
+        CurrentHealth = health;
+    }
+
     public void TakeDamage(int damage)
     {
         if (CanTakeDamage)
