@@ -20,6 +20,8 @@ public class LightningSpawner : MonoBehaviour
 
     private bool _canSpawn;
 
+    private Transform _player;
+
     private Vector3 GetRandomPosition()
     {
         float halfWidth = _collider.size.x / 2f;
@@ -45,6 +47,10 @@ public class LightningSpawner : MonoBehaviour
         Instantiate(_lightningPrefab, position, Quaternion.identity);     
     }
 
+    private void Start()
+    {
+        _player = FindObjectOfType<Player>().transform;
+    }
 
     private void Update()
     {
@@ -57,7 +63,7 @@ public class LightningSpawner : MonoBehaviour
                 _canSpawn = true;
             }
         }
-        else
+        else if (Vector3.Distance(transform.position, _player.position) < 40f)
         {
             for (int i = 0; i < _strikesPerCast; i++)
             {
