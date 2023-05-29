@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10693964, g: 0.33967492, b: 0.45132172, a: 1}
+  m_IndirectSpecularColor: {r: 0.10693466, g: 0.3396484, b: 0.4512331, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8548,6 +8548,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1736492804}
     m_Modifications:
+    - target: {fileID: 2066503812472894477, guid: 8c9e9f31f107e0a4695d60922e1fc693, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3209632488149886816, guid: 8c9e9f31f107e0a4695d60922e1fc693, type: 3}
       propertyPath: m_Name
       value: Menu
@@ -8596,6 +8600,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3209632488149886819, guid: 8c9e9f31f107e0a4695d60922e1fc693, type: 3}
+      propertyPath: miniMap
+      value: 
+      objectReference: {fileID: 2119974677}
     - target: {fileID: 5079093505452624846, guid: 8c9e9f31f107e0a4695d60922e1fc693, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 0
@@ -27697,6 +27705,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: -147.112, z: 0}
+--- !u!1 &2119974677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3493672087495940146, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+  m_PrefabInstance: {fileID: 230486998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2120841396
 PrefabInstance:
   m_ObjectHideFlags: 0
