@@ -19,7 +19,9 @@ public class HeartPiece : MonoBehaviour
         {
             SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _heartPickupSound, 1f, 0.2f);
             health.IncrementHearthPieceCount();
-            Destroy(gameObject, 0.3f);
+            GetComponentInChildren<MeshRenderer>().gameObject.SetActive(false);
+            GetComponent<Collider>().enabled = false;
+            Destroy(gameObject, 0.5f);
         }
     }
 }

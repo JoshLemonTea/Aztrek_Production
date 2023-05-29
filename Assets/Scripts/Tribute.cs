@@ -19,6 +19,8 @@ public class Tribute : MonoBehaviour
             _collected = true;
             other.gameObject.GetComponent<TributeManager>().CollectTribute(tributeType);
             _audioSource.Play();
+            GetComponentInChildren<MeshRenderer>().gameObject.SetActive(false);
+            GetComponent<Collider>().enabled = false;
             Destroy(gameObject, 0.9f);
             //gameObject.SetActive(false);
         }
