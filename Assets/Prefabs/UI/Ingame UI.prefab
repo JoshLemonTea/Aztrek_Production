@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  emptyAlpha: 0.3
+  emptyAlpha: 1
   firstHeart: {fileID: 2030481126764598678}
   spaceBetweenHearts: 100
   tributeCounts:
