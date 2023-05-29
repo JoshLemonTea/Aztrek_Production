@@ -24,6 +24,7 @@ public class Menu : MonoBehaviour
 
     public void OnContinue()
     {
+        Debug.Log("Yep");
         showCanvas = false;
         ChangeCanvasState();
     }
