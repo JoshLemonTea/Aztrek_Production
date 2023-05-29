@@ -35,7 +35,7 @@ public class IngameUI : MonoBehaviour
         SpawnHearts(healthScript._maxHealth);
 
         tributeManager = player.GetComponent<TributeManager>();
-        //InitialiseTributes();
+       
     }
 
     private void UpdateTributeCounts()
@@ -47,36 +47,13 @@ public class IngameUI : MonoBehaviour
         }
     }
 
-    //private void InitialiseTributes()
-    //{
-    //    for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
-    //    {
-    //        currentYDistanceBetweenTributes.Add(firstTributePos.y);
-    //        tributeIcons.Add(new List<GameObject>());
-    //    }
-
-    //    for (int i = 0; i < Mathf.Min(tributeSprites.Count, tributeManager.maxTributes.Count); i++)
-    //    {
-    //        for (int j = 0; j < tributeManager.maxTributes[i]; j++)
-    //        {
-    //            currentYDistanceBetweenTributes[i] -= yDistanceBetweenTributes;
-    //            float xPos = firstTributePos.x + (xDistanceBetweenTributes * i);
-    //            Vector3 newTributePos = new Vector3(xPos, currentYDistanceBetweenTributes[i], 0);
-
-    //            GameObject newTributeIcon = GameObject.Instantiate(tributeIconExample, newTributePos, Quaternion.identity);
-    //            newTributeIcon.GetComponent<Image>().sprite = tributeSprites[i];
-    //            newTributeIcon.transform.parent = this.transform;
-    //            List<GameObject> currentTributeIconsList = tributeIcons[i];
-    //            currentTributeIconsList.Add(newTributeIcon);
-    //        }
-    //    }
-    //}
+    
 
     // Update is called once per frame
     void Update()
     {
         UpdateHearts();
-        //UpdateTributeIcons();
+       
         Vector3 newArrowRotation = playerArrow.GetComponent<RectTransform>().eulerAngles;
         newArrowRotation.z = player.transform.eulerAngles.y;
         playerArrow.GetComponent<RectTransform>().eulerAngles = newArrowRotation;
@@ -90,7 +67,7 @@ public class IngameUI : MonoBehaviour
             Vector3 newHeartPos = firstHeart.transform.position + new Vector3(spaceBetweenHearts * i, 0, 0);
             GameObject newHeart = GameObject.Instantiate(firstHeart, newHeartPos, Quaternion.identity);
             newHeart.transform.parent = this.transform;
-            newHeart.transform.localScale = new Vector3(.9f, .9f, .9f);
+            //newHeart.transform.localScale = new Vector3(.9f, .9f, .9f);
             hearts.Add(newHeart);
         }
     }
@@ -126,28 +103,5 @@ public class IngameUI : MonoBehaviour
         }
     }
 
-    //public void UpdateTributeIcons()
-    //{
-    //    for (int i = 0; i < tributeIcons.Count; i++)
-    //    {
-    //        List<GameObject> currentTributeIconsList = tributeIcons[i];
-    //        for (int j = 0; j < currentTributeIconsList.Count; j++)
-    //        {
-    //            GameObject currentIcon = currentTributeIconsList[j];
-    //            //Check if the tribute has been collected
-    //            if (j >= tributeManager.collectedTributes[i])
-    //            {
-    //                Color newColor = currentIcon.GetComponent<Image>().color;
-    //                newColor.a = emptyAlpha;
-    //                currentIcon.GetComponent<Image>().color = newColor;
-    //            }
-    //            else
-    //            {
-    //                Color newColor = currentIcon.GetComponent<Image>().color;
-    //                newColor.a = 255;
-    //                currentIcon.GetComponent<Image>().color = newColor;
-    //            }
-    //        }
-    //    }
-    //}
+  
 }
