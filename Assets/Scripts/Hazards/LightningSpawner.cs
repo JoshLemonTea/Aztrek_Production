@@ -66,4 +66,14 @@ public class LightningSpawner : MonoBehaviour
             }
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
 }

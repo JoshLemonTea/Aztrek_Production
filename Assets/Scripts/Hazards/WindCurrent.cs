@@ -114,4 +114,14 @@ public class WindCurrent : MonoBehaviour
             _player.JumpMovement(false);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
 }

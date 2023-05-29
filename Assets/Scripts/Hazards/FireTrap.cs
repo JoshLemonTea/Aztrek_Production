@@ -40,7 +40,6 @@ public class FireTrap : MonoBehaviour
         _fireSound = _audioSource.clip;
     }
 
-
     private void Update()
     {
         if (_isActive)
@@ -95,5 +94,15 @@ public class FireTrap : MonoBehaviour
             health.TakeDamage(_damage);
             health.MakeInvulnerable(_timeInvulnerable);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
     }
 }

@@ -79,13 +79,13 @@ public class Tornado : MonoBehaviour
         }
     }
 
-    private void OnBecameVisible()
-    {
-        enabled = true;
-    }
-
     private void OnBecameInvisible()
     {
         enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
     }
 }

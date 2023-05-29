@@ -29,4 +29,14 @@ public class SpikeTrap : MonoBehaviour
             health.MakeInvulnerable(_timeInvulnerableOnHit);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
 }

@@ -22,4 +22,15 @@ public class Lava : MonoBehaviour
             player.GetComponent<Health>().MakeInvulnerable(_timeInvulnerable);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
+
 }
