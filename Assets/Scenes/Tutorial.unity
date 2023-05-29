@@ -3109,6 +3109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ingame UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1315487232911504247, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1671285584}
     - target: {fileID: 1469863622868772925, guid: 6edc6df83f33dc44dbbac3b3e63c69ef, type: 3}
       propertyPath: m_fontColor.a
       value: 0
