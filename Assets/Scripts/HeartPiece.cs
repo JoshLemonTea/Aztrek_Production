@@ -8,9 +8,28 @@ public class HeartPiece : MonoBehaviour
     [SerializeField]
     private AudioClip _heartPickupSound;
 
+    private float _counter = 0;
+    private bool _collected = false;
+
     private void OnEnable()
     {
         _audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (_collected)
+        {
+            _counter += Time.deltaTime;
+            if(_counter >= 0.5f)
+            {
+                _counter = 0;
+                _collected = false;
+                GetComponentInChildren<MeshRenderer>().enabled = true;
+                GetComponent<Collider>().enabled = true;
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,9 +38,9 @@ public class HeartPiece : MonoBehaviour
         {
             SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _heartPickupSound, 1f, 0.2f);
             health.IncrementHearthPieceCount();
-            GetComponentInChildren<MeshRenderer>().gameObject.SetActive(false);
+            GetComponentInChildren<MeshRenderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, 0.5f);
+            _collected = true;
         }
     }
 }

@@ -10,6 +10,8 @@ public class RespawnManager : MonoBehaviour
 
     private Transform _cameraTarget;
 
+    private HeartPiece[] _heartPieces;
+
     public AudioSource AudioSource;
     [SerializeField]
     public AudioClip RespawnSound;
@@ -18,6 +20,9 @@ public class RespawnManager : MonoBehaviour
     {
         _player = FindObjectOfType<Player>().transform;
         _cameraTarget = GameObject.Find("CameraTarget").transform;
+
+        _heartPieces = FindObjectsOfType<HeartPiece>();
+
         AudioSource = GetComponent<AudioSource>();
     }
 
@@ -28,6 +33,11 @@ public class RespawnManager : MonoBehaviour
         _cameraTarget.position = ActiveCheckpoint.position;
         _player.GetComponent<Player>().Movement = Vector3.zero;
         _player.GetComponent<Health>().SetHealth(2);
+        foreach(HeartPiece h in _heartPieces)
+        {
+            h.gameObject.SetActive(true);
+        }
+
         AudioSource.PlayOneShot(RespawnSound, 0.8f);
     }
 }
