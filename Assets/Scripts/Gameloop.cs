@@ -13,6 +13,7 @@ public class Gameloop : MonoBehaviour
     private Altar[] _altars;
 
     private HazardInDistanceDisabler _hazardInDistanceDisabler;
+    private float _hazardsCheckCounter;
 
 
     private void OnEnable()
@@ -45,11 +46,16 @@ public class Gameloop : MonoBehaviour
         _input.OnUpdate();
 
         _playerSM.CurrentState.OnUpdate();
-    }
 
-    private void FixedUpdate()
-    {
-        _hazardInDistanceDisabler.DisableHazardsInDistance();
+        if(_hazardsCheckCounter <= 0)
+        {
+            _hazardInDistanceDisabler.DisableHazardsInDistance();
+            _hazardsCheckCounter = 1.5f;
+        }
+        else
+        {
+            _hazardsCheckCounter -= Time.deltaTime;
+        }
     }
 
     public PlayerStateMachine SetPlayerStateMachine()
