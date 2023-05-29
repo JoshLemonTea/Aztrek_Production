@@ -24,6 +24,8 @@ public class Altar : MonoBehaviour
 
     [SerializeField] private GameObject _videoUI;
 
+    private bool _hasPlayerOnce;
+
     private void Start()
     {
         _inputManager = FindObjectOfType<InputManager>();
@@ -39,6 +41,7 @@ public class Altar : MonoBehaviour
     {
         _videoUI.SetActive(false);
         Time.timeScale = 1;
+        _hasPlayerOnce = true;
     }
 
     private void OnDisable()
@@ -71,7 +74,7 @@ public class Altar : MonoBehaviour
 
             _UI.TMPUGUI.text = "";
 
-            if (_playTutorialVideo)
+            if (_playTutorialVideo && !_hasPlayerOnce)
             {
                 PlayTutorialVideo();
             }
