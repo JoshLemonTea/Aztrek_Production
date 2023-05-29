@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cloud : MonoBehaviour
 {
     [SerializeField] private float _lifeTime = 15f;
-    private Collider collider;
+    private Collider _collider;
 
     private void Start()
     {
@@ -14,11 +14,11 @@ public class Cloud : MonoBehaviour
         {
             if (allColliders[i].isTrigger == false)
             {
-                collider = allColliders[i];
+                _collider = allColliders[i];
             }
         }
 
-        collider.enabled = false;
+        _collider.enabled = false;
     }
     private void Update()
     {
@@ -52,6 +52,6 @@ public class Cloud : MonoBehaviour
 
     private void ChangeState(bool state)
     {
-        collider.enabled = state;
+        _collider.enabled = state;
     }
 }

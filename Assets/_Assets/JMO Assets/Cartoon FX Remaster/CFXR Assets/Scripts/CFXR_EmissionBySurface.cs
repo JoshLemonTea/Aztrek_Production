@@ -20,7 +20,7 @@ namespace CartoonFX
 #if UNITY_EDITOR
         void OnValidate()
         {
-            this.hideFlags = HideFlags.DontSaveInBuild;
+            //this.hideFlags = HideFlags.DontSaveInBuild;
             CalculateAndUpdateEmission();
         }
 
