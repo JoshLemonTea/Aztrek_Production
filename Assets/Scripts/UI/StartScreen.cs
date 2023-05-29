@@ -20,7 +20,7 @@ public class StartScreen : MonoBehaviour
 
     public void OnCredits()
     {
-        SceneManager.LoadScene("Credits");
+        transitionManager.LoadScene("Credits", transitionID, loadDelay);
     }
 
     public void OnQuit()
