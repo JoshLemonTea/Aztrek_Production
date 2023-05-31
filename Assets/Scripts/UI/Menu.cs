@@ -39,16 +39,9 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         ChangeCanvasState();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void ChangeCanvasState()
