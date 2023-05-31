@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {
-    private Transform _player;
+    private Player _player;
 
     public Transform ActiveCheckpoint;
 
@@ -18,7 +18,7 @@ public class RespawnManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _player = FindObjectOfType<Player>().transform;
+        _player = FindObjectOfType<Player>();
         _cameraTarget = GameObject.Find("CameraTarget").transform;
 
         _heartPieces = FindObjectsOfType<HeartPiece>();
@@ -29,11 +29,18 @@ public class RespawnManager : MonoBehaviour
     public void Respawn()
     {
         Vector3 offset = new Vector3(0f, 0f, 0.5f);
-        _player.position = ActiveCheckpoint.position - offset; 
+        _player.transform.position = ActiveCheckpoint.position - offset; 
         _cameraTarget.position = ActiveCheckpoint.position;
-        _player.GetComponent<Player>().Movement = Vector3.zero;
+        _player.Movement = Vector3.zero;
         _player.GetComponent<Health>().SetHealth(2);
         _player.GetComponent<Health>().ResetHealthPieceCount();
+
+        _player.IsGrappling = false;
+        _player.ActiveGrapplePoint = null;
+
+        _player.ResetBody();
+        _player.ResetHead();
+
         foreach (HeartPiece h in _heartPieces)
         {
             h.gameObject.SetActive(true);

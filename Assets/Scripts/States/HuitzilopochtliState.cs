@@ -129,7 +129,7 @@ public class HuitzilopochtliState : PlayerState
             _grappleTimer += Time.deltaTime;
             if (_grappleTimer > Player.GrappleDuration)
             {
-                Player.LineRenderer.enabled = false;
+                //Player.LineRenderer.enabled = false;
 
                 Player.Move(Player.transform.forward);
 
@@ -140,19 +140,14 @@ public class HuitzilopochtliState : PlayerState
 
                 _lavaHeightBoost = 0f;
 
-                ResetHead();
-                ResetBody();
+                Player.ResetHead();
+                Player.ResetBody();
             }     
         }
         else
         {
             base.OnUpdate();
         }
-    }
-
-    private void ResetBody()
-    {
-        Player.WhipBody.localScale = Vector3.one;
     }
 
     private void StretchBody()
@@ -163,12 +158,7 @@ public class HuitzilopochtliState : PlayerState
         Player.WhipBody.localScale = bodyScale;
     }
 
-    private void ResetHead()
-    {
-        Player.WhipHead.position = Player.OriginalHeadPosition.position;
-        Player.WhipHead.localRotation = Player.OriginalHeadRotation;
-        Player.WhipTail.localRotation = Player.OriginalTailRotation;
-    }
+
 
     private void AttachHead()
     {

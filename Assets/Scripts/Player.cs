@@ -198,6 +198,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ResetHead()
+    {
+        WhipHead.position = OriginalHeadPosition.position;
+        WhipHead.localRotation = OriginalHeadRotation;
+        WhipTail.localRotation = OriginalTailRotation;
+    }
+
+    public void ResetBody()
+    {
+        WhipBody.localScale = Vector3.one;
+    }
+
     public void OnEnter()
     {
         _characterController = GetComponent<CharacterController>();
