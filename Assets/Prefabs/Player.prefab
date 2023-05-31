@@ -2337,7 +2337,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _tlalocMask: {fileID: 4197301848429847808}
-  _huitzilopochtliMask: {fileID: 0}
+  _huitzilopochtliMask: {fileID: 6721355638139201742}
   _quetzalcoatlMask: {fileID: 753614200493481787}
 --- !u!114 &1398783325
 MonoBehaviour:
@@ -3437,6 +3437,11 @@ GameObject:
 --- !u!1 &4197301848429847808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2596758806264484575, guid: 54b66e6d5a7a7ca4b9f29774b0e7079c, type: 3}
+  m_PrefabInstance: {fileID: 2177004069481314271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6721355638139201742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4859745727734636305, guid: 54b66e6d5a7a7ca4b9f29774b0e7079c, type: 3}
   m_PrefabInstance: {fileID: 2177004069481314271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2508597635205539796
