@@ -88,7 +88,7 @@ public class HuitzilopochtliState : PlayerState
             }
             else 
             {
-                Player.LineRenderer.enabled = true;
+                //Player.LineRenderer.enabled = true;
 
                 Player.IsGrappling = true;
             }
@@ -103,7 +103,7 @@ public class HuitzilopochtliState : PlayerState
             _grappleDelayTimer += Time.deltaTime;
             if (_grappleDelayTimer > _grappleDelayTreshold)
             {
-                Player.LineRenderer.enabled = true;
+                //Player.LineRenderer.enabled = true;
 
                 _grappleDelayTimer = 0f;
                 _canStartGrapple = false;
