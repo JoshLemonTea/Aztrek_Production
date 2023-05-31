@@ -19,7 +19,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && _respawnManager.ActiveCheckpoint != this. transform) //activecheckpoint can be trigger only once
         {
             _respawnManager.ActiveCheckpoint = this.transform;
             resurrectionVFX.SetActive(true);

@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8236c16b6cee144b15c0c7dfdbd948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windSpeed: 18
+  _windSpeed: 25
   _timeInvulnerable: 2
   _damage: 1
   _moveSpeed: 2

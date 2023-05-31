@@ -33,7 +33,8 @@ public class RespawnManager : MonoBehaviour
         _cameraTarget.position = ActiveCheckpoint.position;
         _player.GetComponent<Player>().Movement = Vector3.zero;
         _player.GetComponent<Health>().SetHealth(2);
-        foreach(HeartPiece h in _heartPieces)
+        _player.GetComponent<Health>().ResetHealthPieceCount();
+        foreach (HeartPiece h in _heartPieces)
         {
             h.gameObject.SetActive(true);
         }

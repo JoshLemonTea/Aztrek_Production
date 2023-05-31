@@ -229,6 +229,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042275, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: _phase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042275, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: _amplitude
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6580572870306042302, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
       propertyPath: m_RootOrder
       value: 0
