@@ -22,7 +22,7 @@ public class GrapplePoint : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && !_player.IsGrappling)
+        if (other.CompareTag("Player") && !_player.IsGrappling && _player.State == GodState.Huitzilopochtli)
         {
             _player.ActiveGrapplePoint = transform;
             grappleRangeVFX.SetActive(true);        

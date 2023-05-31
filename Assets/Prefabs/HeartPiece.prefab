@@ -229,6 +229,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042275, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: _phase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580572870306042275, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
+      propertyPath: _amplitude
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6580572870306042302, guid: 6374078eb1440fa4b948e71066ce27f8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -322,7 +330,7 @@ AudioSource:
   m_GameObject: {fileID: 4437078931037452803}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 051af51346e3a5d40bb80c36c112038b, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.3

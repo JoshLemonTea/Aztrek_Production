@@ -37,13 +37,19 @@ public class Lightning : MonoBehaviour
 
     private void Update()
     {
+        float previousTimer = _timer;
         _timer += Time.deltaTime;
         if(_timer > _strikeDelay)
         {
             _strikeGFX.SetActive(true);
             _collider.enabled = true;
+            
+            if (previousTimer <= _strikeDelay)
+            {
+                _strikeGFX.GetComponent<AudioSource>().Play();
+            }
 
-            if(_timer > _strikeDelay + _lifeTime)
+            if (_timer > _strikeDelay + _lifeTime)
             {
                 Destroy(gameObject);
             }

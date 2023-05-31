@@ -21,7 +21,7 @@ public class HeartPiece : MonoBehaviour
         if (_collected)
         {
             _counter += Time.deltaTime;
-            if(_counter >= 0.5f)
+            if (_counter >= 0.5f)
             {
                 _counter = 0;
                 _collected = false;
@@ -36,11 +36,14 @@ public class HeartPiece : MonoBehaviour
     {
         if (other.TryGetComponent(out Health health))
         {
-            SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _heartPickupSound, 1f, 0.2f);
-            health.IncrementHearthPieceCount();
-            GetComponentInChildren<MeshRenderer>().enabled = false;
-            GetComponent<Collider>().enabled = false;
-            _collected = true;
+            if (health.CurrentHealth < health._maxHealth) // this is so that you can't pick up heart pieces when full health
+            {
+                SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _heartPickupSound, 1f, 0.2f);
+                health.IncrementHearthPieceCount();
+                GetComponentInChildren<MeshRenderer>().enabled = false;
+                GetComponent<Collider>().enabled = false;
+                _collected = true;
+            }
         }
     }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _moveSpeed: 25
+  _moveSpeed: 50
 --- !u!114 &8311400494784457210
 MonoBehaviour:
   m_ObjectHideFlags: 0

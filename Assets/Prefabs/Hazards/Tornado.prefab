@@ -193,7 +193,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 1.5
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8236c16b6cee144b15c0c7dfdbd948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windSpeed: 18
+  _windSpeed: 25
   _timeInvulnerable: 2
   _damage: 1
   _moveSpeed: 2
@@ -225,7 +225,7 @@ AudioSource:
   m_GameObject: {fileID: 3123770376461756304}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 051af51346e3a5d40bb80c36c112038b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0d6b18160dd0376419019ee024ca1d7b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
@@ -329,19 +329,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.82874936
+      value: 0.9825653
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.82874936
+      value: 0.9825653
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3110056
+      value: 1.3668374
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.10000038
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -377,6 +377,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: startDelay.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: startDelay.maxCurve.m_Curve.Array.data[1].value
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
