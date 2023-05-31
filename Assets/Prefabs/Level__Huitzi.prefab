@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818707320406051021, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
       propertyPath: _playTutorialVideo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6561820367424679780, guid: 18f852a6fd538d24cbd47dbbcf871762, type: 3}
       propertyPath: m_IsActive
