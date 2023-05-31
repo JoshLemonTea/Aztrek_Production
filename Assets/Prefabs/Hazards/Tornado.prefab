@@ -193,7 +193,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 1.5
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
@@ -329,19 +329,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.82874936
+      value: 0.9825653
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.82874936
+      value: 0.9825653
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3110056
+      value: 1.3668374
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.10000038
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -377,6 +377,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: startDelay.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+      propertyPath: startDelay.maxCurve.m_Curve.Array.data[1].value
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
