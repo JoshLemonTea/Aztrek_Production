@@ -61,9 +61,6 @@ public class FireTrap : MonoBehaviour
                 //_smokeParticleSystem.startSpeed = 1f;
                 //_smokeParticleSystem.maxParticles = 30;
             }
-
-            if (!_audioSource.isPlaying)
-                SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _fireSound, 0.7f, 0.2f);
         }
         else
         {
@@ -82,7 +79,9 @@ public class FireTrap : MonoBehaviour
 
                 //_smokeParticleSystem.playbackSpeed = 1f;
                 //_smokeParticleSystem.startSpeed = 5f;
-                //_smokeParticleSystem.maxParticles = 150;   
+                //_smokeParticleSystem.maxParticles = 150;
+                
+                SoundPitchRandomizer.PlaySoundWithRandomPitch(_audioSource, _fireSound, 0.7f, 0.2f);
             }
         }
     }
