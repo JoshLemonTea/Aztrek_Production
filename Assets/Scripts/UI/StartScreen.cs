@@ -6,22 +6,24 @@ using EasyTransition;
 
 public class StartScreen : MonoBehaviour
 {
-    public string nextScene = "Tutorial";
+    public EasyTransition.TransitionManager transitionManager;
     public string transitionID;
     public float loadDelay;
-    public EasyTransition.TransitionManager transitionManager;
 
-    //[SerializeField] private string startScene;
+    public string nextScene = "Tutorial";
 
     public void OnStart()
     {
-        //SceneManager.LoadScene("LevelDesign");
-        transitionManager.LoadScene(nextScene, transitionID, loadDelay);
+        //transitionManager.LoadScene(nextScene, transitionID, loadDelay);
+        SceneManager.LoadScene(nextScene);
+
     }
 
     public void OnCredits()
     {
-        transitionManager.LoadScene("Credits", transitionID, loadDelay);
+        //transitionManager.LoadScene("Credits", transitionID, loadDelay);
+        SceneManager.LoadScene("Credits");
+
     }
 
     public void OnQuit()

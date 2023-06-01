@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickCharacter : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PickCharacter : MonoBehaviour
 
     private void NextScene()
     {
-        transitionManager.LoadScene(nextScene, transitionID, loadDelay);
+        //transitionManager.LoadScene(nextScene, transitionID, loadDelay);
+        SceneManager.LoadScene(nextScene);
+
     }
 }
