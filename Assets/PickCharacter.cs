@@ -23,8 +23,8 @@ public class PickCharacter : MonoBehaviour
 
     private void NextScene()
     {
-        //transitionManager.LoadScene(nextScene, transitionID, loadDelay);
-        SceneManager.LoadScene(nextScene);
+        transitionManager.LoadScene(nextScene, transitionID, loadDelay);
+        //SceneManager.LoadScene(nextScene);
 
     }
 }
