@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyTransition;
+using UnityEngine.SceneManagement;
 
 public class TributeManager : MonoBehaviour
 {
@@ -92,7 +93,8 @@ public class TributeManager : MonoBehaviour
 
         if (hasAllTributes)
         {
-            transitionManager.LoadScene(endScene, transitionID, loadDelay);
+            //transitionManager.LoadScene(endScene, transitionID, loadDelay);
+            SceneManager.LoadScene(endScene);
         }
     }
 }

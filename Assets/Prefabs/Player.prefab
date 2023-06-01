@@ -2379,7 +2379,7 @@ MonoBehaviour:
   maxTributes: 
   transitionID: Noise
   loadDelay: 0
-  transitionManager: {fileID: 2691789355230119882}
+  transitionManager: {fileID: 8563850711039052526, guid: b76eac688d8be2e4d90ea8b25f4005f7, type: 3}
 --- !u!82 &8806002476363975801
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4315,17 +4315,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b76eac688d8be2e4d90ea8b25f4005f7, type: 3}
---- !u!114 &2691789355230119882 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8563850711039052526, guid: b76eac688d8be2e4d90ea8b25f4005f7, type: 3}
-  m_PrefabInstance: {fileID: 6017865668892740900}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61430b0086307cc4da3ccc8d39ae88da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5435392977739205630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1796274261981300442, guid: b76eac688d8be2e4d90ea8b25f4005f7, type: 3}
