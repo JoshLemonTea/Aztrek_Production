@@ -27,6 +27,7 @@ public class IngameMenu : MonoBehaviour
         Debug.Log("Yep");
         showCanvas = false;
         ChangeCanvasState();
+        miniMap.SetActive(!showCanvas);
     }
 
     //public void OnCredits()
