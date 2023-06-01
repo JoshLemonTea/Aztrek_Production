@@ -2355,7 +2355,7 @@ MonoBehaviour:
   ingameUI: {fileID: 0}
   CurrentHealth: 3
   _hitSound: {fileID: 8300000, guid: a8e4a19d4ae9f304892667150ee9685c, type: 3}
-  RequiredHearthPieces: 5
+  RequiredHearthPieces: 8
   hitVFX: {fileID: 1761494481291515945}
 --- !u!114 &95421436871743597
 MonoBehaviour:
