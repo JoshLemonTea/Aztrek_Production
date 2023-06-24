@@ -1057,10 +1057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4500e0b2f5c52b04fa7bb69872039e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Tutorial
+  transitionManager: {fileID: 657887558}
   transitionID: Noise
   loadDelay: 0
-  transitionManager: {fileID: 657887558}
+  nextScene: Tutorial
 --- !u!4 &821037229
 Transform:
   m_ObjectHideFlags: 0
